@@ -1,0 +1,695 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#16325C">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="NNP">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<title>NNP</title>
+<style>
+:root{--bg:#F2F4F7;--card:#FFFFFF;--ink:#111827;--muted:#5B6675;--rule:#E3E8EE;--th:#F3F6F9;--zebra:#F8FAFC;
+--navy:#16325C;--accent:#1F4E86;--air:#1F4E86;--res:#9B2C2C;--lin:#276749;--fen:#8A5A12;--pro:#0E6F7A;--ref:#553C9A;
+--font:-apple-system,BlinkMacSystemFont,"SF Pro Text","Helvetica Neue","Segoe UI",Roboto,Arial,sans-serif}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0B0F14;--card:#161B22;--ink:#E6EAF0;--muted:#98A2B3;--rule:#262D36;--th:#1C232C;--zebra:#1A2029;
+--navy:#0F1E33;--accent:#8AB4F8;--air:#8AB4F8;--res:#F28B82;--lin:#81C995;--fen:#FDD663;--pro:#78D9E4;--ref:#C58AF9}}
+:root[data-theme="dark"]{--bg:#0B0F14;--card:#161B22;--ink:#E6EAF0;--muted:#98A2B3;--rule:#262D36;--th:#1C232C;--zebra:#1A2029;
+--navy:#0F1E33;--accent:#8AB4F8;--air:#8AB4F8;--res:#F28B82;--lin:#81C995;--fen:#FDD663;--pro:#78D9E4;--ref:#C58AF9}
+:root{box-sizing:border-box;padding-bottom:env(safe-area-inset-bottom,0px)}
+*,*::before,*::after{box-sizing:inherit}
+html{scroll-padding-top:calc(env(safe-area-inset-top,0px) + 150px)}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.45 var(--font);-webkit-text-size-adjust:100%;-webkit-font-smoothing:antialiased}
+.top{position:sticky;top:0;z-index:10;background:var(--navy);color:#fff;padding:calc(env(safe-area-inset-top,0px) + 10px) 14px 10px}
+.row{display:flex;align-items:center;justify-content:space-between;max-width:760px;margin:0 auto}
+h1{font:700 22px/1.1 var(--font);letter-spacing:-.2px;margin:0}
+.brainbtn{color:#fff;text-decoration:none;font:600 15px var(--font);padding:6px 2px;opacity:.95}
+.search{max-width:760px;margin:10px auto 0}
+.search input{width:100%;font:16px var(--font);padding:8px 12px;border-radius:10px;border:0;background:rgba(255,255,255,.14);color:#fff;-webkit-appearance:none}
+.search input::placeholder{color:rgba(255,255,255,.65)}
+.search input:focus{outline:none;background:rgba(255,255,255,.22)}
+.tabs{display:flex;max-width:760px;margin:10px auto 0;padding:2px;background:rgba(255,255,255,.12);border-radius:9px}
+.tab{flex:1;min-width:0;appearance:none;border:0;background:none;color:rgba(255,255,255,.85);font:600 13px var(--font);padding:7px 1px;border-radius:7px;cursor:pointer;white-space:nowrap}
+.tab[aria-selected="true"]{background:#fff;color:var(--navy);box-shadow:0 1px 2px rgba(0,0,0,.2)}
+.tab:focus-visible{outline:2px solid #fff;outline-offset:1px}
+body.searching .tabs{display:none}
+main{max-width:760px;margin:0 auto;padding:12px 12px 40px}
+.jump{display:flex;gap:6px;overflow-x:auto;margin:0 -12px 12px;padding:0 12px 2px;scrollbar-width:none}
+.jump::-webkit-scrollbar{display:none}
+.jump a{flex:none;font-size:13px;font-weight:500;text-decoration:none;color:var(--ink);background:var(--card);border:1px solid var(--rule);border-radius:999px;padding:6px 12px}
+body.searching .jump{display:none}
+.sec.bad{--c:var(--accent)}.sec.air{--c:var(--air)}.sec.res{--c:var(--res)}.sec.lin{--c:var(--lin)}.sec.pro{--c:var(--pro)}.sec.fen{--c:var(--fen)}.sec.ref{--c:var(--ref)}
+.card{background:var(--card);border:1px solid var(--rule);border-radius:12px;padding:14px 14px 12px;margin:0 0 12px;box-shadow:0 1px 2px rgba(16,24,40,.04)}
+.card h2{font:700 18px/1.25 var(--font);letter-spacing:-.2px;color:var(--ink);margin:0 0 6px;display:flex;align-items:center;gap:8px}
+.card h2::before{content:"";width:4px;height:16px;border-radius:2px;background:var(--c);flex:none}
+.card .from{display:none;font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin-bottom:2px}
+body.searching .card .from{display:block}
+.cb{overflow-x:auto}
+.cb h3{font:700 15px/1.3 var(--font);color:var(--c);margin:14px 0 4px}
+.cb p{margin:5px 0}
+.cb ul,.cb ol{margin:4px 0;padding-left:22px}
+.cb table{border-collapse:separate;border-spacing:0;width:100%;margin:8px 0;font-size:14px;line-height:1.35;font-variant-numeric:tabular-nums;border:1px solid var(--rule);border-radius:8px;overflow:hidden}
+.cb td,.cb th{border-bottom:1px solid var(--rule);border-right:1px solid var(--rule);padding:7px 8px;vertical-align:top;text-align:left}
+.cb tr>*:last-child{border-right:0}
+.cb tbody tr:last-child>*{border-bottom:0}
+.cb th{background:var(--th);font-weight:600;font-size:13px}
+.cb td.big{font-weight:700;font-size:16px;white-space:nowrap}
+.cb table.num td,.cb table.num th{text-align:center}
+.cb table.num tbody tr:nth-child(even) td{background:var(--zebra)}
+.cb table.cmp td:first-child{font-weight:600;width:30%}
+.cb table.legend{border:0}
+.cb table.legend td{border:0;padding:4px 10px 4px 0;vertical-align:middle}
+.tag{display:inline-block;font-size:11px;font-weight:600;line-height:1;padding:3px 5px;border-radius:4px;vertical-align:1px;letter-spacing:.02em}
+.e8{background:#EEF1F4;color:#475467;border:1px solid #D0D5DD}
+.e9{background:#16325C;color:#fff;border:1px solid #16325C}
+.dir{background:#FEF6E7;color:#8A5A12;border:1px solid #F1D29B}
+.unit{background:#FEEEE8;color:#9A3412;border:1px solid #F4B9A3}
+.ins{background:#E8F5EF;color:#1E6B4E;border:1px solid #A8D5C2}
+.atl{background:#E7EEFA;color:#1F4E86;border:1px solid #A9C0E6}
+.atlas{margin:12px 0 2px;padding:10px 12px;border:1px solid var(--rule);border-left:3px solid #1F4E86;border-radius:8px;background:var(--th)}
+.atlas-h{font-weight:700;margin:0 0 4px!important}
+.atlas .src{margin-bottom:0}
+.flag{color:#C2410C;font-weight:700}
+.small{font-size:13px;color:var(--muted)}
+.src{font-size:13px;color:var(--muted)}
+.warn{border-left:3px solid #C2410C;background:rgba(194,65,12,.06);padding:8px 10px;border-radius:6px;margin:8px 0}
+.formula{font-weight:600}
+.btn{display:inline-block;background:var(--navy);color:#fff;text-decoration:none;font-weight:600;border-radius:10px;padding:10px 16px}
+ul.files li{margin:8px 0}
+ul.files a,.cb p>a{color:var(--accent);font-weight:600;text-decoration:none}
+@media (max-width:350px){.tab{font-size:12px}}
+.none{display:none;padding:20px 4px;color:var(--muted)}
+.facelbl{margin:0 0 8px!important}
+.face{border:1px solid var(--rule);border-top:4px solid var(--fc,var(--c));border-radius:10px;padding:10px 10px 8px}
+.face.air{--fc:var(--air)}.face.res{--fc:var(--res)}.face.lin{--fc:var(--lin)}.face.ref{--fc:var(--ref)}
+.face p.h{font:700 15px/1.3 var(--font);color:var(--fc,var(--c));margin:12px 0 3px}
+.face .s{font-size:13px;color:var(--muted)}
+.face td.b{font-weight:700;white-space:nowrap}
+.face .two{display:flex;gap:10px;align-items:flex-start}
+.face .two table.dep{width:52%;flex:none;margin-top:0}
+.face .two .side p{margin:2px 0 8px}
+.face table.num td,.face table.num th,.face table.mini td,.face table.dep td,.face table.dep th{text-align:center}
+.face table.num tbody tr:nth-child(even) td,.face table.dep tbody tr:nth-child(even) td{background:var(--zebra)}
+.face table.mini td{padding:6px 3px}
+.sec.bad .card:has(.face.air){--c:var(--air)}.sec.bad .card:has(.face.res){--c:var(--res)}.sec.bad .card:has(.face.lin){--c:var(--lin)}.sec.bad .card:has(.face.ref){--c:var(--ref)}
+footer{max-width:760px;margin:0 auto;padding:0 14px 24px;color:var(--muted);font-size:12px}
+
+.hnav{display:flex;gap:14px}
+.brainbtn{background:none;border:0;cursor:pointer}
+.calc{position:fixed;inset:0;z-index:30;background:var(--bg);overflow:auto;padding:calc(env(safe-area-inset-top,0px) + 0px) 0 calc(env(safe-area-inset-bottom,0px) + 20px)}
+.calc-top{position:sticky;top:0;display:flex;justify-content:space-between;align-items:center;background:var(--navy);color:#fff;padding:calc(env(safe-area-inset-top,0px) + 12px) 14px 12px}
+.calc-top h2{margin:0;font:700 20px var(--font)}
+.calc-body{max-width:760px;margin:0 auto;padding:12px}
+.inputs{display:grid;grid-template-columns:1fr 1fr;gap:10px;background:var(--card);border:1px solid var(--rule);border-radius:12px;padding:12px}
+.inputs label{display:flex;flex-direction:column;gap:4px;font-size:13px;font-weight:600;color:var(--muted)}
+.inputs input{font:17px var(--font);padding:9px 10px;border:1px solid var(--rule);border-radius:9px;background:var(--bg);color:var(--ink);width:100%}
+.inputs input:focus{outline:2px solid var(--accent);outline-offset:0}
+.cgroup{background:var(--card);border:1px solid var(--rule);border-radius:12px;padding:12px 14px;margin:12px 0}
+.cgroup h3{font:700 15px var(--font);margin:0 0 6px;color:var(--c)}
+.cgroup.air{--c:var(--air)}.cgroup.res{--c:var(--res)}.cgroup.lin{--c:var(--lin)}.cgroup.fen{--c:var(--fen)}
+.crow{display:flex;justify-content:space-between;gap:12px;padding:7px 0;border-bottom:1px solid var(--rule)}
+.crow:last-child{border-bottom:0}
+.crow .k{color:var(--ink)}
+.crow .v{font-weight:700;text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+.crow .v small{display:block;font-weight:400;color:var(--muted);font-size:12px;white-space:normal}
+.cnote{font-size:13px;color:var(--muted);margin:6px 0 0}
+.star{margin-left:auto;background:none;border:0;font-size:20px;line-height:1;color:var(--rule);cursor:pointer;padding:2px 2px 2px 8px}
+.star[aria-pressed="true"]{color:#E3A008}
+.starred{margin:0 0 6px}
+.st-h{font:700 13px var(--font);text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin:2px 2px 8px}
+body.searching .starred{display:none}
+@media (prefers-reduced-motion:no-preference){html{scroll-behavior:smooth}}
+</style>
+</head>
+<body>
+<div class="top">
+ <div class="row">
+  <h1>NNP</h1>
+  <nav class="hnav"><button class="brainbtn" id="calcBtn" type="button">Calc</button><a class="brainbtn" href="https://tomheslin.github.io/NICU-Codes/" target="_blank" rel="noopener">Codes</a><a class="brainbtn" href="brain.html">Brain</a></nav>
+ </div>
+ <div class="search"><input id="q" type="search" placeholder="Search" aria-label="Search all cards" autocomplete="off"></div>
+ <div class="tabs" role="tablist"><button class="tab bad" data-sec="bad" role="tab" aria-selected="true">Badge</button><button class="tab air" data-sec="air" role="tab" aria-selected="false">Airway</button><button class="tab res" data-sec="res" role="tab" aria-selected="false">Resus</button><button class="tab lin" data-sec="lin" role="tab" aria-selected="false">Lines</button><button class="tab pro" data-sec="pro" role="tab" aria-selected="false">Proc</button><button class="tab fen" data-sec="fen" role="tab" aria-selected="false">FEN</button><button class="tab ref" data-sec="ref" role="tab" aria-selected="false">Ref</button></div>
+</div>
+<main>
+<div class="calc" id="calc" role="dialog" aria-label="Weight calculator" hidden>
+ <div class="calc-top"><h2>Calculator</h2><button class="brainbtn" id="calcClose" type="button">Done</button></div>
+ <div class="calc-body">
+  <div class="inputs">
+   <label>Weight<input id="cw" inputmode="decimal" placeholder="g or kg" autocomplete="off"></label>
+   <label>GA (weeks)<input id="cga" inputmode="decimal" placeholder="e.g. 30" autocomplete="off"></label>
+   <label>Dextrose %<input id="cd" inputmode="decimal" placeholder="e.g. 10" autocomplete="off"></label>
+   <label>mL/kg/day<input id="cf" inputmode="decimal" placeholder="e.g. 80" autocomplete="off"></label>
+   <label>Target GIR<input id="cg" inputmode="decimal" placeholder="optional" autocomplete="off"></label>
+  </div>
+  <p class="small" id="cwhat">Enter a weight to start. Nothing you type here is saved.</p>
+  <div id="cout"></div>
+  <p class="small">Same formulas and sources as the cards. Double-check every number before you act on it.</p>
+ </div>
+</div>
+<section class="starred" id="starred" hidden><h2 class="st-h">Starred</h2><div id="starlist"></div></section>
+<section class="sec bad" data-sec="bad"><nav class="jump" aria-label="Badge topics"><a href="#bad-ett">ETT</a><a href="#bad-rsi-resus">RSI + Resus</a><a href="#bad-umbilical-lines">Umbilical lines</a><a href="#bad-picc-film">PICC + Film</a></nav><article class="card noidx" id="bad-ett"><h2>ETT</h2><div class="cb"><p class="small facelbl">Card 1, front</p><div class="face air">
+<table><thead><tr><th>mm</th><th><span class="tag e8">8th</span></th><th><span class="tag e9">9th</span></th></tr></thead><tbody>
+<tr><td class="b">2.5</td><td>&lt;1000 g<br>&lt;28 wk</td><td>≤1200 g<br>≤28 wk*</td></tr>
+<tr><td class="b">3.0</td><td>1000–2000 g<br>28–34 wk</td><td>1201–2200 g<br>29–34 wk</td></tr>
+<tr><td class="b">3.5</td><td>&gt;2000 g<br>&gt;34 wk</td><td>&gt;2200 g<br>&gt;34 wk</td></tr>
+</tbody></table>
+<p class="s">*2.0 mm optional &lt;800 g (22–25 wk)</p>
+<div class="two">
+<table class="dep"><thead><tr><th>GA wk</th><th>cm</th></tr></thead><tbody><tr><td>&lt;23</td><td class="b">5.0–5.5</td></tr><tr><td>23–24</td><td class="b">5.5</td></tr><tr><td>25–26</td><td class="b">6.0</td></tr><tr><td>27–29</td><td class="b">6.5</td></tr><tr><td>30–32</td><td class="b">7.0</td></tr><tr><td>33–34</td><td class="b">7.5</td></tr><tr><td>35–37</td><td class="b">8.0</td></tr><tr><td>38–40</td><td class="b">8.5</td></tr><tr><td>41–43</td><td class="b">9.0</td></tr></tbody></table>
+<div class="side">
+<p><b>Measure to:</b><br><span class="tag e9">9th</span> upper gum<br><span class="tag e8">8th</span> upper lip</p>
+<p><b>Check:</b> NTL + 1 cm</p>
+<p><b>Tip:</b> T1–T2</p>
+<p>Flexion ↓ deeper<br>Extension ↑ higher</p>
+</div></div>
+</div></div></article><article class="card noidx" id="bad-rsi-resus"><h2>RSI + Resus</h2><div class="cb"><p class="small facelbl">Card 1, back</p><div class="face res">
+<p class="h">RSI order <span class="tag unit">Unit</span></p>
+<table><tbody>
+<tr><td class="b">1</td><td><b>Atropine</b> 0.02 mg/kg</td></tr>
+<tr><td class="b">2</td><td><b>Fentanyl</b> 1–4 mcg/kg<br><span class="s">Dilute in 2 mL NS over 3 min, flush 1 mL over 3 min</span></td></tr>
+<tr><td class="b">3</td><td><b>Rocuronium</b> 0.6–1.2 mg/kg</td></tr>
+</tbody></table>
+<p class="s">Doses: MacDonald's Atlas. Confirm with order set.</p>
+<p class="h">Confirm ETT</p>
+<p>HR ↑, chest rise, equal BS, CO₂ color change, CXR</p>
+<p class="h">Epi 0.1 mg/mL</p>
+<p><b>IV/IO 0.2 mL/kg</b> (0.1–0.3), flush 3 mL NS<br><b>ETT 0.5–1 mL/kg</b><br>Repeat every 3–5 min</p>
+<p class="h">Volume</p>
+<p><b>NS 10 mL/kg</b> over 5–10 min</p>
+<p class="h">Emergency UVC</p>
+<p>2–4 cm below skin, to blood return</p>
+</div></div></article><article class="card noidx" id="bad-umbilical-lines"><h2>Umbilical lines</h2><div class="cb"><p class="small facelbl">Card 2, front</p><div class="face lin">
+<p><b>UAC</b> high T6–T9, low L3–L4<br>(3 × kg) + 9</p>
+<p><b>UVC</b> IVC–RA junction<br>[(3 × kg) + 9] ÷ 2 + 1<br><span class="s">Revised: drop the +1</span></p>
+<p class="s"><b>Add stump length.</b> Confirm on film.</p>
+<p class="s">Cath (Atlas): UAC 3.5 Fr &lt;1.2 kg, UVC 3.5 Fr &lt;3.5 kg; otherwise 5 Fr</p>
+<table class="num"><thead><tr><th>kg</th><th>UAC cm</th><th>UVC cm</th></tr></thead><tbody><tr><td class="b">0.5</td><td>10.5</td><td>6.3</td></tr><tr><td class="b">0.75</td><td>11.3</td><td>6.6</td></tr><tr><td class="b">1</td><td>12</td><td>7</td></tr><tr><td class="b">1.25</td><td>12.8</td><td>7.4</td></tr><tr><td class="b">1.5</td><td>13.5</td><td>7.8</td></tr><tr><td class="b">2</td><td>15</td><td>8.5</td></tr><tr><td class="b">2.5</td><td>16.5</td><td>9.3</td></tr><tr><td class="b">3</td><td>18</td><td>10</td></tr><tr><td class="b">3.5</td><td>19.5</td><td>10.8</td></tr><tr><td class="b">4</td><td>21</td><td>11.5</td></tr></tbody></table>
+</div></div></article><article class="card noidx" id="bad-picc-film"><h2>PICC + Film</h2><div class="cb"><p class="small facelbl">Card 2, back</p><div class="face ref">
+<p class="h">PICC measure</p>
+<p><b>Arm/scalp:</b> site → R sternal border, 3rd ICS (arm 90°)<br><b>Leg:</b> site → R of umbilicus → xiphoid</p>
+<p class="h">Tip targets on film</p>
+<table><tbody>
+<tr><td>ETT</td><td>T1–T2</td></tr>
+<tr><td>UAC</td><td>T6–T9 / L3–L4</td></tr>
+<tr><td>UVC</td><td>IVC–RA jxn</td></tr>
+<tr><td>PICC arm</td><td>SVC–RA jxn</td></tr>
+<tr><td>PICC leg</td><td>IVC–RA jxn + lateral</td></tr>
+</tbody></table>
+<p class="h"><span class="tag e9">9th</span> Start FiO₂</p>
+<table class="mini"><tbody><tr><td>≥35 wk</td><td>32–34 wk</td><td>&lt;32 wk</td></tr><tr><td class="b">21%</td><td class="b">21–30%</td><td class="b">≥30%</td></tr></tbody></table>
+<p class="h">SpO₂ targets</p>
+<table class="mini"><tbody><tr><td>2′</td><td>3′</td><td>4′</td><td>5′</td><td>10′</td></tr><tr><td class="b">65–70</td><td class="b">70–75</td><td class="b">75–80</td><td class="b">80–85</td><td class="b">85–95</td></tr></tbody></table>
+</div></div></article></section>
+<section class="sec air" data-sec="air" hidden><nav class="jump" aria-label="Airway topics"><a href="#air-ett-size">ETT size</a><a href="#air-ett-depth">ETT depth</a><a href="#air-ett-tip-and-confirmation">ETT tip and confirmation</a><a href="#air-rsi-premedication">RSI premedication</a></nav><article class="card" id="air-ett-size"><h2>ETT size</h2><div class="cb">
+<table><thead><tr><th>ID (mm)</th><th><span class="tag e8">8th</span></th><th><span class="tag e9">9th</span></th></tr></thead><tbody>
+<tr><td class="big">2.0</td><td>—</td><td>Optional for &lt;800 g (22–25 wk), if available</td></tr>
+<tr><td class="big">2.5</td><td>&lt;1000 g<br>&lt;28 wk</td><td>&lt;800 g (22–25 wk)<br>800–1200 g (26–28 wk)</td></tr>
+<tr><td class="big">3.0</td><td>1000–2000 g<br>28–34 wk</td><td>1201–2200 g<br>29–34 wk</td></tr>
+<tr><td class="big">3.5</td><td>&gt;2000 g<br>&gt;34 wk</td><td>&gt;2200 g<br>&gt;34 wk</td></tr>
+</tbody></table>
+<h3>Where depth is measured</h3>
+<p><span class="tag e8">8th</span> Tip to <b>upper lip</b>.</p>
+<p><span class="tag e9">9th</span> Tip to <b>front edge of the upper gum, midline</b>.</p>
+<h3>Supraglottic airway <span class="tag e9">9th</span></h3>
+<p>Can be used as the primary device if face-mask ventilation or intubation is unsuccessful or unavailable (≥34 wk).</p>
+<div class="atlas"><p class="atlas-h"><span class="tag atl">Atlas</span> MacDonald's Atlas</p>
+<p>Same size bands as NRP 8th: 2.5 (&lt;1000 g, &lt;28 wk), 3.0 (1000–2000 g, 28–34 wk), 3.5 (&gt;2000 g, &gt;34 wk).</p>
+<p><b>Blade:</b> Miller 1 term, 0 preterm, 00 may be considered for extremely preterm.</p>
+<p class="src">Atlas ch. 38, Endotracheal Intubation.</p></div></div></article><article class="card" id="air-ett-depth"><h2>ETT depth</h2><div class="cb">
+<table><thead><tr><th>GA (wk)</th><th>Weight (g)</th><th>cm</th></tr></thead><tbody><tr><td>&lt;23 <span class="tag e9">9th</span></td><td>&lt;500</td><td class="big">5.0–5.5</td></tr><tr><td>23–24</td><td>500–600</td><td class="big">5.5</td></tr><tr><td>25–26</td><td>700–800</td><td class="big">6.0</td></tr><tr><td>27–29</td><td>900–1000</td><td class="big">6.5</td></tr><tr><td>30–32</td><td>1100–1400</td><td class="big">7.0</td></tr><tr><td>33–34</td><td>1500–1800</td><td class="big">7.5</td></tr><tr><td>35–37</td><td>1900–2400</td><td class="big">8.0</td></tr><tr><td>38–40</td><td>2500–3100</td><td class="big">8.5</td></tr><tr><td>41–43</td><td>3200–4200</td><td class="big">9.0</td></tr></tbody></table>
+<p><span class="tag e9">9th</span> values are measured <b>at the gum</b>. <span class="tag e8">8th</span> used the same bands <b>at the lip</b>, confirmed in the Atlas. <span class="tag atl">Atlas</span></p>
+<h3>Cross-checks</h3>
+<p>Nasal-tragus length + 1 cm. Weight (kg) + 6 cm tends to run deep, especially in ELBW infants.</p>
+<div class="atlas"><p class="atlas-h"><span class="tag atl">Atlas</span> MacDonald's Atlas</p>
+<p>Depth at the <b>lip</b> by GA: 25–26 wk 6 cm, 30–32 wk 7 cm, 35–37 wk 8 cm. This matches the table above and confirms the lip landmark for the NRP 8th era.</p>
+<p><b>Differs:</b> the Atlas lists &gt;37 wk as 9 cm; the NRP table gives 8.5 cm for 38–40 wk.</p>
+<p>Vocal cord guide marks vary by manufacturer and may mislead, especially in extremely preterm infants. Nasal tubes: about 2 cm deeper than oral. CDH: some authors suggest 5.5 cm + weight in kg.</p>
+<p class="src">Atlas ch. 38.</p></div></div></article><article class="card" id="air-ett-tip-and-confirmation"><h2>ETT tip and confirmation</h2><div class="cb">
+<h3>Tip position on film</h3>
+<p><b>Target T1–T2</b> (optimal in recent trials).</p>
+<p><span class="tag dir">Dir.</span> Between the clavicles and carina, at least 0.5–1.0 cm above the carina. Carina at about T4. Her sheet lists T2–T3.</p>
+<h3>Head position moves the tube <span class="tag dir">Dir.</span></h3>
+<p>Neck <b>flexion</b>: tube moves <b>down</b> (deeper).<br>Neck <b>extension</b>: tube moves <b>up</b>.</p>
+<h3>Confirm placement</h3>
+<ul>
+<li>Rising heart rate</li>
+<li>Chest rise</li>
+<li>Symmetric breath sounds</li>
+<li>Exhaled CO₂ detector color change</li>
+<li>Chest x-ray</li>
+</ul>
+<div class="atlas"><p class="atlas-h"><span class="tag atl">Atlas</span> MacDonald's Atlas</p>
+<p>Tip between <b>T1 and T2</b> on film, agreeing with the trials above (the director's sheet says T2–T3).</p>
+<p>Limit each attempt to about <b>30 seconds</b>; stop sooner for hypoxia or bradycardia and ventilate by mask or supraglottic airway between attempts.</p>
+<p>Colorimetric CO₂ detector turns purple to yellow when CO₂ is present.</p>
+<p class="src">Atlas ch. 38.</p></div></div></article><article class="card" id="air-rsi-premedication"><h2>RSI premedication</h2><div class="cb">
+<h3>Order <span class="tag unit">Unit</span></h3>
+<table><tbody>
+<tr><td class="big">1</td><td><b>Atropine</b></td><td>0.02 mg/kg IV or IM <span class="tag atl">Atlas</span></td></tr>
+<tr><td class="big">2</td><td><b>Fentanyl</b></td><td>1–4 mcg/kg IV <span class="tag atl">Atlas</span></td></tr>
+<tr><td class="big">3</td><td><b>Rocuronium</b></td><td>0.6–1.2 mg/kg IV <span class="tag atl">Atlas</span><br><span class="small">Alternative: vecuronium 0.1 mg/kg IV</span></td></tr>
+</tbody></table>
+<h3>Fentanyl administration <span class="tag unit">Unit</span></h3>
+<p>Dilute the dose in 2 mL NS and infuse over 3 min, then flush with 1 mL NS over 3 min. Giving it slowly matters: fentanyl can cause chest wall rigidity.</p>
+<div class="atlas"><p class="atlas-h"><span class="tag atl">Atlas</span> MacDonald's Atlas</p>
+<p>The AAP endorses premedication for nonemergent intubation, but there's no standardized regimen. A typical practice is atropine, fentanyl, and a nondepolarizing paralytic. Confirm doses with your unit's order set.</p>
+<p>Fentanyl rigidity is less likely with a slow infusion and can be reversed with naloxone or a paralytic. Midazolam is not recommended for preterm infants.</p>
+<p class="src">Atlas ch. 38, Table 38.2.</p></div></div></article></section>
+<section class="sec res" data-sec="res" hidden><nav class="jump" aria-label="Resus topics"><a href="#res-nrp-8th-vs-9th">NRP 8th vs 9th</a><a href="#res-pre-ductal-spo-targets">Pre-ductal SpO₂ targets</a><a href="#res-emergency-access-and-meds">Emergency access and meds</a><a href="#res-resus-doses-by-weight">Resus doses by weight</a></nav><article class="card" id="res-nrp-8th-vs-9th"><h2>NRP 8th vs 9th</h2><div class="cb">
+<table class="cmp"><thead><tr><th></th><th><span class="tag e8">8th</span></th><th><span class="tag e9">9th</span></th></tr></thead><tbody>
+<tr><td>Cord clamping</td><td>Defer 30–60 s</td><td>Defer ≥60 s</td></tr>
+<tr><td>Cord milking &lt;28 wk</td><td>—</td><td>Not recommended (severe IVH risk)</td></tr>
+<tr><td>Initial FiO₂</td><td>≥35 wk: 21%<br>&lt;35 wk: 21–30%</td><td>≥35 wk: 21%<br>32–34 wk: 21–30%<br>&lt;32 wk: ≥30%</td></tr>
+<tr><td>SpO₂ table starts</td><td>1 min</td><td>2 min</td></tr>
+<tr><td>PPV rate</td><td>40–60/min</td><td>30–60/min</td></tr>
+<tr><td>Initial PIP</td><td>20–25 cm H₂O <span class="flag">&#9873;</span></td><td>≥32 wk: 25 (25–30)<br>&lt;32 wk: 20–25</td></tr>
+<tr><td>PEEP</td><td>5</td><td>5</td></tr>
+<tr><td>Initial steps</td><td>Includes "suction if needed"</td><td>Suction removed from the initial-steps box</td></tr>
+<tr><td>Corrective steps</td><td>—</td><td>Start after 15–30 s of PPV</td></tr>
+<tr><td>ETT</td><td>Depth to lip</td><td>Depth to gum; new size table</td></tr>
+</tbody></table>
+</div></article><article class="card" id="res-pre-ductal-spo-targets"><h2>Pre-ductal SpO₂ targets</h2><div class="cb">
+<table><thead><tr><th>Time after birth</th><th>Target SpO₂</th></tr></thead><tbody>
+<tr><td>1 min <span class="tag e8">8th</span> only</td><td>60–65%</td></tr>
+<tr><td>2 min</td><td>65–70%</td></tr>
+<tr><td>3 min</td><td>70–75%</td></tr>
+<tr><td>4 min</td><td>75–80%</td></tr>
+<tr><td>5 min</td><td>80–85%</td></tr>
+<tr><td>10 min</td><td>85–95%</td></tr>
+</tbody></table>
+<p>Values from 2 min on are the same in both editions. <span class="tag e9">9th</span> dropped the 1-minute row.</p>
+<h3>Starting FiO₂ <span class="tag e9">9th</span></h3>
+<p>≥35 wk: 21%<br>32–34 wk: 21–30%<br>&lt;32 wk: ≥30%</p>
+<p><span class="tag e9">9th</span> A reasonable approach is to adjust FiO₂ in 20–30% steps every 30 s until the target is reached.</p>
+</div></article><article class="card" id="res-emergency-access-and-meds"><h2>Emergency access and meds</h2><div class="cb">
+<h3>Emergency UVC</h3>
+<p>Low-lying: insert <b>2–4 cm below the skin</b>, just until blood returns. IO is the alternative.</p>
+<h3>Epinephrine 0.1 mg/mL</h3>
+<table><tbody>
+<tr><td><b>IV / IO</b></td><td>0.01–0.03 mg/kg<br>= 0.1–0.3 mL/kg<br>Suggested start 0.02 mg/kg = <b>0.2 mL/kg</b><br>Flush 3 mL NS</td></tr>
+<tr><td><b>ETT</b></td><td>0.05–0.1 mg/kg<br>= <b>0.5–1 mL/kg</b><br>Only while IV access is being obtained</td></tr>
+<tr><td><b>Repeat</b></td><td>Every 3–5 min</td></tr>
+</tbody></table>
+<h3>Volume</h3>
+<p>NS <b>10 mL/kg</b> over 5–10 min, via UVC or IO.</p>
+<p class="small">No change to epinephrine or volume dosing appeared in the 9th edition change summaries reviewed. <span class="flag">&#9873;</span></p>
+<div class="atlas"><p class="atlas-h"><span class="tag atl">Atlas</span> MacDonald's Atlas</p>
+<p>For a UVC, insert 2–3 cm from the abdominal wall and check for blood return. If the catheter won't pass the ductus venosus in an emergency, pull back into the umbilical vein (about 2 cm), confirm blood return, and infuse slowly, avoiding very hypertonic solutions.</p>
+<p class="src">Atlas ch. 32, Umbilical Vein Catheterization.</p></div></div></article><article class="card" id="res-resus-doses-by-weight"><h2>Resus doses by weight</h2><div class="cb">
+<table class="num"><thead><tr><th>kg</th><th>IV/IO epi<br>0.2 mL/kg</th><th>ETT epi<br>1 mL/kg</th><th>NS<br>10 mL/kg</th></tr></thead><tbody><tr><td class="big">0.5</td><td>0.1</td><td>0.5</td><td>5</td></tr><tr><td class="big">0.75</td><td>0.15</td><td>0.75</td><td>7.5</td></tr><tr><td class="big">1</td><td>0.2</td><td>1</td><td>10</td></tr><tr><td class="big">1.5</td><td>0.3</td><td>1.5</td><td>15</td></tr><tr><td class="big">2</td><td>0.4</td><td>2</td><td>20</td></tr><tr><td class="big">2.5</td><td>0.5</td><td>2.5</td><td>25</td></tr><tr><td class="big">3</td><td>0.6</td><td>3</td><td>30</td></tr><tr><td class="big">3.5</td><td>0.7</td><td>3.5</td><td>35</td></tr><tr><td class="big">4</td><td>0.8</td><td>4</td><td>40</td></tr></tbody></table>
+<p>All volumes in mL. Epinephrine is the 0.1 mg/mL concentration. IV/IO column is the suggested starting dose; the range is 0.1–0.3 mL/kg. ETT column is the top of the 0.5–1 mL/kg range.</p>
+</div></article></section>
+<section class="sec lin" data-sec="lin" hidden><nav class="jump" aria-label="Lines topics"><a href="#lin-uac">UAC</a><a href="#lin-uvc">UVC</a><a href="#lin-umbilical-line-depth-by-weight">Umbilical line depth by weight</a><a href="#lin-removing-a-uac">Removing a UAC</a><a href="#lin-picc">PICC</a></nav><article class="card" id="lin-uac"><h2>UAC</h2><div class="cb">
+<h3>Tip position</h3>
+<p><b>High (preferred): T6–T9</b>, above the celiac axis. <span class="tag dir">Dir.</span> sheet lists T6–T10.</p>
+<p><b>Low: L3–L4</b>, above the aortic bifurcation (L4–L5). Low lines displace more easily and are not preferred.</p>
+<h3>Insertion depth (cm), add stump length</h3>
+<table><tbody>
+<tr><td><b>Shukla</b></td><td>(3 × BW kg) + 9</td></tr>
+<tr><td><b>Wright</b></td><td>(4 × BW kg) + 7<br><span class="small">Studied in VLBW infants</span></td></tr>
+</tbody></table>
+<p>Precomputed depths are in the "Umbilical line depth by weight" card below.</p>
+<h3>Catheter and flush <span class="tag atl">Atlas</span></h3>
+<p>3.5 Fr &lt;1200 g, 5 Fr &gt;1200 g. Heparin 1–2 units/mL in 0.45–0.9 NS.</p>
+<p>Confirm tip position on film before use.</p>
+<div class="atlas"><p class="atlas-h"><span class="tag atl">Atlas</span> MacDonald's Atlas</p>
+<p><b>Use the high position</b>; low only if high fails. On film, T7–T9 is ideal ("7 is heaven, 8 is great, 9 is fine").</p>
+<p>Tip above T6 or between T10 and L2: pull back the measured difference and re-film. Tip below L5: remove. Never advance a catheter once it's in.</p>
+<p><b>Formula:</b> Shukla for &gt;1500 g, Wright for &lt;1500 g. No formula is accurate for every baby.</p>
+<p><b>Catheter:</b> 3.5 Fr &lt;1200 g, 5 Fr &gt;1200 g.</p>
+<p><b>Flush:</b> 0.45–0.9 NS with heparin 1–2 units/mL; even 0.25 units/mL lowers occlusion.</p>
+<p class="src">Atlas ch. 31, Umbilical Artery Catheterization.</p></div></div></article><article class="card" id="lin-uvc"><h2>UVC</h2><div class="cb">
+<h3>Tip position</h3>
+<p><b>IVC–right atrial junction</b>, just above the diaphragm.</p>
+<p><span class="tag dir">Dir.</span> T8–T9. Follows the ductus venosus. Sits to the right of the spine on x-ray.</p>
+<h3>Insertion depth (cm), add stump length</h3>
+<table><tbody>
+<tr><td><b>Shukla</b></td><td>[(3 × BW kg) + 9] ÷ 2 + 1<br>(half the high UAC + 1)</td></tr>
+<tr><td><b>Revised</b></td><td>[(3 × BW kg) + 9] ÷ 2<br><span class="small">Dropping the +1 reduced over-insertion without more low lines</span></td></tr>
+<tr><td><b>Surface</b></td><td>Umbilicus-to-nipple distance − 1 cm</td></tr>
+</tbody></table>
+<h3>Catheter <span class="tag atl">Atlas</span></h3>
+<p>3.5 Fr &lt;3.5 kg, 5 Fr &gt;3.5 kg.</p>
+<p>Confirm with AP and lateral films or ultrasound. Emergency UVC: see the Resus tab.</p>
+<div class="atlas"><p class="atlas-h"><span class="tag atl">Atlas</span> MacDonald's Atlas</p>
+<p><b>Desired location T9–T10</b>, just above the right diaphragm. <span class="tag dir">Dir.</span> lists T8–T9. The ductus venosus is acceptable except for CVP monitoring.</p>
+<p>The "revised" formula is Verheij's. Other options: Gupta (umbilicus-to-nipple − 1), Dunn nomogram. No formula is accurate for every baby; confirm on film.</p>
+<p><b>Catheter:</b> 3.5 Fr &lt;3.5 kg, 5 Fr &gt;3.5 kg. Avoid double-lumen catheters for exchange transfusion.</p>
+<p>Once secured, don't advance it. Bright red blood means it crossed the foramen ovale; pull back.</p>
+<p class="src">Atlas ch. 32.</p></div></div></article><article class="card" id="lin-umbilical-line-depth-by-weight"><h2>Umbilical line depth by weight</h2><div class="cb">
+<table class="num"><thead><tr><th>BW kg</th><th>UAC<br>Shukla</th><th>UAC<br>Wright</th><th>UVC<br>Shukla</th><th>UVC<br>revised</th></tr></thead>
+<tbody><tr><td class="big">0.5</td><td>10.5</td><td>9</td><td>6.3</td><td>5.3</td></tr><tr><td class="big">0.75</td><td>11.3</td><td>10</td><td>6.6</td><td>5.6</td></tr><tr><td class="big">1</td><td>12</td><td>11</td><td>7</td><td>6</td></tr><tr><td class="big">1.25</td><td>12.8</td><td>12</td><td>7.4</td><td>6.4</td></tr><tr><td class="big">1.5</td><td>13.5</td><td>13</td><td>7.8</td><td>6.8</td></tr><tr><td class="big">2</td><td>15</td><td>—</td><td>8.5</td><td>7.5</td></tr><tr><td class="big">2.5</td><td>16.5</td><td>—</td><td>9.3</td><td>8.3</td></tr><tr><td class="big">3</td><td>18</td><td>—</td><td>10</td><td>9</td></tr><tr><td class="big">3.5</td><td>19.5</td><td>—</td><td>10.8</td><td>9.8</td></tr><tr><td class="big">4</td><td>21</td><td>—</td><td>11.5</td><td>10.5</td></tr></tbody></table>
+<p>Centimeters <b>before</b> adding stump length. Wright shown only to 1.5 kg because it was studied in VLBW infants. Rounded to 0.1 cm.</p>
+</div></article><article class="card" id="lin-removing-a-uac"><h2>Removing a UAC</h2><div class="cb">
+<h3>Steps <span class="tag dir">Dir.</span></h3>
+<ol>
+<li>Stopcock off to the patient.</li>
+<li>Stop IV fluid flow.</li>
+<li>Pull back to the 2–3 cm mark on the catheter.</li>
+<li>Wait 30–60 min.</li>
+<li>Pull the catheter.</li>
+</ol>
+<h3>Reminders for every umbilical line</h3>
+<ul>
+<li>Add the stump length to every formula.</li>
+<li>Confirm the tip on film before using the line.</li>
+<li>A formula is a starting point; the film decides.</li>
+</ul>
+<div class="atlas"><p class="atlas-h"><span class="tag atl">Atlas</span> MacDonald's Atlas</p>
+<p>A different method from the director's:</p>
+<ol><li>Leave the umbilical tie loose around the stump.</li>
+<li>Withdraw slowly until about 5 cm remain, then tighten the tie.</li>
+<li>Stop the infusion.</li>
+<li>Pull the rest out at <b>1 cm per minute</b> to allow vasospasm. For bleeding, pinch the cord from the sides.</li></ol>
+<p class="src">Atlas ch. 31.</p></div></div></article><article class="card" id="lin-picc"><h2>PICC</h2><div class="cb">
+<h3>Measure (NANN)</h3>
+<table><tbody>
+<tr><td><b>Arm or scalp</b></td><td>Site → along the vein → right sternal border at the 3rd intercostal space. Arm at 90°.</td></tr>
+<tr><td><b>Leg</b></td><td>Site → along the vein → just right of the umbilicus → xiphoid.</td></tr>
+</tbody></table>
+<h3>Tip position</h3>
+<p>SVC–RA or IVC–RA junction, outside the heart.</p>
+<p><span class="tag dir">Dir.</span> SVC tip at T3–T4.</p>
+<h3>Film tips</h3>
+<p><span class="tag dir">Dir.</span> You can insert with the arm in any position. Before the x-ray, return the arm to the position the infant usually lies in.</p>
+<p>A leg line can divert into the ascending lumbar vein and still look correct on an AP film. Get a lateral.</p>
+<div class="atlas"><p class="atlas-h"><span class="tag atl">Atlas</span> MacDonald's Atlas</p>
+<p><b>Arm:</b> abduct 90° and turn the head toward the insertion side so the catheter doesn't go up the jugular. Measure site → along the vein → suprasternal notch → 3rd right intercostal space.</p>
+<p><b>Leg tip:</b> above L4–L5 or the iliac crest, but not in the heart. Get AP and lateral films.</p>
+<p><b>Contrast check:</b> 0.5 mL NS, then 0.5 mL iohexol, take the film, then flush 0.5 mL NS.</p>
+<p><b>Infusion:</b> at least 1 mL/hr; heparin 0.5 units/mL of fluid (or 0.5 units/kg/hr) lowers occlusion. Don't draw routine labs through a PICC under 2 Fr.</p>
+<p class="src">Atlas ch. 34, Central Venous Catheterization, Table 34.3.</p></div></div></article></section>
+<section class="sec pro" data-sec="pro" hidden><nav class="jump" aria-label="Procedures topics"><a href="#pro-needle-decompression">Needle decompression</a><a href="#pro-chest-tube">Chest tube</a><a href="#pro-lumbar-puncture">Lumbar puncture</a><a href="#pro-exchange-transfusion">Exchange transfusion</a><a href="#pro-peripheral-arterial-line">Peripheral arterial line</a></nav><article class="card" id="pro-needle-decompression"><h2>Needle decompression</h2><div class="cb">
+<p class="small">Emergency only, for a critically compromised baby. It buys time while you set up the chest tube.</p>
+<h3>Site <span class="tag atl">Atlas</span></h3>
+<p><b>2nd intercostal space, midclavicular line</b>, or <b>4th intercostal space, anterior axillary line</b>. Avoid the breast bud. The Atlas prefers the anterior approach so the lateral chest stays clear for the tube.</p>
+<h3>Equipment <span class="tag atl">Atlas</span></h3>
+<p><b>20- or 22-gauge angiocath</b>, T-connector, 3-way stopcock, 10 and 20 mL syringes.</p>
+<p class="small">Differs: the Atlas says a catheter-over-needle is less traumatic than straight needles or butterfly (scalp vein) sets. Other guidelines use a 23–25G butterfly (Safer Care Victoria) or 18–24G angiocath (Cochrane review).</p>
+<h3>Technique <span class="tag atl">Atlas</span></h3>
+<ol>
+<li>Pull the skin sideways to make a Z-track.</li>
+<li>Insert perpendicular, just over the top of the lower rib.</li>
+<li>Advance slowly until you lose resistance, see humidity, or hear air. Slide the catheter in and remove the needle.</li>
+<li>Attach the T-connector and stopcock and evacuate with the syringe rather than leaving it open to air.</li>
+</ol>
+<p>If a tube will follow, remove air only until vital signs stabilize. The leftover air pocket makes tube insertion safer.</p>
+<p>For a nontension pneumothorax, especially in a baby not on positive pressure, needle evacuation is sometimes all that's needed.</p>
+<p class="src">Sources: Atlas ch. 41, Thoracostomy; Safer Care Victoria, Pneumothorax drainage for neonates (2014); Cochrane review CD011724 (2019).</p>
+</div></article><article class="card" id="pro-chest-tube"><h2>Chest tube</h2><div class="cb">
+<h3>Site <span class="tag atl">Atlas</span></h3>
+<p><b>4th (or 5th) intercostal space, just anterior to the midaxillary line.</b> A horizontal line from the nipple marks about the 4th space. Enter over the top of the rib.</p>
+<h3>Size</h3>
+<table><tbody>
+<tr><td><b>Pigtail</b> <span class="tag atl">Atlas</span></td><td>6 or 8 Fr if &lt;28 wk<br>8 Fr if &gt;28 wk</td></tr>
+<tr><td><b>Straight tube</b> <span class="tag atl">Atlas</span></td><td>8–12 Fr</td></tr>
+</tbody></table>
+<p class="small">Differs: Safer Care Victoria uses a pigtail of 8 Fr under 1500 g and 10 Fr over 1500 g.</p>
+<h3>Technique <span class="tag atl">Atlas</span></h3>
+<p>Pigtails go in percutaneously. For a straight tube, <b>a trocar is not recommended</b> because of the risk of lung perforation; use blunt dissection and puncture the pleura with closed forceps.</p>
+<p>For air, direct the tip <b>cephalad and anterior</b>, toward the apex (midclavicle), with all side holes inside the chest.</p>
+<h3>Suction <span class="tag atl">Atlas</span></h3>
+<p><b>10–15 cm H₂O</b> for most ventilated infants. Too much suction can pull tissue into the side holes.</p>
+<h3>Confirm <span class="tag atl">Atlas</span></h3>
+<p><b>AP and lateral films</b>, both, to confirm the anterior course and that the side holes are in the chest. Bubbling pattern and ultrasound help.</p>
+<p class="src">Sources: Atlas ch. 41, Thoracostomy; Safer Care Victoria, Pneumothorax drainage for neonates (2014).</p>
+</div></article><article class="card" id="pro-lumbar-puncture"><h2>Lumbar puncture</h2><div class="cb">
+<h3>Level <span class="tag atl">Atlas</span></h3>
+<p>Use <b>L3–L4 or L4–L5</b>. Use the <b>lower space for &lt;28 wk</b>.</p>
+<table><thead><tr><th>GA</th><th>Cord usually ends at</th></tr></thead><tbody>
+<tr><td>23–27 wk</td><td>L3–L4</td></tr>
+<tr><td>28–34 wk</td><td>L3</td></tr>
+<tr><td>35–40 wk</td><td>L2–L3</td></tr>
+</tbody></table>
+<p>The line between the iliac crests is usually said to cross L4 or L4–L5, but in neonates it can cross as low as L5. Palpate carefully.</p>
+<h3>Position <span class="tag atl">Atlas</span></h3>
+<p>Sitting with hips flexed gives the widest spaces; lateral decubitus with hips flexed is second. <b>Don't flex the neck</b>: it doesn't widen the spaces and raises the risk of airway obstruction. Lying on the side with knees flexed can cause brief desaturation, so watch the monitor.</p>
+<h3>Needle <span class="tag atl">Atlas</span></h3>
+<p>Bevelled spinal needle with stylet: <b>25G × 1 inch</b> or <b>22G × 1.5 inch</b>. Always have the stylet in to pass the skin (epidermoid tumor risk).</p>
+<p>Midline, angled slightly cephalad toward the umbilicus. Once past the skin, either take the stylet out and advance slowly, or leave it in and check often. Stylet-out has a higher first-try success, but whether it raises the epidermoid risk is unclear. Replace the stylet before removing the needle.</p>
+<h3>Don't do it if <span class="tag atl">Atlas</span></h3>
+<p>Signs of raised intracranial pressure (image first), uncorrected thrombocytopenia or bleeding disorder, skin infection at the site, lumbosacral anomalies, or instability where the risk outweighs the benefit.</p>
+<p><a href="brain.html#normal-csf-values">Normal CSF values in the Brain</a></p>
+<p class="src">Sources: Atlas ch. 19, Lumbar Puncture; Royal Children's Hospital Melbourne, Lumbar puncture guideline.</p>
+</div></article><article class="card" id="pro-exchange-transfusion"><h2>Exchange transfusion</h2><div class="cb">
+<h3>Blood volume <span class="tag atl">Atlas</span></h3>
+<p>Term about <b>80–85 mL/kg</b>. Preterm about <b>100–120 mL/kg</b>.</p>
+<p class="small">Other guidelines use term 80–90 and preterm 90–100 mL/kg.</p>
+<h3>How much <span class="tag atl">Atlas</span></h3>
+<table><tbody>
+<tr><td><b>Double volume</b></td><td>2 × blood volume. Exchanges about 85% of the blood volume.</td></tr>
+<tr><td><b>Single volume</b></td><td>1 × blood volume. Exchanges about 60%.</td></tr>
+<tr><td><b>Partial, severe anemia</b></td><td>Blood volume × (Hb desired − Hb initial) ÷ (Hb of PRBC − Hb initial)</td></tr>
+<tr><td><b>Partial, polycythemia</b></td><td>Blood volume × desired Hct change ÷ initial Hct</td></tr>
+</tbody></table>
+<p>Order an extra 25–30 mL for the tubing and blood warmer.</p>
+<h3>Rate <span class="tag atl">Atlas</span></h3>
+<p><b>5 mL/kg per 2–4 minute cycle.</b> Draw and infuse slowly, at least a minute each, to avoid swings in blood pressure and intracranial pressure.</p>
+<h3>Method <span class="tag atl">Atlas</span></h3>
+<p><b>Push-pull:</b> through a UVC; single lumen preferred, since double lumen adds resistance.<br><b>Isovolumetric:</b> donor blood in through the UVC or a PIV, baby's blood out through a UAC, UVC, or peripheral arterial line. Better tolerated in sick or unstable babies.</p>
+<h3>Blood <span class="tag atl">Atlas</span></h3>
+<p>As fresh as possible (&lt;7 days), irradiated within 24 hours of use, through a thermostatic blood warmer. Hct 40–45% is preferred for hyperbilirubinemia.</p>
+<h3>Before, during, after <span class="tag atl">Atlas</span></h3>
+<p><b>Before:</b> draw any diagnostic tests first (serologies, metabolic screen, genetics), plus Hb/Hct, platelets, electrolytes, calcium, gas, glucose, total and direct bilirubin, and coags. NPO 4 hours if possible; empty the stomach; start a PIV for glucose.</p>
+<p><b>During:</b> glucose every 60 minutes; gases as needed.</p>
+<p><b>After:</b> glucose every 2–4 hours for 24 hours. Ionized calcium and platelets right away in sick or preterm babies. Hb, Hct, and bilirubin about 4 hours later.</p>
+<p class="src">Sources: Atlas ch. 49, Exchange Transfusions; Brigham and Women's Newborn Medicine guideline; Italian recommendations for transfusion therapy in neonatology (PMC4607607).</p>
+</div></article><article class="card" id="pro-peripheral-arterial-line"><h2>Peripheral arterial line</h2><div class="cb">
+<h3>Sites <span class="tag atl">Atlas</span></h3>
+<p><b>Radial</b> is most common, then ulnar and posterior tibial; dorsalis pedis occasionally. <b>Avoid</b> axillary and brachial (poor collateral flow) and temporal (neurologic risk). Use the <b>right arm</b> when you need preductal values.</p>
+<p class="small">One NICU guideline (Leeds) calls the umbilical arterial line the arterial line of choice in the newborn.</p>
+<h3>Collateral check <span class="tag atl">Atlas</span></h3>
+<p>Do an Allen test before a radial line, but it's not fully reliable, so keep watching perfusion during and after. For the foot, occlude dorsalis pedis and posterior tibial, release one, and look for reperfusion within 10 seconds. Don't hyperextend the wrist; it can occlude the artery and give a false result.</p>
+<h3>Catheter <span class="tag atl">Atlas</span></h3>
+<p><b>24G</b> (0.56 or 0.75 inch) or 22G × 1 inch. Transilluminate the wrist in 45–60° extension. Flush gently with 0.5 mL and watch for blanching.</p>
+<h3>Infusion <span class="tag atl">Atlas</span> <span class="tag unit">Unit</span></h3>
+<p>0.5–0.95 NS with heparin <b>1–2 units/mL</b> at <b>1 mL/hr</b>, started right away. Below 1 mL/hr, blood tends to back up and clot.</p>
+<p class="small">Other guidelines: 1 unit/mL at 0.5–1 mL/hr; 0.5 units/mL for preterm; 2 units/mL at 0.3–0.5 mL/hr.</p>
+<p>Use it for sampling and pressure only; nothing but the heparinized flush runs through it.</p>
+<h3>Don't place if <span class="tag atl">Atlas</span></h3>
+<p>Uncorrectable bleeding disorder, poor perfusion or collateral flow in that limb, local infection, limb malformation, or previous surgery there.</p>
+<p class="src">Sources: Atlas ch. 33, Peripheral Arterial Cannulation; Leeds Teaching Hospitals neonatal PAL guideline; Safer Care Victoria; CAHS WA; Ashford and St Peter's.</p>
+</div></article></section>
+<section class="sec fen" data-sec="fen" hidden><nav class="jump" aria-label="FEN + Labs topics"><a href="#fen-fluids-and-gir">Fluids and GIR</a><a href="#fen-calories">Calories</a><a href="#fen-pn-and-electrolyte-starts">PN and electrolyte starts</a><a href="#fen-corrections-and-weight">Corrections and weight</a><a href="#fen-lab-normals">Lab normals</a><a href="#fen-cbc-and-sepsis">CBC and sepsis</a></nav><article class="card" id="fen-fluids-and-gir"><h2>Fluids and GIR</h2><div class="cb">
+<h3>Rate</h3>
+<p>mL/hr = mL/kg/d × kg ÷ 24 <span class="tag ins">Card</span></p>
+<h3>GIR (mg/kg/min)</h3>
+<p class="formula">%D × mL/kg/day ÷ 144</p>
+<p class="small">Uses the total daily fluid rate per kg, so no weight step.</p>
+<p>From the hourly rate: %D × mL/hr × 0.167 ÷ kg <span class="tag ins">Card</span><br>Same as (%D × mL/hr) ÷ (6 × kg) <span class="tag dir">Dir.</span></p>
+<p>Target 4–8 <span class="tag ins">Card</span></p>
+<h3>%D for a target GIR</h3>
+<p class="formula">GIR × 144 ÷ mL/kg/day</p>
+<p>Or GIR × kg ÷ (mL/hr × 0.167) <span class="tag ins">Card</span></p>
+<p class="small">Example: D10 at 80 mL/kg/day: 10 × 80 ÷ 144 = GIR 5.6. The hourly formula gives the same answer (1 kg at 3.33 mL/hr).</p>
+<h3>Fluid advancement <span class="tag dir">Dir.</span></h3>
+<table><tbody>
+<tr><td><b>Term</b></td><td>Start 60–80 mL/kg/d, increase 20–30/d, up to 150</td></tr>
+<tr><td><b>800–1000 g</b></td><td>Start 80–100 mL/kg/d, increase 10–20/d, up to 100–150</td></tr>
+<tr><td><b>&lt;700 g</b></td><td>Usually needs more than 120–140 mL/kg/d</td></tr>
+</tbody></table>
+<p class="small">The fluid line on the instructor's card is too hard to read, so these are the Brain's numbers.</p>
+</div></article><article class="card" id="fen-calories"><h2>Calories</h2><div class="cb">
+<h3>IV dextrose</h3>
+<p>kcal/mL = %D × 0.034 (D10 = 0.34) <span class="tag ins">Card</span></p>
+<p>kcal/kg/d = mL/kg/d × 0.034 × %D <span class="tag dir">Dir.</span></p>
+<p class="warn"><span class="flag">&#9873;</span> The Brain's worked example (150 × 0.034 × 12.5 ÷ 2.5 = 25.5) divides by weight a second time. It only works if 150 is total mL/day. At 150 mL/kg/d of D12.5 the answer is 63.75 kcal/kg/d.</p>
+<h3>kcal per gram</h3>
+<table><tbody>
+<tr><td><b>Carbohydrate</b></td><td>4 <span class="tag ins">Card</span><br>3.4 <span class="tag dir">Dir.</span></td></tr>
+<tr><td><b>Protein</b></td><td>4 <span class="tag ins">Card</span> <span class="tag dir">Dir.</span></td></tr>
+<tr><td><b>Fat</b></td><td>9 <span class="tag ins">Card</span> <span class="tag dir">Dir.</span></td></tr>
+</tbody></table>
+<p class="small">The two sources disagree on carbohydrate. Both use 0.034 kcal per % dextrose per mL for IV dextrose, which works out to 3.4 kcal/g.</p>
+<h3>Protein</h3>
+<p>g/d = %AA × TPN mL/d ÷ 100, then × 4 ÷ kg = kcal/kg/d <span class="tag ins">Card</span></p>
+<h3>20% lipid (0.2 g/mL, 2 kcal/mL) <span class="tag ins">Card</span></h3>
+<p>kcal/kg/d = IL mL/d × 2 ÷ kg<br>IL mL/d = g/kg × 5 × kg, then ÷ 24 = mL/hr</p>
+<h3>Feeds (Horn's Rule) <span class="tag dir">Dir.</span></h3>
+<table class="num"><thead><tr><th>kcal/oz</th><th>kcal/mL</th></tr></thead><tbody>
+<tr><td>20</td><td>0.67</td></tr><tr><td>22</td><td>0.73</td></tr><tr><td>24</td><td>0.8</td></tr>
+<tr><td>26</td><td>0.87</td></tr><tr><td>28</td><td>0.93</td></tr><tr><td>30</td><td>1.0</td></tr>
+</tbody></table>
+<p>kcal/kg/d = mL/kg/d × kcal/mL</p>
+</div></article><article class="card" id="fen-pn-and-electrolyte-starts"><h2>PN and electrolyte starts</h2><div class="cb">
+<table><thead><tr><th></th><th>Start</th><th>Goal</th></tr></thead><tbody>
+<tr><td><b>Amino acids</b></td><td>2–3 g/kg/d, advance 0.5–1.5/d</td><td>3–4 g/kg/d</td></tr>
+<tr><td><b>Sodium</b></td><td>1–2 mEq/kg/d</td><td>3–4 mEq/kg/d</td></tr>
+<tr><td><b>Potassium</b></td><td>1–2 mEq/kg/d</td><td>2–4 mEq/kg/d</td></tr>
+<tr><td><b>Ca gluconate</b></td><td colspan="2">200–400 mg/kg/d</td></tr>
+</tbody></table>
+<p class="small">All from the instructor's card <span class="tag ins">Card</span>. Follow your unit's PN protocol.</p>
+<h3>Electrolytes delivered by the fluid <span class="tag ins">Card</span></h3>
+<p>mEq/kg/d = mEq per 100 mL × (total mL/d ÷ 100) ÷ kg</p>
+</div></article><article class="card" id="fen-corrections-and-weight"><h2>Corrections and weight</h2><div class="cb">
+<table><tbody>
+<tr><td><b>½ Na correction</b></td><td>(normal Na − actual Na) × kg × 0.3 = mEq <span class="tag ins">Card</span></td></tr>
+<tr><td><b>Bicarb</b></td><td>0.3 × base deficit × kg = mEq <span class="tag ins">Card</span></td></tr>
+<tr><td><b>% weight loss</b></td><td>(BW − CW) ÷ BW × 100 <span class="tag ins">Card</span></td></tr>
+<tr><td><b>Corrected WBC</b></td><td>WBC × 100 ÷ (NRBC + 100) <span class="tag dir">Dir.</span></td></tr>
+</tbody></table>
+</div></article><article class="card" id="fen-lab-normals"><h2>Lab normals</h2><div class="cb">
+<table><thead><tr><th>Lab</th><th><span class="tag ins">Card</span></th><th><span class="tag dir">Dir.</span> Brain</th></tr></thead><tbody>
+<tr><td><b>Na</b></td><td>135–145</td><td>135–145 (chem table)<br>136–144 (Na section)</td></tr>
+<tr><td><b>K</b></td><td>3.6–6.7 ?</td><td>3.5–5.5 (chem table)<br>4.4–6.0 (K section)</td></tr>
+<tr><td><b>Cl</b></td><td>100–111</td><td>95–110 (chem table)<br>96–106 (Mg section)</td></tr>
+<tr><td><b>Ca</b></td><td>7–10</td><td>7–10 (chem table)<br>7–12 (Ca section)</td></tr>
+<tr><td><b>iCa</b></td><td>—</td><td>1.1–1.35</td></tr>
+<tr><td><b>Mg</b></td><td>1.5–2.5</td><td>1.5–2.8</td></tr>
+<tr><td><b>Phos</b></td><td>4–6 ?</td><td>4–6 (chem table)<br>4.9–8.9 (Mg section)</td></tr>
+<tr><td><b>CO₂</b></td><td>—</td><td>18–27</td></tr>
+<tr><td><b>Glucose</b></td><td>—</td><td>40–150</td></tr>
+</tbody></table>
+<p class="small">? = hard to read on the card. The ranges differ between sources and even within the Brain. Your lab's reference ranges win.</p>
+</div></article><article class="card" id="fen-cbc-and-sepsis"><h2>CBC and sepsis</h2><div class="cb">
+<h3>I:T ratio</h3>
+<p>Immature (bands + metas) ÷ total neutrophils (segs + bands + metas)</p>
+<p><span class="tag ins">Card</span> normal &lt;0.22<br><span class="tag dir">Dir.</span> concern &gt;0.2; &gt;0.8 suggests storage depletion</p>
+<h3>ANC</h3>
+<p>WBC × (segs + bands + metas)%</p>
+<p class="small"><span class="tag dir">Dir.</span> Example: WBC 10,000, segs 45%, bands 5% → 50% × 10,000 = ANC 5000.</p>
+<table><thead><tr><th></th><th><span class="tag ins">Card</span></th><th><span class="tag dir">Dir.</span></th></tr></thead><tbody>
+<tr><td><b>ANC</b></td><td>Normal &gt;1500<br>Neutropenia &lt;1000</td><td>Concern &lt;1750</td></tr>
+<tr><td><b>WBC</b></td><td>Leukopenia &lt;5000<br>Neutrophilia &gt;20,000</td><td>Concern &lt;5000 or &gt;20,000; unreliable in week 1</td></tr>
+</tbody></table>
+<h3>Immature total neutrophils <span class="tag ins">Card</span></h3>
+<p>(B + M + M, as a decimal) × WBC</p>
+<p class="small">I read the card's "B + M + M" as bands, metamyelocytes, and myelocytes; the card doesn't spell it out. The neutrophil reference charts are in the Brain.</p>
+</div></article></section>
+<section class="sec ref" data-sec="ref" hidden><nav class="jump" aria-label="Reference topics"><a href="#ref-master-brain">Master Brain</a><a href="#ref-print-files">Print files</a><a href="#ref-x-ray-tip-targets">X-ray tip targets</a><a href="#ref-sources">Sources</a><a href="#ref-how-to-read-the-tags">How to read the tags</a></nav><article class="card" id="ref-master-brain"><h2>Master Brain</h2><div class="cb"><p>The program director's full NNP Brain, searchable, with all charts and the added notes.</p><p><a class="btn" href="brain.html">Open the NNP Brain</a></p><p class="small">Works offline too.</p></div></article><article class="card" id="ref-print-files"><h2>Print files</h2><div class="cb"><p>Print double-sided, flip on the long edge, at Actual size.</p><ul class="files"><li><a href="badge-print-letter.pdf" target="_blank" rel="noopener">Badge buddies, letter sheet (3 sets)</a></li><li><a href="booklet-print-letter.pdf" target="_blank" rel="noopener">Booklet, letter sheets (cut into 8 cards)</a></li><li><a href="badge-cards.pdf" target="_blank" rel="noopener">Badge faces, actual size (print shop)</a></li><li><a href="booklet-pages.pdf" target="_blank" rel="noopener">Booklet pages, 4.25 x 5.5 in (print shop)</a></li></ul></div></article><article class="card" id="ref-x-ray-tip-targets"><h2>X-ray tip targets</h2><div class="cb">
+<table><thead><tr><th>Device</th><th>Target</th></tr></thead><tbody>
+<tr><td><b>ETT</b></td><td>T1–T2<br><span class="tag dir">Dir.</span> T2–T3; carina ≈ T4</td></tr>
+<tr><td><b>UAC high</b></td><td>T6–T9<br><span class="tag dir">Dir.</span> T6–T10</td></tr>
+<tr><td><b>UAC low</b></td><td>L3–L4</td></tr>
+<tr><td><b>UVC</b></td><td>IVC–RA junction<br><span class="tag dir">Dir.</span> T8–T9</td></tr>
+<tr><td><b>PICC, arm or scalp</b></td><td>SVC–RA junction<br><span class="tag dir">Dir.</span> T3–T4</td></tr>
+<tr><td><b>PICC, leg</b></td><td>IVC–RA junction; check a lateral</td></tr>
+</tbody></table>
+<p>Where the director's sheet differs from current sources, both are shown. Unit policy decides.</p>
+<div class="atlas"><p class="atlas-h"><span class="tag atl">Atlas</span> MacDonald's Atlas</p>
+<table><tbody>
+<tr><td><b>ETT</b></td><td>T1–T2</td></tr>
+<tr><td><b>UAC high</b></td><td>T6–T9, ideal T7–T9</td></tr>
+<tr><td><b>UAC low</b></td><td>L3–L4</td></tr>
+<tr><td><b>UVC</b></td><td>IVC–RA junction, T9–T10</td></tr>
+<tr><td><b>PICC, arm</b></td><td>SVC outside the heart, or SVC–RA junction</td></tr>
+<tr><td><b>PICC, leg</b></td><td>Above L4–L5 or the iliac crest, not in the heart</td></tr>
+</tbody></table>
+<p class="src">Atlas ch. 31, 32, 34, 38.</p></div></div></article><article class="card" id="ref-sources"><h2>Sources</h2><div class="cb"><h3>Sources</h3>
+<p class="src">AAP NRP 9th ed launch communication (Oct 2025); CPS, NRP 9th ed changes for busy clinicians (2026); In[Neo]Sight ETT calculator (NRP 9th tables); PubMed 40739063 (ETT tip); NCCC umbilical line guidelines, mombaby.org (2022); Medscape UAC (2024); PubMed 23503982 (revised UVC); NCT02939690 (UN−1); Iran J Pediatr 2024, citing NANN (PICC); Pediatr Neonatol 2023, POCUS PICC; neonatal atropine RCT; VanLooy NICU premedication algorithm; PMC8228479 (emergency UVC); NRP textbook via tomwademd.net (volume); MacDonald's Atlas of Procedures in Neonatology, 6th ed (ch. 31, 32, 38); program director's NNP Brain; unit RSI poster.</p>
+</div></article><article class="card" id="ref-how-to-read-the-tags"><h2>How to read the tags</h2><div class="cb"><h3>Tags</h3>
+<table class="legend">
+<tr><td><span class="tag e8">8th</span></td><td>NRP 8th edition</td></tr>
+<tr><td><span class="tag e9">9th</span></td><td>NRP 9th edition (effective 2026)</td></tr>
+<tr><td><span class="tag dir">Dir.</span></td><td>Program director's NNP Brain</td></tr>
+<tr><td><span class="tag unit">Unit</span></td><td>Your unit's poster or order set</td></tr>
+<tr><td><span class="tag atl">Atlas</span></td><td>MacDonald's Atlas of Procedures in Neonatology, 6th ed</td></tr>
+<tr><td><span class="flag">&#9873;</span></td><td>Confirm against your textbook</td></tr>
+<tr><td><span class="tag ins">Card</span></td><td>Your instructor's badge card (FEN tab)</td></tr></table>
+<p class="small">Doses and depths are starting points. Confirm every tube and line clinically and on film, and follow unit protocol.</p></div></article></section>
+<p class="none" id="none">No matches. Try a shorter word.</p>
+</main>
+<footer>v14, September 2026. Badge through Lines match the printed booklet and badge cards (v3). Proc and FEN are app-only. Works offline after the first open.</footer>
+<script>
+(function(){
+ const tabs=[...document.querySelectorAll('.tab')], secs=[...document.querySelectorAll('.sec')], cards=[...document.querySelectorAll('.card')];
+ const q=document.getElementById('q'), none=document.getElementById('none'), names={bad:'Badge',air:'Airway',res:'Resus',lin:'Lines',pro:'Procedures',fen:'FEN + Labs',ref:'Reference'};
+ cards.forEach(c=>{const s=c.closest('.sec').dataset.sec;const f=document.createElement('div');f.className='from';f.textContent=names[s];c.prepend(f);c._t=c.textContent.toLowerCase();});
+ let current='bad';
+ function show(sec){current=sec;tabs.forEach(t=>t.setAttribute('aria-selected',t.dataset.sec===sec));secs.forEach(s=>s.hidden=s.dataset.sec!==sec);scrollTo(0,0);}
+ tabs.forEach(t=>t.addEventListener('click',()=>{if(q.value){q.value='';filter();}show(t.dataset.sec);}));
+ function filter(){
+  const v=q.value.trim().toLowerCase();
+  if(!v){document.body.classList.remove('searching');cards.forEach(c=>c.hidden=false);none.style.display='none';show(current);return;}
+  document.body.classList.add('searching');let n=0;
+  secs.forEach(s=>s.hidden=false);
+  cards.forEach(c=>{const hit=!c.classList.contains('noidx')&&c._t.includes(v);c.hidden=!hit;if(hit)n++;});
+  none.style.display=n?'none':'block';
+ }
+ q.addEventListener('input',filter);
+ q.addEventListener('keydown',e=>{if(e.key==='Escape'){q.value='';filter();}});
+
+ // ---------- stars (saved on this phone only)
+ const KEY='nnp-stars'; let stars=[];
+ try{stars=JSON.parse(localStorage.getItem(KEY)||'[]')}catch(e){stars=[]}
+ const starSec=document.getElementById('starred'), starList=document.getElementById('starlist');
+ function saveStars(){try{localStorage.setItem(KEY,JSON.stringify(stars))}catch(e){}}
+ function renderStars(){
+  starList.innerHTML='';
+  stars.forEach(id=>{const c=document.getElementById(id);if(!c)return;const cl=c.cloneNode(true);cl.removeAttribute('id');cl.classList.add('noidx','clone');
+   cl.style.setProperty('--c',getComputedStyle(c).getPropertyValue('--c'));
+   const b=cl.querySelector('.star');if(b){b.onclick=()=>toggle(id);b.setAttribute('aria-pressed','true');b.setAttribute('aria-label','Unstar this card');}starList.appendChild(cl);});
+  starSec.hidden=!(stars.length&&current==='bad');
+  document.querySelectorAll('.card[id] .star').forEach(b=>b.setAttribute('aria-pressed',stars.includes(b.closest('.card').id)));
+ }
+ function toggle(id){stars=stars.includes(id)?stars.filter(x=>x!==id):[...stars,id];saveStars();renderStars();}
+ cards.forEach(c=>{const h=c.querySelector('h2');if(!h||!c.id)return;const b=document.createElement('button');b.type='button';b.className='star';b.textContent='★';
+  b.setAttribute('aria-label','Star this card');b.setAttribute('aria-pressed','false');b.onclick=()=>toggle(c.id);h.appendChild(b);});
+ tabs.forEach(t=>t.addEventListener('click',renderStars));
+ q.addEventListener('input',()=>{starSec.hidden=!!q.value||!(stars.length&&current==='bad');});
+ renderStars();
+
+ // ---------- calculator
+ const calc=document.getElementById('calc'), out=document.getElementById('cout'), what=document.getElementById('cwhat');
+ const $=id=>document.getElementById(id);
+ $('calcBtn').onclick=()=>{calc.hidden=false;document.body.style.overflow='hidden';$('cw').focus();};
+ $('calcClose').onclick=()=>{calc.hidden=true;document.body.style.overflow='';};
+ const num=v=>{v=parseFloat(String(v).replace(',','.'));return isFinite(v)?v:null};
+ const f=(x,d)=>{if(x===null||!isFinite(x))return '';const p=10**d;let s=(Math.round(x*p+1e-9)/p).toFixed(d);return s.includes('.')?s.replace(/0+$/,'').replace(/\.$/,''):s};
+ const row=(k,v,sub)=>`<div class="crow"><span class="k">${k}</span><span class="v">${v}${sub?`<small>${sub}</small>`:''}</span></div>`;
+ function ett8(w,ga){const bw=w<1?2.5:(w<=2?3.0:3.5);const bg=ga===null?null:(ga<28?2.5:(ga<=34?3.0:3.5));return [bw,bg]}
+ function ett9(w,ga){const bw=w<=1.2?2.5:(w<=2.2?3.0:3.5);const bg=ga===null?null:(ga<=28?2.5:(ga<=34?3.0:3.5));return [bw,bg]}
+ const GA_DEPTH=[[0,22,'5.0–5.5','<23 wk (9th only)'],[23,24,'5.5','23–24 wk'],[25,26,'6.0','25–26 wk'],[27,29,'6.5','27–29 wk'],[30,32,'7.0','30–32 wk'],[33,34,'7.5','33–34 wk'],[35,37,'8.0','35–37 wk'],[38,40,'8.5','38–40 wk'],[41,43,'9.0','41–43 wk']];
+ const WT_DEPTH=[[0,499,'5.0–5.5','<500 g (9th only)'],[500,600,'5.5','500–600 g'],[700,800,'6.0','700–800 g'],[900,1000,'6.5','900–1000 g'],[1100,1400,'7.0','1100–1400 g'],[1500,1800,'7.5','1500–1800 g'],[1900,2400,'8.0','1900–2400 g'],[2500,3100,'8.5','2500–3100 g'],[3200,4200,'9.0','3200–4200 g']];
+ function depthByWeight(g){for(let i=0;i<WT_DEPTH.length;i++){const r=WT_DEPTH[i];if(g>=r[0]&&g<=r[1])return [r[2]+' cm',r[3]];
+   if(i<WT_DEPTH.length-1&&g>r[1]&&g<WT_DEPTH[i+1][0])return [r[2]+' or '+WT_DEPTH[i+1][2]+' cm','between the '+r[3]+' and '+WT_DEPTH[i+1][3]+' rows'];}
+  return [null,'outside the table (to 4200 g)']}
+ function update(){
+  const raw=num($('cw').value), gaIn=num($('cga').value), d=num($('cd').value), fl=num($('cf').value), tg=num($('cg').value);
+  if(raw===null||raw<=0){what.textContent='Enter a weight to start. Nothing you type here is saved.';out.innerHTML='';return}
+  const w=raw>20?raw/1000:raw, g=Math.round(w*1000);
+  if(w<0.3||w>6){what.textContent='Weight should be between 300 g and 6 kg.';out.innerHTML='';return}
+  const ga=gaIn===null?null:Math.floor(gaIn);
+  what.textContent=`Using ${f(w,3)} kg (${g} g)`+(ga!==null?`, ${ga} completed weeks.`:'. Add GA for the ETT depth table.');
+  let h='';
+  // airway
+  const [a8w,a8g]=ett8(w,ga), [a9w,a9g]=ett9(w,ga);
+  const sz=(bw,bg,opt)=>bw.toFixed(1)+(bg!==null&&bg!==bw?` <small>GA gives ${bg.toFixed(1)}</small>`:'')+(opt?'<small>2.0 optional</small>':'');
+  let dep,dsub;
+  if(ga!==null){const r=GA_DEPTH.find(r=>ga>=r[0]&&ga<=r[1]);if(r&&!(ga<22)){dep=r[2]+' cm';dsub='GA row '+r[3]}else{dep='—';dsub='GA outside the table (22–43 wk)'}}
+  else{const [v,sub]=depthByWeight(g);dep=v||'—';dsub='weight row: '+sub}
+  h+=`<div class="cgroup air"><h3>Airway</h3>`+row('ETT size, NRP 9th',sz(a9w,a9g,(w<0.8)||(ga!==null&&ga<=25)))+row('ETT size, NRP 8th',sz(a8w,a8g,false))
+    +row('ETT depth',dep,dsub+'. 9th: to the gum. 8th: to the lip ⚑')+row('Cross-check','NTL + 1 cm')
+    +row('Atropine 0.02 mg/kg',f(0.02*w,3)+' mg',f(20*w,1)+' mcg. Confirm with your order set')+`</div>`;
+  // lines
+  const uac=3*w+9;
+  h+=`<div class="cgroup lin"><h3>Umbilical lines, before stump</h3>`+row('UAC high, Shukla',f(uac,1)+' cm','(3 × kg) + 9')
+    +(w<=1.5?row('UAC high, Wright',f(4*w+7,1)+' cm','(4 × kg) + 7, studied in VLBW'):'')
+    +row('UVC, Shukla',f(uac/2+1,1)+' cm','half the UAC + 1')+row('UVC, revised',f(uac/2,1)+' cm','half the UAC')
+    +`<p class="cnote">Add stump length. Confirm the tip on film.</p></div>`;
+  // resus
+  h+=`<div class="cgroup res"><h3>Resus (epi 0.1 mg/mL)</h3>`+row('Epi IV/IO, start',f(0.2*w,3)+' mL',f(0.02*w,3)+' mg; range '+f(0.1*w,3)+'–'+f(0.3*w,3)+' mL; flush 3 mL NS')
+    +row('Epi ETT',f(0.5*w,3)+'–'+f(1*w,3)+' mL',f(0.05*w,3)+'–'+f(0.1*w,3)+' mg')+row('NS bolus',f(10*w,1)+' mL','10 mL/kg over 5–10 min')+`</div>`;
+  // fluids
+  if(fl!==null&&fl>0){let fh=row('Rate',f(fl*w/24,2)+' mL/hr',f(fl,0)+' mL/kg/day');
+   if(d!==null&&d>0)fh+=row('GIR',f(d*fl/144,1)+' mg/kg/min','%D × mL/kg/day ÷ 144; target 4–8');
+   if(tg!==null&&tg>0)fh+=row('%D for GIR '+f(tg,1),f(tg*144/fl,1)+'%','GIR × 144 ÷ mL/kg/day');
+   h+=`<div class="cgroup fen"><h3>Fluids and GIR</h3>`+fh+`</div>`;}
+  else h+=`<div class="cgroup fen"><h3>Fluids and GIR</h3><p class="cnote">Enter mL/kg/day (and dextrose %) for rate and GIR.</p></div>`;
+  out.innerHTML=h;
+ }
+ ['cw','cga','cd','cf','cg'].forEach(id=>$(id).addEventListener('input',update));
+ if('serviceWorker' in navigator){
+  const hadController=!!navigator.serviceWorker.controller; let reloaded=false;
+  navigator.serviceWorker.addEventListener('controllerchange',()=>{if(!hadController||reloaded)return;reloaded=true;location.reload();});
+  addEventListener('load',()=>{navigator.serviceWorker.register('./sw.js',{updateViaCache:'none'}).then(reg=>{
+    reg.update().catch(()=>{});
+    document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='visible')reg.update().catch(()=>{});});
+  }).catch(()=>{});});
+ }
+})();
+</script>
+</body>
+</html>

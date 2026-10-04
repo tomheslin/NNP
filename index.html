@@ -106,6 +106,15 @@ footer{max-width:760px;margin:0 auto;padding:0 14px 24px;color:var(--muted);font
 .hnav{display:flex;gap:14px}
 .brainbtn{background:none;border:0;cursor:pointer}
 .calc{position:fixed;inset:0;z-index:30;background:var(--bg);overflow:auto;padding:calc(env(safe-area-inset-top,0px) + 0px) 0 calc(env(safe-area-inset-bottom,0px) + 20px)}
+.xsec{max-width:760px;margin:12px auto 0;border-radius:14px;background:var(--card);border:1px solid var(--rule);overflow:hidden}
+.xsec>summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:10px;padding:14px 16px;font-weight:800;font-size:17px;color:var(--c);border-left:6px solid var(--c)}
+.xsec>summary::-webkit-details-marker{display:none}
+.xsec>summary::after{content:'▸';font-size:18px;transition:transform .15s}
+.xsec[open]>summary::after{transform:rotate(90deg)}
+.xsec .xhint{margin-left:auto;font-weight:500;font-size:13px;color:var(--muted)}
+.xsec .inputs{margin:0 12px;box-shadow:none;border:0;padding-top:4px}
+.xsec [id^="cout-"]{padding:0 12px 12px}
+.xsec.cv{--c:var(--cv)}.xsec.res{--c:var(--res)}.xsec.dx{--c:var(--dx)}
 .calc-how{margin:10px auto 0;max-width:760px;padding:0 16px;font-size:15px}.calc-how a{color:var(--rx);font-weight:700}
 .calc-btns{display:flex;gap:18px;align-items:center}
 .calc-top{position:sticky;top:0;display:flex;justify-content:space-between;align-items:center;background:var(--navy);color:#fff;padding:calc(env(safe-area-inset-top,0px) + 12px) 14px 12px}
@@ -191,16 +200,28 @@ body.searching .tabs{display:none}
    <label>AA g/kg/day<input id="caa" inputmode="decimal" placeholder="e.g. 3" autocomplete="off"></label>
    <label>Lipid g/kg/day<input id="clg" inputmode="decimal" placeholder="e.g. 2" autocomplete="off"></label>
    <label>or lipid 20% mL/hr<input id="clh" inputmode="decimal" placeholder="needs weight" autocomplete="off"></label>
-   <p class="ihead">Drip rate (optional)</p>
+  </div>
+  <p class="small" id="cwhat">Enter a weight for airway, lines, and resus. GIR works without one. Nothing you type here is saved.</p>
+  <div id="cout"></div>
+  <details class="xsec cv"><summary><span>Drip rate</span><span class="xhint">dose ↔ mL/hr</span></summary>
+   <div class="inputs">
    <label>Dose<input id="cdd" inputmode="decimal" placeholder="e.g. 0.05" autocomplete="off"></label>
    <label>Dose unit<select id="cdu"><option>mcg/kg/min</option><option>mcg/kg/hr</option><option>mg/kg/hr</option><option>units/kg/hr</option></select></label>
    <label>Concentration<input id="ccn" inputmode="decimal" placeholder="e.g. 20" autocomplete="off"></label>
    <label>Conc. unit<select id="ccu"><option>mcg/mL</option><option>mg/mL</option><option>units/mL</option></select></label>
    <label>or rate mL/hr<input id="crt" inputmode="decimal" placeholder="to get the dose" autocomplete="off"></label>
-   <p class="ihead">Transfusion (optional)</p>
+   </div>
+   <div id="cout-drip"></div>
+  </details>
+  <details class="xsec res"><summary><span>Transfusion threshold</span><span class="xhint">Baylor and national</span></summary>
+   <div class="inputs">
    <label>Illness (Baylor)<select id="csev"><option value="">choose</option><option value="0">Severe</option><option value="1">Moderate</option><option value="2">Mild</option><option value="3">Asymptomatic</option></select></label>
    <label>Resp support<select id="cresp"><option value="">choose</option><option value="1">Yes</option><option value="0">No or minimal</option></select></label>
-   <p class="ihead">HIE cooling check (optional)</p>
+   </div>
+   <div id="cout-trx"></div>
+  </details>
+  <details class="xsec dx"><summary><span>HIE cooling check</span><span class="xhint">criteria checklist</span></summary>
+   <div class="inputs">
    <label>pH (cord or 1st hr)<input id="cph" inputmode="decimal" placeholder="e.g. 7.02" autocomplete="off"></label>
    <label>Base deficit<input id="cbd" inputmode="decimal" placeholder="e.g. 14" autocomplete="off"></label>
    <label>Sarnat categories<select id="csar"><option value="">mod/severe count</option><option>0</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option></select></label>
@@ -212,9 +233,9 @@ body.searching .tabs{display:none}
     <label><input type="checkbox" id="cchr"> Chromosomal anomaly</label>
     <label><input type="checkbox" id="cano"> Major congenital anomaly</label>
    </div>
-  </div>
-  <p class="small" id="cwhat">Enter a weight for airway, lines, and resus. GIR works without one. Nothing you type here is saved.</p>
-  <div id="cout"></div>
+   </div>
+   <div id="cout-hie"></div>
+  </details>
   <p class="small">Same formulas and sources as the cards. Double-check every number before you act on it.</p>
  </div>
 </div>
@@ -1874,7 +1895,7 @@ body.searching .tabs{display:none}
 <p class="small">Doses and depths are starting points. Confirm every tube and line clinically and on film, and follow unit protocol.</p></div></article></section>
 <p class="none" id="none">No matches. Try a shorter word.</p>
 </main>
-<footer>v52, October 2026. Badge through Lines match the printed booklet (v8) and badge cards (v5); Guide 2 prints the core of FEN, CV, and Resp. Works offline after the first open.</footer>
+<footer>v53, October 2026. Badge through Lines match the printed booklet (v8) and badge cards (v5); Guide 2 prints the core of FEN, CV, and Resp. Works offline after the first open.</footer>
 <script>
 (function(){
  const tabs=[...document.querySelectorAll('.tab')], secs=[...document.querySelectorAll('.sec')], cards=[...document.querySelectorAll('.card')];
@@ -1925,7 +1946,7 @@ body.searching .tabs{display:none}
  $('calcBtn').onclick=()=>{calc.hidden=false;document.body.style.overflow='hidden';$('cw').focus();};
  $('calcClose').onclick=()=>{calc.hidden=true;document.body.style.overflow='';};
  $('calcHow').addEventListener('click',()=>{calc.hidden=true;document.body.style.overflow='';});
- $('calcClear').onclick=()=>{calc.querySelectorAll('.inputs input, .inputs select').forEach(el=>{if(el.type==='checkbox')el.checked=false;else if(el.tagName==='SELECT')el.selectedIndex=0;else el.value='';});update();calc.scrollTop=0;$('cw').focus({preventScroll:true});};
+ $('calcClear').onclick=()=>{calc.querySelectorAll('.inputs input, .inputs select').forEach(el=>{if(el.type==='checkbox')el.checked=false;else if(el.tagName==='SELECT')el.selectedIndex=0;else el.value='';});calc.querySelectorAll('.xsec').forEach(d=>d.open=false);update();calc.scrollTop=0;$('cw').focus({preventScroll:true});};
  const num=v=>{v=parseFloat(String(v).replace(',','.'));return isFinite(v)?v:null};
  const f=(x,d)=>{if(x===null||!isFinite(x))return '';const p=10**d;let s=(Math.round(x*p+1e-9)/p).toFixed(d);return s.includes('.')?s.replace(/0+$/,'').replace(/\.$/,''):s};
  const row=(k,v,sub)=>`<div class="crow"><span class="k">${k}</span><span class="v">${v}${sub?`<small>${sub}</small>`:''}</span></div>`;
@@ -1987,7 +2008,7 @@ body.searching .tabs{display:none}
   // ---- drip rate ----
   const drip=(w)=>{
    const dd=num($('cdd').value), cn=num($('ccn').value), rt=num($('crt').value), du=$('cdu').value, cu=$('ccu').value;
-   if(dd===null&&rt===null&&cn===null) return '';
+   if(dd===null&&rt===null&&cn===null) return '<p class="cnote">Enter a dose and concentration (or a rate). Uses the weight above.</p>';
    const head='<div class="cgroup cv"><h3>Drip rate</h3>';
    if(!w) return head+'<p class="cnote">Add a weight.</p></div>';
    if(cn===null||cn<=0) return head+'<p class="cnote">Add the concentration.</p></div>';
@@ -2005,7 +2026,7 @@ body.searching .tabs{display:none}
   // ---- transfusion ----
   const trx=()=>{
    const sev=$('csev').value, rs=$('cresp').value;
-   if(sev===''&&rs==='') return '';
+   if(sev===''&&rs==='') return '<p class="cnote">Choose illness severity and/or respiratory support. Uses the age above.</p>';
    if(dol===null) return `<div class="cgroup res"><h3>Transfusion threshold</h3><p class="cnote">Add age.</p></div>`;
    const col=dol<=7?0:(dol<=14?1:2), colTxt=['days 1–7','days 8–14','after day 14'][col];
    let r='';
@@ -2042,7 +2063,7 @@ body.searching .tabs{display:none}
    const ph=num($('cph').value), bd=num($('cbd').value), sar=$('csar').value;
    const ck=id=>$(id).checked;
    const any=ph!==null||bd!==null||sar!==''||['cevt','capg','cvnt','csz','cchr','cano'].some(ck);
-   if(!any) return '';
+   if(!any) return '<p class="cnote">Enter the gas and tick what applies. Uses GA, age, and birth weight above.</p>';
    const why=[], maybe=[]; let ok=true;
    if(gaW===null){ok=false;why.push('add GA')} else if(gaW<35){ok=false;why.push('GA under 35 weeks')} else if(gaW===35){maybe.push('35 weeks')}
    if(ageH===null){ok=false;why.push('add age')} else if(ageH>24){ok=false;why.push('older than 24 hours')} else if(ageH>6){maybe.push('6–24 hours old')}
@@ -2059,9 +2080,9 @@ body.searching .tabs{display:none}
    else if(maybe.length){verdict='Baylor: consider'; sub=maybe.join(' and ')+'; shared decision with parents, documented';}
    else {verdict='Meets criteria'; sub='≥36 wk, &lt;6 h, gas or event criteria, moderate/severe encephalopathy';}
    return `<div class="cgroup dx"><h3>HIE cooling check</h3>`+row('Result','<b>'+verdict+'</b>',sub)+`<p class="cnote">A checklist only; the team decides. Criteria on the HIE card (Dx).</p></div>`;};
-  if(raw===null||raw<=0){what.textContent='Enter a weight for doses. GIR, transfusion, and HIE work without one. Nothing you type here is saved.';out.innerHTML=drip(null)+trx()+bili()+hie()+fluids(null)+tpn(null);return}
+  if(raw===null||raw<=0){what.textContent='Enter a weight for doses. GIR, transfusion, and HIE work without one. Nothing you type here is saved.';out.innerHTML=bili()+fluids(null)+tpn(null);$('cout-drip').innerHTML=drip(null);$('cout-trx').innerHTML=trx();$('cout-hie').innerHTML=hie();return}
   const w=raw>20?raw/1000:raw, g=Math.round(w*1000);
-  if(w<0.3||w>6){what.textContent='Weight should be between 300 g and 6 kg. GIR works without one.';out.innerHTML=drip(null)+trx()+bili()+hie()+fluids(null)+tpn(null);return}
+  if(w<0.3||w>6){what.textContent='Weight should be between 300 g and 6 kg. GIR works without one.';out.innerHTML=bili()+fluids(null)+tpn(null);$('cout-drip').innerHTML=drip(null);$('cout-trx').innerHTML=trx();$('cout-hie').innerHTML=hie();return}
   const ga=gaIn===null?null:Math.floor(gaIn);
   what.textContent=`Using ${f(w,3)} kg (${g} g)`+(ga!==null?`, ${ga} completed weeks.`:'. Add GA for the ETT depth table.');
   let h='';
@@ -2107,7 +2128,8 @@ body.searching .tabs{display:none}
   // resus
   h+=`<div class="cgroup res"><h3>Resus (epi 0.1 mg/mL)</h3>`+row('Epi IV/IO, start',f(0.2*w,3)+' mL',f(0.02*w,3)+' mg; range '+f(0.1*w,3)+'–'+f(0.3*w,3)+' mL; flush 3 mL NS')
     +row('Epi ETT',f(0.5*w,3)+'–'+f(1*w,3)+' mL',f(0.05*w,3)+'–'+f(0.1*w,3)+' mg')+row('NS bolus',f(10*w,1)+' mL','10 mL/kg over 5–10 min')+`</div>`;
-  h+=abx(w)+drip(w)+trx()+bili()+hie()+fluids(w)+tpn(w);
+  h+=abx(w)+bili()+fluids(w)+tpn(w);
+  $('cout-drip').innerHTML=drip(w); $('cout-trx').innerHTML=trx(); $('cout-hie').innerHTML=hie();
   out.innerHTML=h;
  }
  ['cw','cga','cage','cbw','cd','cf','cg','caa','clg','clh','cph','cbd','cdd','ccn','crt'].forEach(id=>$(id).addEventListener('input',update));

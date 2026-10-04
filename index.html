@@ -12,12 +12,12 @@
 <title>NNP</title>
 <style>
 :root{--bg:#F2F4F7;--card:#FFFFFF;--ink:#111827;--muted:#5B6675;--rule:#E3E8EE;--th:#F3F6F9;--zebra:#F8FAFC;
---navy:#16325C;--accent:#1F4E86;--air:#1F4E86;--res:#9B2C2C;--lin:#276749;--fen:#8A5A12;--pro:#0E6F7A;--cv:#B4235A;--resp:#0B6E4F;--ref:#553C9A;
+--navy:#16325C;--accent:#1F4E86;--air:#1F4E86;--res:#9B2C2C;--lin:#276749;--fen:#8A5A12;--pro:#0E6F7A;--cv:#B4235A;--resp:#0B6E4F;--dx:#C2571A;--rx:#0369A1;--ref:#553C9A;
 --font:-apple-system,BlinkMacSystemFont,"SF Pro Text","Helvetica Neue","Segoe UI",Roboto,Arial,sans-serif}
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0B0F14;--card:#161B22;--ink:#E6EAF0;--muted:#98A2B3;--rule:#262D36;--th:#1C232C;--zebra:#1A2029;
---navy:#0F1E33;--accent:#8AB4F8;--air:#8AB4F8;--res:#F28B82;--lin:#81C995;--fen:#FDD663;--pro:#78D9E4;--cv:#F58AB0;--resp:#7FD8B6;--ref:#C58AF9}}
+--navy:#0F1E33;--accent:#8AB4F8;--air:#8AB4F8;--res:#F28B82;--lin:#81C995;--fen:#FDD663;--pro:#78D9E4;--cv:#F58AB0;--resp:#7FD8B6;--dx:#FFB27A;--rx:#7DD3FC;--ref:#C58AF9}}
 :root[data-theme="dark"]{--bg:#0B0F14;--card:#161B22;--ink:#E6EAF0;--muted:#98A2B3;--rule:#262D36;--th:#1C232C;--zebra:#1A2029;
---navy:#0F1E33;--accent:#8AB4F8;--air:#8AB4F8;--res:#F28B82;--lin:#81C995;--fen:#FDD663;--pro:#78D9E4;--cv:#F58AB0;--resp:#7FD8B6;--ref:#C58AF9}
+--navy:#0F1E33;--accent:#8AB4F8;--air:#8AB4F8;--res:#F28B82;--lin:#81C995;--fen:#FDD663;--pro:#78D9E4;--cv:#F58AB0;--resp:#7FD8B6;--dx:#FFB27A;--rx:#7DD3FC;--ref:#C58AF9}
 :root{box-sizing:border-box;padding-bottom:env(safe-area-inset-bottom,0px)}
 *,*::before,*::after{box-sizing:inherit}
 html{scroll-padding-top:calc(env(safe-area-inset-top,0px) + 150px)}
@@ -41,7 +41,7 @@ main{max-width:760px;margin:0 auto;padding:12px 12px 40px}
 .jump::-webkit-scrollbar{display:none}
 .jump a{flex:none;font-size:13px;font-weight:500;text-decoration:none;color:var(--ink);background:var(--card);border:1px solid var(--rule);border-radius:999px;padding:6px 12px}
 body.searching .jump{display:none}
-.sec.bad{--c:var(--accent)}.sec.air{--c:var(--air)}.sec.res{--c:var(--res)}.sec.lin{--c:var(--lin)}.sec.pro{--c:var(--pro)}.sec.cv{--c:var(--cv)}.sec.resp{--c:var(--resp)}.sec.fen{--c:var(--fen)}.sec.ref{--c:var(--ref)}
+.sec.bad{--c:var(--accent)}.sec.air{--c:var(--air)}.sec.res{--c:var(--res)}.sec.lin{--c:var(--lin)}.sec.pro{--c:var(--pro)}.sec.cv{--c:var(--cv)}.sec.resp{--c:var(--resp)}.sec.dx{--c:var(--dx)}.sec.rx{--c:var(--rx)}.sec.fen{--c:var(--fen)}.sec.ref{--c:var(--ref)}
 .card{background:var(--card);border:1px solid var(--rule);border-radius:12px;padding:14px 14px 12px;margin:0 0 12px;box-shadow:0 1px 2px rgba(16,24,40,.04)}
 .card h2{font:700 18px/1.25 var(--font);letter-spacing:-.2px;color:var(--ink);margin:0 0 6px;display:flex;align-items:center;gap:8px}
 .card h2::before{content:"";width:4px;height:16px;border-radius:2px;background:var(--c);flex:none}
@@ -70,6 +70,11 @@ body.searching .card .from{display:block}
 .ins{background:#E8F5EF;color:#1E6B4E;border:1px solid #A8D5C2}
 .atl{background:#E7EEFA;color:#1F4E86;border:1px solid #A9C0E6}
 .crs{background:#F3E8FA;color:#6B2C91;border:1px solid #D2B3E6}
+.bcm{background:#FFF1E0;color:#9A4A00;border:1px solid #F3C99B}
+.bcmbox{margin-top:12px;padding:10px 12px;border-left:4px solid #D9822B;background:color-mix(in srgb,#D9822B 8%,var(--card));border-radius:8px}
+.remind{display:flex;gap:10px;align-items:center;justify-content:space-between;margin:10px auto 0;max-width:760px;padding:10px 12px;border-radius:12px;background:#FFF1E0;color:#7A3B00;border:1px solid #F3C99B;font-size:14px}.remind button{border:0;border-radius:8px;padding:6px 12px;background:#D9822B;color:#fff;font-weight:700}
+.bigbtn{display:block;text-align:center;padding:12px 14px;border-radius:12px;background:#D9822B;color:#fff!important;font-weight:700;text-decoration:none}
+.bcmbox .atlas-h{margin:0 0 6px;font-weight:700}
 .atlas{margin:12px 0 2px;padding:10px 12px;border:1px solid var(--rule);border-left:3px solid #1F4E86;border-radius:8px;background:var(--th)}
 .atlas-h{font-weight:700;margin:0 0 4px!important}
 .atlas .src{margin-bottom:0}
@@ -106,12 +111,14 @@ footer{max-width:760px;margin:0 auto;padding:0 14px 24px;color:var(--muted);font
 .calc-body{max-width:760px;margin:0 auto;padding:12px}
 .inputs{display:grid;grid-template-columns:1fr 1fr;gap:10px;background:var(--card);border:1px solid var(--rule);border-radius:12px;padding:12px}
 .inputs label{display:flex;flex-direction:column;gap:4px;font-size:13px;font-weight:600;color:var(--muted)}
+.inputs select{font:16px var(--font);padding:9px 8px;border:1px solid var(--rule);border-radius:9px;background:var(--bg);color:var(--ink);width:100%}
+.checks{grid-column:1/-1;display:grid;grid-template-columns:1fr 1fr;gap:6px 10px}.checks label{display:flex;gap:8px;align-items:center;font-size:14px}.checks input{width:auto!important;transform:scale(1.2)}
 .inputs input{font:17px var(--font);padding:9px 10px;border:1px solid var(--rule);border-radius:9px;background:var(--bg);color:var(--ink);width:100%}
 .ihead{grid-column:1/-1;margin:6px 0 -4px;font:700 13px var(--font);color:var(--fen)}
 .inputs input:focus{outline:2px solid var(--accent);outline-offset:0}
 .cgroup{background:var(--card);border:1px solid var(--rule);border-radius:12px;padding:12px 14px;margin:12px 0}
 .cgroup h3{font:700 15px var(--font);margin:0 0 6px;color:var(--c)}
-.cgroup.air{--c:var(--air)}.cgroup.res{--c:var(--res)}.cgroup.lin{--c:var(--lin)}.cgroup.pro{--c:var(--pro)}.cgroup.fen{--c:var(--fen)}
+.cgroup.air{--c:var(--air)}.cgroup.res{--c:var(--res)}.cgroup.lin{--c:var(--lin)}.cgroup.pro{--c:var(--pro)}.cgroup.rx{--c:var(--rx)}.cgroup.cv{--c:var(--cv)}.cgroup.dx{--c:var(--dx)}.cgroup.res{--c:var(--res)}.cgroup.fen{--c:var(--fen)}
 .crow{display:flex;justify-content:space-between;gap:12px;padding:7px 0;border-bottom:1px solid var(--rule)}
 .crow:last-child{border-bottom:0}
 .crow .k{color:var(--ink)}
@@ -132,7 +139,7 @@ h1{font:800 26px/1 ui-rounded,-apple-system,system-ui,sans-serif;letter-spacing:
 .brainbtn{font-family:ui-rounded,-apple-system,system-ui,sans-serif;font-weight:700}
 .tabs{margin:12px -14px 0;max-width:none;padding:8px 6px;gap:2px;border-radius:0;background:var(--card);border-bottom:1px solid var(--rule)}
 .tab{color:#fff;font:700 12px ui-rounded,-apple-system,system-ui,sans-serif;border-radius:7px;padding:8px 2px;opacity:.78}
-.tab.bad{background:#5B6675}.tab.air{background:#1F4E86}.tab.res{background:#9B2C2C}.tab.lin{background:#276749}.tab.pro{background:#0E6F7A}.tab.cv{background:#B4235A}.tab.resp{background:#0B6E4F}.tab.fen{background:#8A5A12}.tab.ref{background:#553C9A}
+.tab.bad{background:#5B6675}.tab.air{background:#1F4E86}.tab.res{background:#9B2C2C}.tab.lin{background:#276749}.tab.pro{background:#0E6F7A}.tab.cv{background:#B4235A}.tab.resp{background:#0B6E4F}.tab.fen{background:#8A5A12}.tab.dx{background:#C2571A}.tab.rx{background:#0369A1}.tab.ref{background:#553C9A}
 .tab[aria-selected="true"]{color:#fff;opacity:1;box-shadow:inset 0 -3px 0 rgba(255,255,255,.75),0 2px 6px rgba(0,0,0,.18)}
 .tab:focus-visible{outline:2px solid var(--accent)}
 body.searching .tabs{display:none}
@@ -149,6 +156,10 @@ body.searching .tabs{display:none}
 .cgroup{border:0;border-radius:16px;box-shadow:0 1px 2px rgba(16,24,40,.06),0 6px 16px rgba(16,24,40,.06)}
 .calc-top{background:linear-gradient(165deg,#0B2240 0%,#16407A 100%)}
 .calc-top h2{font-family:ui-rounded,-apple-system,system-ui,sans-serif;font-weight:800}
+
+@media (max-width:360px){.hnav{gap:9px!important}.hnav .brainbtn{font-size:14px!important;padding-left:2px;padding-right:2px}h1{font-size:23px!important}}
+
+@media (max-width:700px){.tabs{display:grid!important;grid-template-columns:repeat(6,1fr);gap:4px!important;overflow-x:visible!important}.tab{min-width:0;padding:8px 2px}}
 @media (prefers-reduced-motion:no-preference){html{scroll-behavior:smooth}}
 </style>
 </head>
@@ -156,10 +167,10 @@ body.searching .tabs{display:none}
 <div class="top">
  <div class="row">
   <h1>NNP</h1>
-  <nav class="hnav"><button class="brainbtn" id="calcBtn" type="button">Calc</button><a class="brainbtn" href="https://tomheslin.github.io/NICU-Codes/" target="_blank" rel="noopener">Codes</a><a class="brainbtn" href="brain.html">Brain</a></nav>
+  <nav class="hnav"><button class="brainbtn" id="calcBtn" type="button">Calc</button><a class="brainbtn" href="https://tomheslin.github.io/NICU-Codes/" target="_blank" rel="noopener">Codes</a><a class="brainbtn" href="brain.html">Brain</a><a class="brainbtn" href="https://drive.google.com/file/d/1qR4T9R7UsSgZzCbQEO-91yWTW5MgIt0D/view" target="_blank" rel="noopener">Baylor</a></nav>
  </div>
  <div class="search"><input id="q" type="search" placeholder="Search" aria-label="Search all cards" autocomplete="off"></div>
- <div class="tabs" role="tablist"><button class="tab bad" data-sec="bad" role="tab" aria-selected="true">Badge</button><button class="tab air" data-sec="air" role="tab" aria-selected="false">Airway</button><button class="tab res" data-sec="res" role="tab" aria-selected="false">Resus</button><button class="tab lin" data-sec="lin" role="tab" aria-selected="false">Lines</button><button class="tab pro" data-sec="pro" role="tab" aria-selected="false">Proc</button><button class="tab cv" data-sec="cv" role="tab" aria-selected="false">CV</button><button class="tab resp" data-sec="resp" role="tab" aria-selected="false">Resp</button><button class="tab fen" data-sec="fen" role="tab" aria-selected="false">FEN</button><button class="tab ref" data-sec="ref" role="tab" aria-selected="false">Ref</button></div>
+ <div class="tabs" role="tablist"><button class="tab bad" data-sec="bad" role="tab" aria-selected="true">Badge</button><button class="tab air" data-sec="air" role="tab" aria-selected="false">Airway</button><button class="tab res" data-sec="res" role="tab" aria-selected="false">Resus</button><button class="tab lin" data-sec="lin" role="tab" aria-selected="false">Lines</button><button class="tab pro" data-sec="pro" role="tab" aria-selected="false">Proc</button><button class="tab cv" data-sec="cv" role="tab" aria-selected="false">CV</button><button class="tab resp" data-sec="resp" role="tab" aria-selected="false">Resp</button><button class="tab fen" data-sec="fen" role="tab" aria-selected="false">FEN</button><button class="tab dx" data-sec="dx" role="tab" aria-selected="false">Dx</button><button class="tab rx" data-sec="rx" role="tab" aria-selected="false">Rx</button><button class="tab ref" data-sec="ref" role="tab" aria-selected="false">Ref</button></div>
 </div>
 <main>
 <div class="calc" id="calc" role="dialog" aria-label="Weight calculator" hidden>
@@ -167,7 +178,9 @@ body.searching .tabs{display:none}
  <div class="calc-body">
   <div class="inputs">
    <label>Weight<input id="cw" inputmode="decimal" placeholder="g or kg" autocomplete="off"></label>
-   <label>GA (weeks)<input id="cga" inputmode="decimal" placeholder="e.g. 30" autocomplete="off"></label>
+   <label>GA at birth (wk)<input id="cga" inputmode="decimal" placeholder="e.g. 30" autocomplete="off"></label>
+   <label>Age<input id="cage" placeholder="36h or 10d" autocomplete="off"></label>
+   <label>Birth weight<input id="cbw" inputmode="decimal" placeholder="if not the weight" autocomplete="off"></label>
    <label>Dextrose %<input id="cd" inputmode="decimal" placeholder="e.g. 10" autocomplete="off"></label>
    <label>mL/kg/day<input id="cf" inputmode="decimal" placeholder="e.g. 80" autocomplete="off"></label>
    <label>Target GIR<input id="cg" inputmode="decimal" placeholder="optional" autocomplete="off"></label>
@@ -175,6 +188,27 @@ body.searching .tabs{display:none}
    <label>AA g/kg/day<input id="caa" inputmode="decimal" placeholder="e.g. 3" autocomplete="off"></label>
    <label>Lipid g/kg/day<input id="clg" inputmode="decimal" placeholder="e.g. 2" autocomplete="off"></label>
    <label>or lipid 20% mL/hr<input id="clh" inputmode="decimal" placeholder="needs weight" autocomplete="off"></label>
+   <p class="ihead">Drip rate (optional)</p>
+   <label>Dose<input id="cdd" inputmode="decimal" placeholder="e.g. 0.05" autocomplete="off"></label>
+   <label>Dose unit<select id="cdu"><option>mcg/kg/min</option><option>mcg/kg/hr</option><option>mg/kg/hr</option><option>units/kg/hr</option></select></label>
+   <label>Concentration<input id="ccn" inputmode="decimal" placeholder="e.g. 20" autocomplete="off"></label>
+   <label>Conc. unit<select id="ccu"><option>mcg/mL</option><option>mg/mL</option><option>units/mL</option></select></label>
+   <label>or rate mL/hr<input id="crt" inputmode="decimal" placeholder="to get the dose" autocomplete="off"></label>
+   <p class="ihead">Transfusion (optional)</p>
+   <label>Illness (Baylor)<select id="csev"><option value="">choose</option><option value="0">Severe</option><option value="1">Moderate</option><option value="2">Mild</option><option value="3">Asymptomatic</option></select></label>
+   <label>Resp support<select id="cresp"><option value="">choose</option><option value="1">Yes</option><option value="0">No or minimal</option></select></label>
+   <p class="ihead">HIE cooling check (optional)</p>
+   <label>pH (cord or 1st hr)<input id="cph" inputmode="decimal" placeholder="e.g. 7.02" autocomplete="off"></label>
+   <label>Base deficit<input id="cbd" inputmode="decimal" placeholder="e.g. 14" autocomplete="off"></label>
+   <label>Sarnat categories<select id="csar"><option value="">mod/severe count</option><option>0</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option></select></label>
+   <div class="checks">
+    <label><input type="checkbox" id="cevt"> Acute perinatal event</label>
+    <label><input type="checkbox" id="capg"> 10-min Apgar ≤5</label>
+    <label><input type="checkbox" id="cvnt"> Ventilation from birth, still at 10 min</label>
+    <label><input type="checkbox" id="csz"> Seizures</label>
+    <label><input type="checkbox" id="cchr"> Chromosomal anomaly</label>
+    <label><input type="checkbox" id="cano"> Major congenital anomaly</label>
+   </div>
   </div>
   <p class="small" id="cwhat">Enter a weight for airway, lines, and resus. GIR works without one. Nothing you type here is saved.</p>
   <div id="cout"></div>
@@ -250,7 +284,13 @@ body.searching .tabs{display:none}
 <p>Can be used as the primary device if face-mask ventilation or intubation is unsuccessful or unavailable (≥34 wk).</p>
 <div class="atlas"><p class="atlas-h"><span class="tag atl">Atlas</span> More from MacDonald's Atlas</p>
 <p><b>Blade:</b> Miller 1 term, 0 preterm, 00 may be considered for extremely preterm.</p>
-<p class="src">Atlas ch. 38, Endotracheal Intubation.</p></div></div></article><article class="card" id="air-ett-depth"><h2>ETT depth</h2><div class="cb">
+<p class="src">Atlas ch. 38, Endotracheal Intubation.</p></div><div class="bcmbox"><p class="atlas-h"><span class="tag bcm">Baylor</span> Baylor practice</p>
+<table class="num"><tbody>
+<tr><td>&lt;1 kg or 22–27 wk</td><td>2.0 or 2.5</td></tr>
+<tr><td>1 to &lt;2 kg or 28–34 wk</td><td>3.0</td></tr>
+<tr><td>≥2 kg or 35+ wk</td><td>3.5</td></tr>
+<tr><td>Post-term or larger</td><td>4.0</td></tr>
+</tbody></table><p class="src">Baylor Guidelines for Acute Care of the Neonate, Ed. 34, Table 16-3.</p></div></div></article><article class="card" id="air-ett-depth"><h2>ETT depth</h2><div class="cb">
 <table><thead><tr><th>GA (wk)</th><th>Weight (g)</th><th>cm</th></tr></thead><tbody><tr><td>&lt;23 <span class="tag e9">9th</span></td><td>&lt;500</td><td class="big">5.0–5.5</td></tr><tr><td>23–24</td><td>500–600</td><td class="big">5.5</td></tr><tr><td>25–26</td><td>700–800</td><td class="big">6.0</td></tr><tr><td>27–29</td><td>900–1000</td><td class="big">6.5</td></tr><tr><td>30–32</td><td>1100–1400</td><td class="big">7.0</td></tr><tr><td>33–34</td><td>1500–1800</td><td class="big">7.5</td></tr><tr><td>35–37</td><td>1900–2400</td><td class="big">8.0</td></tr><tr><td>38–40</td><td>2500–3100</td><td class="big">8.5</td></tr><tr><td>41–43</td><td>3200–4200</td><td class="big">9.0</td></tr></tbody></table>
 <p><span class="tag e9">9th</span> values are measured <b>at the gum</b>. <span class="tag e8">8th</span> used the same bands <b>at the lip</b>, confirmed in the Atlas. <span class="tag atl">Atlas</span></p>
 <h3>Cross-checks</h3>
@@ -286,7 +326,14 @@ body.searching .tabs{display:none}
 <p class="small">There's no single standard regimen; follow your unit's order set.</p>
 <div class="atlas"><p class="atlas-h"><span class="tag atl">Atlas</span> More from MacDonald's Atlas</p>
 <p>The AAP endorses premedication for nonemergent intubation, but there's no standardized regimen. A typical practice is atropine, fentanyl, and a nondepolarizing paralytic. Midazolam is not recommended for preterm infants.</p>
-<p class="src">Atlas ch. 38, Table 38.2.</p></div></div></article></section>
+<p class="src">Atlas ch. 38, Table 38.2.</p></div><div class="bcmbox"><p class="atlas-h"><span class="tag bcm">Baylor</span> Baylor practice</p>
+<table><tbody>
+<tr><td><b>Atropine</b></td><td>0.02 mg/kg IV push</td></tr>
+<tr><td><b>Fentanyl</b></td><td>0.5–2 mcg/kg IV, infused over 3–5 min</td></tr>
+<tr><td><b>Midazolam</b></td><td>0.1 mg/kg IV over 2 min, if more sedation is needed</td></tr>
+<tr><td><b>Vecuronium</b></td><td>0.1 mg/kg IV push, only after adequate sedation</td></tr>
+</tbody></table>
+<p class="small">Premedicate whenever the intubation isn't emergent. Skipping it is acceptable during active resuscitation or cardiorespiratory instability. Note: Baylor's own medication chart advises avoiding benzodiazepines (including midazolam) before 44 weeks PMA.</p><p class="src">Baylor Guidelines for Acute Care of the Neonate, Ed. 34, Ch. 16 and Table 19-5.</p></div></div></article></section>
 <section class="sec res" data-sec="res" hidden><nav class="jump" aria-label="Resus topics"><a href="#res-nrp-8th-vs-9th">NRP 8th vs 9th</a><a href="#res-pre-ductal-spo-targets">Pre-ductal SpO₂ targets</a><a href="#res-emergency-access-and-meds">Emergency access and meds</a><a href="#res-resus-doses-by-weight">Resus doses by weight</a></nav><article class="card" id="res-nrp-8th-vs-9th"><h2>NRP 8th vs 9th</h2><div class="cb">
 <table class="cmp"><thead><tr><th></th><th><span class="tag e8">8th</span></th><th><span class="tag e9">9th</span></th></tr></thead><tbody>
 <tr><td>Cord clamping</td><td>Defer 30–60 s</td><td>Defer ≥60 s</td></tr>
@@ -347,7 +394,8 @@ body.searching .tabs{display:none}
 <p>Use the high position; low only if high fails.</p>
 <p>Tip above T6 or between T10 and L2: pull back the measured difference and re-film. Tip below L5: remove. Never advance a catheter once it's in.</p>
 <p><b>Formula:</b> Shukla for &gt;1500 g, Wright for &lt;1500 g. No formula is accurate for every baby.</p>
-<p class="src">Atlas ch. 31, Umbilical Artery Catheterization.</p></div></div></article><article class="card" id="lin-uvc"><h2>UVC</h2><div class="cb">
+<p class="src">Atlas ch. 31, Umbilical Artery Catheterization.</p></div><div class="bcmbox"><p class="atlas-h"><span class="tag bcm">Baylor</span> Baylor practice</p>
+<p>Shukla formula, (3 × kg) + 9, for all weights. Catheter 3.5 Fr under 1500 g, 3.5–5 Fr over 1500 g. Remove as soon as possible; maximum about <b>5 days</b>.</p><p class="src">Baylor Guidelines for Acute Care of the Neonate, Ed. 34, Ch. 18.</p></div></div></article><article class="card" id="lin-uvc"><h2>UVC</h2><div class="cb">
 <h3>Tip position</h3>
 <p><b>IVC–right atrial junction</b>, just above the diaphragm.</p>
 <p>On film: <b>T9–T10</b> per the textbook <span class="tag atl">Atlas</span>; <b>T8–T9</b> per NNP program teaching. Follows the ductus venosus; sits to the right of the spine.</p>
@@ -363,7 +411,8 @@ body.searching .tabs{display:none}
 <div class="atlas"><p class="atlas-h"><span class="tag atl">Atlas</span> More from MacDonald's Atlas</p>
 <p>The ductus venosus is acceptable except for CVP monitoring. The "revised" formula is Verheij's; other options are Gupta (umbilicus-to-nipple − 1) and the Dunn nomogram. No formula is accurate for every baby; confirm on film.</p>
 <p>Avoid double-lumen catheters for exchange transfusion. Once secured, don't advance it. Bright red blood means it crossed the foramen ovale; pull back.</p>
-<p class="src">Atlas ch. 32.</p></div></div></article><article class="card" id="lin-umbilical-line-depth-by-weight"><h2>Umbilical line depth by weight</h2><div class="cb">
+<p class="src">Atlas ch. 32.</p></div><div class="bcmbox"><p class="atlas-h"><span class="tag bcm">Baylor</span> Baylor practice</p>
+<p>Modified Shukla: <b>((3 × kg) + 9) ÷ 2</b>, the same as the half-UAC formula. Target the IVC–RA junction, just above the diaphragm or T9–T10. Catheter 3.5 Fr under 1500 g, 3.5–5 Fr over 1500 g. Maximum about <b>7 days</b>; complication risk rises after 6 days.</p><p class="src">Baylor Guidelines for Acute Care of the Neonate, Ed. 34, Ch. 18.</p></div></div></article><article class="card" id="lin-umbilical-line-depth-by-weight"><h2>Umbilical line depth by weight</h2><div class="cb">
 <table class="num"><thead><tr><th>BW kg</th><th>UAC<br>Shukla</th><th>UAC<br>Wright</th><th>UVC<br>Shukla</th><th>UVC<br>revised</th></tr></thead>
 <tbody><tr><td class="big">0.5</td><td>10.5</td><td>9</td><td>6.3</td><td>5.3</td></tr><tr><td class="big">0.75</td><td>11.3</td><td>10</td><td>6.6</td><td>5.6</td></tr><tr><td class="big">1</td><td>12</td><td>11</td><td>7</td><td>6</td></tr><tr><td class="big">1.25</td><td>12.8</td><td>12</td><td>7.4</td><td>6.4</td></tr><tr><td class="big">1.5</td><td>13.5</td><td>13</td><td>7.8</td><td>6.8</td></tr><tr><td class="big">2</td><td>15</td><td>—</td><td>8.5</td><td>7.5</td></tr><tr><td class="big">2.5</td><td>16.5</td><td>—</td><td>9.3</td><td>8.3</td></tr><tr><td class="big">3</td><td>18</td><td>—</td><td>10</td><td>9</td></tr><tr><td class="big">3.5</td><td>19.5</td><td>—</td><td>10.8</td><td>9.8</td></tr><tr><td class="big">4</td><td>21</td><td>—</td><td>11.5</td><td>10.5</td></tr></tbody></table>
 <p>Centimeters <b>before</b> adding stump length. Wright shown only to 1.5 kg because it was studied in VLBW infants. Rounded to 0.1 cm.</p>
@@ -397,8 +446,13 @@ body.searching .tabs{display:none}
 <div class="atlas"><p class="atlas-h"><span class="tag atl">Atlas</span> More from MacDonald's Atlas</p>
 <p><b>Contrast check:</b> 0.5 mL NS, then 0.5 mL iohexol, take the film, then flush 0.5 mL NS.</p>
 <p><b>Infusion:</b> at least 1 mL/hr; heparin 0.5 units/mL of fluid (or 0.5 units/kg/hr) lowers occlusion. Don't draw routine labs through a PICC under 2 Fr.</p>
-<p class="src">Atlas ch. 34, Central Venous Catheterization.</p></div></div></article></section>
-<section class="sec pro" data-sec="pro" hidden><nav class="jump" aria-label="Procedures topics"><a href="#pro-needle-decompression">Needle decompression</a><a href="#pro-chest-tube">Chest tube</a><a href="#pro-lumbar-puncture">Lumbar puncture</a><a href="#pro-exchange-transfusion">Exchange transfusion</a><a href="#pro-peripheral-arterial-line">Peripheral arterial line</a></nav><article class="card" id="pro-needle-decompression"><h2>Needle decompression</h2><div class="cb">
+<p class="src">Atlas ch. 34, Central Venous Catheterization.</p></div><div class="bcmbox"><p class="atlas-h"><span class="tag bcm">Baylor</span> Baylor practice</p>
+<table><tbody>
+<tr><td><b>Upper body</b></td><td>SVC at the RA junction, T3–T5 (about 2 vertebrae below the carina)</td></tr>
+<tr><td><b>Lower body</b></td><td>Thoracic IVC between the right atrium and diaphragm, T8–T10</td></tr>
+</tbody></table>
+<p>Not in the right atrium. A lower tip is expected as the baby outgrows the line; near the renal veins (L1–L2) raises kidney exposure to the infusate, so consider replacing it at L2–L3 if central access is still needed.</p><p class="src">Baylor Guidelines for Acute Care of the Neonate, Ed. 34, Ch. 17, Table 17-2.</p></div></div></article></section>
+<section class="sec pro" data-sec="pro" hidden><nav class="jump" aria-label="Procedures topics"><a href="#pro-needle-decompression">Needle decompression</a><a href="#pro-chest-tube">Chest tube</a><a href="#pro-lumbar-puncture">Lumbar puncture</a><a href="#pro-exchange-transfusion">Exchange transfusion</a><a href="#pro-peripheral-arterial-line">Peripheral arterial line</a><a href="#pro-blood-products">Blood products</a></nav><article class="card" id="pro-needle-decompression"><h2>Needle decompression</h2><div class="cb">
 <p class="small">Emergency only, for a critically compromised baby. It buys time while you set up the chest tube.</p>
 <h3>Site <span class="tag atl">Atlas</span></h3>
 <p><b>2nd intercostal space, midclavicular line</b>, or <b>4th intercostal space, anterior axillary line</b>. Avoid the breast bud. The Atlas prefers the anterior approach so the lateral chest stays clear for the tube.</p>
@@ -446,7 +500,7 @@ body.searching .tabs{display:none}
 <p>Midline, angled slightly cephalad toward the umbilicus. Once past the skin, either take the stylet out and advance slowly, or leave it in and check often. Stylet-out has a higher first-try success, but whether it raises the epidermoid risk is unclear. Replace the stylet before removing the needle.</p>
 <h3>Don't do it if <span class="tag atl">Atlas</span></h3>
 <p>Signs of raised intracranial pressure (image first), uncorrected thrombocytopenia or bleeding disorder, skin infection at the site, lumbosacral anomalies, or instability where the risk outweighs the benefit.</p>
-<p><a href="brain.html#normal-csf-values">Normal CSF values in the Brain</a></p>
+<p><a href="#fen-csf-normals">Normal CSF values</a> (FEN + Labs tab)</p>
 <p class="src">Source: MacDonald's Atlas, ch. 19, Lumbar Puncture.</p>
 </div></article><article class="card" id="pro-exchange-transfusion"><h2>Exchange transfusion</h2><div class="cb">
 <h3>Blood volume <span class="tag atl">Atlas</span></h3>
@@ -484,7 +538,26 @@ body.searching .tabs{display:none}
 <h3>Don't place if <span class="tag atl">Atlas</span></h3>
 <p>Uncorrectable bleeding disorder, poor perfusion or collateral flow in that limb, local infection, limb malformation, or previous surgery there.</p>
 <p class="src">Sources: MacDonald's Atlas, ch. 33, Peripheral Arterial Cannulation; Leeds Teaching Hospitals neonatal arterial line guideline.</p>
-</div></article></section>
+</div></article><article class="card" id="pro-blood-products"><h2>Blood products</h2><div class="cb">
+<table><thead><tr><th>Product</th><th>Dose</th><th>Notes</th></tr></thead><tbody>
+<tr><td><b>PRBCs</b></td><td>10–20 mL/kg over 3–4 h (≤15 mL/kg in very preterm/LBW)</td><td>Thresholds on the Anemia card (Dx tab)</td></tr>
+<tr><td><b>Platelets</b></td><td>10–15 mL/kg over 1–2 h</td><td>Stable preterm &lt;34 wk without ICH or major bleeding: transfuse below <b>25,000</b>. More mature preterm and term: below 20,000 may be acceptable. Give through a peripheral IV, not a UAC.</td></tr>
+<tr><td><b>FFP</b></td><td>15–20 mL/kg</td><td>For bleeding with coagulopathy (e.g., DIC). Not for volume expansion. Takes about 45 minutes to thaw.</td></tr>
+<tr><td><b>Cryoprecipitate</b></td><td>5–10 mL/kg</td><td>Rich in fibrinogen and factors VIII and XIII. Not for factor IX deficiency.</td></tr>
+</tbody></table>
+<p>Transfusing platelets at 50,000 instead of 25,000 raised death or major bleeding in preterm infants (PlaNeT-2). Blood volume: term 80–85 mL/kg, preterm 100–120 mL/kg.</p>
+<p class="src">Sources: Canadian Paediatric Society, Minimizing blood loss and the need for transfusions in newborns (2025); British Society for Haematology neonatal transfusion guideline (2016) and addendum (2020); PlaNeT-2 (Curley et al., NEJM 2019); MacDonald's Atlas (blood volume); NNP Brain (administration details).</p>
+<div class="bcmbox"><p class="atlas-h"><span class="tag bcm">Baylor</span> Baylor practice</p>
+<h3>Platelets</h3>
+<table><tbody>
+<tr><td><b>Major bleeding or major surgery</b></td><td>Transfuse if &lt;100,000</td></tr>
+<tr><td><b>&lt;20,000</b></td><td>Transfuse</td></tr>
+<tr><td><b>20,000–49,000</b></td><td>Not if clinically stable. Consider if &lt;1000 g and under 1 week old, major bleeding in the past 72 hours (grade 3–4 IVH, pulmonary hemorrhage), current minor bleeding, coagulopathy, exchange transfusion, or LP.</td></tr>
+<tr><td><b>≥50,000</b></td><td>Don't transfuse routinely</td></tr>
+</tbody></table>
+<p>Platelet dose <b>5–10 mL/kg</b>.</p>
+<h3>FFP and cryo</h3>
+<p>FFP <b>10–15 mL/kg</b> when PT, PTT, or INR is elevated (as in DIC); recheck coags 12–24 hours later. Suspected hemophilia with significant bleeding: 15–25 mL/kg. Cryoprecipitate 5–10 mL/kg, usually when fibrinogen is below 100 mg/dL.</p><p class="src">Baylor Guidelines for Acute Care of the Neonate, Ed. 34, Ch. 8.1–8.2, Figure 8-1.</p></div></div></article></section>
 <section class="sec cv" data-sec="cv" hidden><nav class="jump" aria-label="Drips and pressors topics"><a href="#cv-pick-the-pressor">Pick the pressor</a><a href="#cv-hemodynamic-profiles">Hemodynamic profiles</a><a href="#cv-bp-norms-by-age">BP norms by age</a><a href="#cv-pressor-doses">Pressor doses</a><a href="#cv-receptors">Receptors</a><a href="#cv-choosing-between-two">Choosing between two</a><a href="#cv-treatment-algorithm">Treatment algorithm</a><a href="#cv-adjuncts">Adjuncts</a></nav><article class="card" id="cv-pick-the-pressor"><h2>Pick the pressor</h2><div class="cb">
 <p class="formula">BP = CO × SVR. Is it the pipes, the pump, or both?</p>
 <table><thead><tr><th>Low</th><th>Broken</th><th>Needs</th></tr></thead><tbody>
@@ -545,7 +618,16 @@ body.searching .tabs{display:none}
 <tr><td><b>Hydrocortisone</b></td><td>1 mg/kg IV every 8 h</td><td>Adrenal insufficiency, or refractory on ≥2 agents.</td></tr>
 </tbody></table>
 <p class="src">Source: NNP course lecture, Cardiovascular Function and Treatments.</p>
-</div></article><article class="card" id="cv-receptors"><h2>Receptors</h2><div class="cb">
+<div class="bcmbox"><p class="atlas-h"><span class="tag bcm">Baylor</span> Baylor practice</p>
+<table><thead><tr><th>Drug</th><th>Start</th><th>Range</th></tr></thead><tbody>
+<tr><td><b>Dopamine</b></td><td>5 mcg/kg/min</td><td>Add another agent if no effect at 10–15</td></tr>
+<tr><td><b>Dobutamine</b></td><td>5 mcg/kg/min</td><td>2–15 (LV dysfunction)</td></tr>
+<tr><td><b>Epinephrine</b></td><td>0.01–0.03 mcg/kg/min</td><td>0.01–0.3; better than dopamine with hypoxic respiratory failure</td></tr>
+<tr><td><b>Milrinone</b></td><td>0.375 mcg/kg/min, no load</td><td>0.375–0.75; only when BP is adequate; avoid with oliguria</td></tr>
+<tr><td><b>Vasopressin</b></td><td>0.01 units/kg/<b>hr</b></td><td>0.005–0.04 units/kg/hr</td></tr>
+</tbody></table>
+<p><b>Hydrocortisone</b> for refractory hypotension: 1 mg/kg IV once; if it persists or recurs over 4–6 hours, 1 mg/kg every 8 hours for 24–48 hours, tapering off by day 5. Routine cortisol levels aren't recommended.</p>
+<p class="small">Note Baylor writes vasopressin per hour; the lecture table is per minute.</p><p class="src">Baylor Guidelines for Acute Care of the Neonate, Ed. 34, Ch. 3.2.</p></div></div></article><article class="card" id="cv-receptors"><h2>Receptors</h2><div class="cb">
 <table><thead><tr><th>Receptor</th><th>Does</th><th>Drugs</th></tr></thead><tbody>
 <tr><td><b>α1</b> (vessels)</td><td>Squeezes the pipes: ↑SVR, ↑BP, ↑afterload</td><td>Norepinephrine; dopamine &gt;10; epinephrine high dose</td></tr>
 <tr><td><b>β1</b> (heart)</td><td>Squeezes the pump: ↑contractility, ↑HR</td><td>Dobutamine; dopamine 5–10; epinephrine low dose</td></tr>
@@ -586,8 +668,9 @@ body.searching .tabs{display:none}
 <tr><td><b>Refractory failure</b></td><td>ECMO</td></tr>
 </tbody></table>
 <p class="src">Source: NNP course lecture, Cardiovascular Function and Treatments.</p>
-</div></article></section>
-<section class="sec resp" data-sec="resp" hidden><nav class="jump" aria-label="Blood gas and vent topics"><a href="#resp-read-a-blood-gas">Read a blood gas</a><a href="#resp-what-moves-what">What moves what</a><a href="#resp-choosing-a-vent-mode">Choosing a vent mode</a><a href="#resp-what-to-change-on-the-vent">What to change on the vent</a><a href="#resp-example-vent-setups">Example vent setups</a><a href="#resp-resp-meds">Resp meds</a></nav><article class="card" id="resp-read-a-blood-gas"><h2>Read a blood gas</h2><div class="cb">
+<div class="bcmbox"><p class="atlas-h"><span class="tag bcm">Baylor</span> Baylor practice</p>
+<p>Don't give volume boluses unless there's specific evidence of hypovolemia. In preterm infants with nonspecific hypotension, hematocrit, blood volume, and blood pressure don't track together, and repeated boluses can cause fluid overload.</p><p class="src">Baylor Guidelines for Acute Care of the Neonate, Ed. 34, Ch. 3.2.</p></div></div></article></section>
+<section class="sec resp" data-sec="resp" hidden><nav class="jump" aria-label="Blood gas and vent topics"><a href="#resp-read-a-blood-gas">Read a blood gas</a><a href="#resp-venous-capillary-and-targets-by-ga">Venous, capillary, and targets by GA</a><a href="#resp-o-saturation-targets">O₂ saturation targets</a><a href="#resp-what-moves-what">What moves what</a><a href="#resp-choosing-a-vent-mode">Choosing a vent mode</a><a href="#resp-what-to-change-on-the-vent">What to change on the vent</a><a href="#resp-example-vent-setups">Example vent setups</a><a href="#resp-resp-meds">Resp meds</a><a href="#resp-apnea-of-prematurity">Apnea of prematurity</a></nav><article class="card" id="resp-read-a-blood-gas"><h2>Read a blood gas</h2><div class="cb">
 <h3>Four steps</h3>
 <ol>
 <li><b>pH:</b> below 7.35 acidemic, above 7.45 alkalemic.</li>
@@ -622,6 +705,28 @@ body.searching .tabs{display:none}
 <tr><td>7.31 / 50 / 17 / BE −7</td><td>Mixed acidosis</td></tr>
 </tbody></table>
 <p class="src">Sources: NNP course lectures, Module 2 Respiratory and Blood Gas Interpretation.</p>
+</div></article><article class="card" id="resp-venous-capillary-and-targets-by-ga"><h2>Venous, capillary, and targets by GA</h2><div class="cb">
+<table><thead><tr><th></th><th>pH</th><th>PCO₂</th><th>PO₂</th></tr></thead><tbody>
+<tr><td><b>Venous</b></td><td>7.25–7.30</td><td>45–50</td><td>30–45 (about half of arterial)</td></tr>
+<tr><td><b>Capillary</b></td><td>7.30–7.35</td><td>40–45</td><td>40–60</td></tr>
+</tbody></table>
+<p class="small">Capillary gases run a lower pH and higher PCO₂ than arterial.</p>
+<h3>Acceptable arterial values by GA</h3>
+<table><thead><tr><th></th><th>&lt;28 wk</th><th>28–40 wk</th></tr></thead><tbody>
+<tr><td><b>pH</b></td><td>&gt;7.28</td><td>&gt;7.30</td></tr>
+<tr><td><b>PCO₂</b></td><td>40–50</td><td>40–50</td></tr>
+<tr><td><b>PO₂</b></td><td>50–65</td><td>50–70</td></tr>
+</tbody></table>
+<p class="src">Source: NNP Brain (program reference).</p>
+</div></article><article class="card" id="resp-o-saturation-targets"><h2>O₂ saturation targets</h2><div class="cb">
+<table><tbody>
+<tr><td><b>Preterm on oxygen</b></td><td><b>90–95%</b></td></tr>
+<tr><td><b>Upper alarm</b></td><td>About 95% while on supplemental oxygen</td></tr>
+<tr><td><b>With pulmonary hypertension</b></td><td>92–95% (expert recommendation)</td></tr>
+</tbody></table>
+<p>Targets of 85–89% raised mortality in the large trials (NeOProM, about 5,000 extremely preterm infants), so they're too low. Higher saturations raise ROP and BPD risk. The ideal range for extremely low birth weight infants is still unknown.</p>
+<p class="small">European guidelines use 90–94% with alarms at 89 and 95%. Delivery room targets are on the SpO₂ card in Resus.</p>
+<p class="src">Sources: AAP Clinical Report, Oxygen Targeting in Extremely Low Birth Weight Infants (Cummings and Polin, Pediatrics 2016; reaffirmed 2023); European Consensus Guidelines on RDS; review, Oxygen Saturation Targeting in the NICU (PMC12155839).</p>
 </div></article><article class="card" id="resp-what-moves-what"><h2>What moves what</h2><div class="cb">
 <table><thead><tr><th>If this happens</th><th>Then</th></tr></thead><tbody>
 <tr><td><b>CO₂ goes up</b> (hypoventilation, apnea, under-ventilation)</td><td>pH goes down: respiratory acidosis</td></tr>
@@ -636,7 +741,9 @@ body.searching .tabs{display:none}
 </tbody></table>
 <p class="small">Bicarb also: don't run it with catecholamines in the same line (it inactivates them), and it can lower potassium.</p>
 <p class="src">Sources: NNP course lectures, Blood Gas Interpretation and Module 2 Respiratory; Canterbury DHB and NSW ANMF neonatal sodium bicarbonate guidelines; sodium bicarbonate 8.4% product information; Loyola neonatal ventilation supplement.</p>
-</div></article><article class="card" id="resp-choosing-a-vent-mode"><h2>Choosing a vent mode</h2><div class="cb">
+<div class="bcmbox"><p class="atlas-h"><span class="tag bcm">Baylor</span> Baylor practice</p>
+<p class="formula">ΔpH = ΔPCO₂ × 0.008</p>
+<p>So each 10 mmHg rise in PCO₂ drops the pH about 0.08. Moderate hypercarbia (PCO₂ about 60) is acceptable; correct <b>hypocarbia below 35</b> promptly, since it can mean overdistended lungs and it lowers cerebral blood flow.</p><p class="src">Baylor Guidelines for Acute Care of the Neonate, Ed. 34, Ch. 16, Table 16-4.</p></div></div></article><article class="card" id="resp-choosing-a-vent-mode"><h2>Choosing a vent mode</h2><div class="cb">
 <table><tbody>
 <tr><td><b>AC</b></td><td>Every breath fully supported. No or poor spontaneous effort: respiratory failure, apnea, extreme prematurity. Risks hyperventilation and dependency.</td></tr>
 <tr><td><b>SIMV</b></td><td>Set breaths synced to effort, spontaneous breaths between. Weaning, low support, backup during heavy sedation (PPHN, cooling). Spontaneous volumes vary.</td></tr>
@@ -657,7 +764,13 @@ body.searching .tabs{display:none}
 <p class="formula">Recruit the collapsed or flooded lung, give the obstructed lung time to exhale, minimize pressure where air is leaking.</p>
 <p>Choose by disease, compliance, barotrauma vs volutrauma risk, spontaneous effort, and sedation needs.</p>
 <p class="src">Source: NNP course lecture, Module 2 Respiratory.</p>
-</div></article><article class="card" id="resp-what-to-change-on-the-vent"><h2>What to change on the vent</h2><div class="cb">
+<div class="bcmbox"><p class="atlas-h"><span class="tag bcm">Baylor</span> Baylor practice</p>
+<p>Primary mode for babies ≤32 weeks PCA: <b>pressure-control A/C with volume guarantee</b>.</p>
+<table><thead><tr><th>NIPPV start</th><th>Primary</th><th>After extubation</th></tr></thead><tbody>
+<tr><td><b>PIP</b></td><td>20–22</td><td>2 above the ventilator PIP</td></tr>
+<tr><td><b>PEEP</b></td><td>5–6</td><td>Same as on the ventilator</td></tr>
+<tr><td><b>Rate / Ti</b></td><td>20 / 0.5 s</td><td>20 / 0.5 s</td></tr>
+</tbody></table><p class="src">Baylor Guidelines for Acute Care of the Neonate, Ed. 34, Ch. 16, Table 16-1.</p></div></div></article><article class="card" id="resp-what-to-change-on-the-vent"><h2>What to change on the vent</h2><div class="cb">
 <h3>Conventional</h3>
 <table><thead><tr><th>Problem</th><th>Change</th></tr></thead><tbody>
 <tr><td><b>CO₂ high</b></td><td>Rate up 5–10 at a time; PIP up 2 at a time for chest rise and tidal volume; lower PEEP if the lungs are over-expanded</td></tr>
@@ -686,7 +799,18 @@ body.searching .tabs{display:none}
 <p class="formula">Oxygenation index = MAP × FiO₂ × 100 ÷ PaO₂</p>
 <p class="small">An OI over 40 for more than 2 hours, or in 3 of 5 serial gases, has been associated with about 80% mortality.</p>
 <p class="src">Sources: Loyola neonatal ventilation supplement; SPA oscillator review; UNC NCCC high-frequency ventilation guidelines (mombaby.org); UW Madison NICU jet guideline (2026); NHS GGC HFOV guideline; program NNP Brain reference.</p>
-</div></article><article class="card" id="resp-example-vent-setups"><h2>Example vent setups</h2><div class="cb">
+<div class="bcmbox"><p class="atlas-h"><span class="tag bcm">Baylor</span> Baylor practice</p>
+<h3>Volume guarantee setup</h3>
+<p>Target Vt <b>4.5–5.0 mL/kg under 1000 g; 4.0–4.5 mL/kg over 1000 g</b> (range 4–6), changed in 0.5 mL/kg steps. Pmax 25–28 to start, then 3–5 above the working PIP. PEEP ≥5. Ti 0.3 s. Backup rate 30. Flow 6–8 L/min.</p>
+<p><b>Weaning on VG:</b> PIP weans itself; you wean FiO₂ and the target Vt. Don't go to 4 mL/kg or below; consider extubation instead.</p>
+<h3>Ready to extubate</h3>
+<table><tbody>
+<tr><td><b>AC-VG or SIMV-VG</b></td><td>Vt 4–5 mL/kg with PIP &lt;25</td></tr>
+<tr><td><b>SIMV-PC or AC-PC</b></td><td>PIP 20</td></tr>
+<tr><td><b>All modes</b></td><td>MAP 8–10, PEEP 5–6, FiO₂ ≤30%; breathing above a backup rate of 30 (A/C) or rate 20–25 (SIMV)</td></tr>
+</tbody></table>
+<h3>Jet (Bunnell) starting settings</h3>
+<p>Jet rate 360–420, Ti 0.02 s, PIP 20–25, PEEP 5–12 (from the conventional MAP). Conventional breaths: rate 0–5, Ti 0.4–0.6, PIP half the jet PIP or 5–8 above PEEP. Back to conventional once any air leak has resolved, ΔP is under 30, and gases are stable.</p><p class="src">Baylor Guidelines for Acute Care of the Neonate, Ed. 34, Ch. 16, Tables 16-5 and 16-8.</p></div></div></article><article class="card" id="resp-example-vent-setups"><h2>Example vent setups</h2><div class="cb">
 <table><tbody>
 <tr><td><b>28-wk RDS, 1100 g</b><br><span class="small">Failing CPAP +6, FiO₂ 50%, gas 7.28/68</span></td><td>Intubate, Curosurf 2.5 mL/kg, AC pressure control: PIP 18–22, PEEP 5–6, rate 40, SpO₂ 90–94%. Targets pH 7.3–7.45, PaCO₂ 40–50, PaO₂ 50–70.</td></tr>
 <tr><td><b>Term post-CDH repair</b><br><span class="small">Breathing, needs support</span></td><td>SIMV with pressure support and volume guarantee: PIP 18–20, PEEP 5–6, backup rate 20–25, SpO₂ 91–94%.</td></tr>
@@ -706,8 +830,23 @@ body.searching .tabs{display:none}
 <tr><td><b>Sildenafil</b></td><td>PDE5 inhibitor, complements iNO; titrate up for systemic effects</td></tr>
 </tbody></table>
 <p class="src">Source: NNP course lecture, Module 2 Respiratory.</p>
+<div class="bcmbox"><p class="atlas-h"><span class="tag bcm">Baylor</span> Baylor practice</p>
+<p><b>Curosurf:</b> 2.5 mL/kg, then up to two more doses of 1.25 mL/kg at 12-hour intervals.</p>
+<p><b>Caffeine:</b> started routinely in all babies &lt;1250 g to prevent BPD. Over 28 weeks and off positive pressure, you can wait for apnea.</p>
+<p><b>iNO:</b> start 20 ppm after optimal lung recruitment; rule out congenital heart disease (an empiric trial while awaiting echo is reasonable). Response = PaO₂ up ≥10 mmHg or SpO₂ up ≥5% at 30 min. Wean carefully below 5 ppm; step from 1 to 0.5 ppm before stopping if needed. FiO₂ may need to rise up to 15% after it's off.</p><p class="src">Baylor Guidelines for Acute Care of the Neonate, Ed. 34, Ch. 16 and 3.</p></div></div></article><article class="card" id="resp-apnea-of-prematurity"><h2>Apnea of prematurity</h2><div class="cb">
+<p><b>Apnea:</b> no breathing for ≥20 seconds, or a shorter pause with bradycardia (&lt;100), cyanosis, or pallor. Most events in preterm infants are mixed (central plus obstructive).</p>
+<p><b>Periodic breathing:</b> cycles of breathing 10–18 seconds long broken by pauses of at least 3 seconds, repeating for at least 2 minutes. Normal.</p>
+<h3>Caffeine citrate</h3>
+<p>Load 20 mg/kg, then 5 mg/kg once daily; up to 10 mg/kg/day if apnea continues. Routine levels aren't needed.</p>
+<p><b>Trial off</b> after 5–7 days free of significant apnea off positive pressure, or at 33–34 weeks PMA, whichever comes first. Keep cardiorespiratory monitoring for 7 days after stopping (caffeine's half-life is 50–100 hours).</p>
+<h3>Getting ready for discharge</h3>
+<p>Most preterm infants are stable by 36–37 weeks PMA, and about 80% are free of apnea and bradycardia by the time they're otherwise ready. Very preterm or complicated infants can take until 43–44 weeks.</p>
+<p><b>Don't need to delay discharge:</b> brief, isolated bradycardias that resolve on their own; feeding-related events that resolve when the feed is paused.</p>
+<p>Home apnea monitors are rarely indicated: they don't prevent SIDS and shouldn't be used to send home an infant whose breathing control isn't stable. There's no evidence that reflux causes apnea, and reflux medicines aren't recommended for it.</p>
+<p class="small">Apnea can briefly increase after surgery, eye exams, and 2-month vaccines in very preterm infants.</p>
+<p class="src">Source: Baylor College of Medicine, Guidelines for Acute Care of the Neonate, Ed. 34 (2026–2027), Ch. 16.1 (citing AAP Committee on Fetus and Newborn, 2016).</p>
 </div></article></section>
-<section class="sec fen" data-sec="fen" hidden><nav class="jump" aria-label="FEN + Labs topics"><a href="#fen-fluids">Fluids</a><a href="#fen-gir">GIR</a><a href="#fen-calories">Calories</a><a href="#fen-tpn-start-and-advance">TPN: start and advance</a><a href="#fen-tpn-additives-and-lines">TPN: additives and lines</a><a href="#fen-tpn-monitoring-and-problems">TPN: monitoring and problems</a><a href="#fen-electrolytes">Electrolytes</a><a href="#fen-lab-normals">Lab normals</a><a href="#fen-formula-options">Formula options</a><a href="#fen-corrections-and-weight">Corrections and weight</a><a href="#fen-cbc-and-sepsis">CBC and sepsis</a><a href="#fen-chorio-and-early-onset-sepsis">Chorio and early-onset sepsis</a><a href="#fen-bilirubin-35-weeks-and-up">Bilirubin, 35 weeks and up</a><a href="#fen-bilirubin-under-35-weeks">Bilirubin, under 35 weeks</a></nav><article class="card" id="fen-fluids"><h2>Fluids</h2><div class="cb">
+<section class="sec fen" data-sec="fen" hidden><nav class="jump" aria-label="FEN + Labs topics"><a href="#fen-fluids">Fluids</a><a href="#fen-hydration-and-output">Hydration and output</a><a href="#fen-iv-fluid-contents">IV fluid contents</a><a href="#fen-gir">GIR</a><a href="#fen-hypoglycemia-first-24-hours">Hypoglycemia (first 24 hours)</a><a href="#fen-hyperglycemia">Hyperglycemia</a><a href="#fen-calories">Calories</a><a href="#fen-enteral-feeding-preterm">Enteral feeding (preterm)</a><a href="#fen-vitamins-and-iron">Vitamins and iron</a><a href="#fen-bpd-nutrition">BPD nutrition</a><a href="#fen-tpn-start-and-advance">TPN: start and advance</a><a href="#fen-tpn-additives-and-lines">TPN: additives and lines</a><a href="#fen-tpn-monitoring-and-problems">TPN: monitoring and problems</a><a href="#fen-electrolytes">Electrolytes</a><a href="#fen-sodium-problems">Sodium problems</a><a href="#fen-potassium-problems">Potassium problems</a><a href="#fen-calcium-problems">Calcium problems</a><a href="#fen-magnesium">Magnesium</a><a href="#fen-anion-gap">Anion gap</a><a href="#fen-diuretic-effects">Diuretic effects</a><a href="#fen-lab-normals">Lab normals</a><a href="#fen-hematology-normals">Hematology normals</a><a href="#fen-csf-normals">CSF normals</a><a href="#fen-formula-options">Formula options</a><a href="#fen-corrections-and-weight">Corrections and weight</a><a href="#fen-cbc-and-sepsis">CBC and sepsis</a><a href="#fen-chorio-and-early-onset-sepsis">Chorio and early-onset sepsis</a><a href="#fen-bilirubin-35-weeks-and-up">Bilirubin, 35 weeks and up</a><a href="#fen-bilirubin-under-35-weeks">Bilirubin, under 35 weeks</a></nav><article class="card" id="fen-fluids"><h2>Fluids</h2><div class="cb">
 <table><tbody>
 <tr><td><b>Term</b></td><td>60–80 mL/kg/d, increasing to 120–150</td></tr>
 <tr><td><b>Preterm</b></td><td>80–100 mL/kg/d, increasing to 150–200</td></tr>
@@ -725,6 +864,30 @@ body.searching .tabs{display:none}
 </tbody></table>
 <p class="formula">mL/hr = mL/kg/day × kg ÷ 24</p>
 <p class="src">Source: NNP course lectures (Intro to Neonatal FEN; Neonatal TPN).</p>
+<div class="bcmbox"><p class="atlas-h"><span class="tag bcm">Baylor</span> Baylor practice</p>
+<p>Start IV fluid as D10 at <b>65–80 mL/kg/day</b> (GIR about 4.5–5.5). Infants born at 22–23 weeks: total fluids 120–140 mL/kg/day to start.</p><p class="src">Baylor Guidelines for Acute Care of the Neonate, Ed. 34, Ch. 14 and 2.</p></div></div></article><article class="card" id="fen-hydration-and-output"><h2>Hydration and output</h2><div class="cb">
+<h3>Urine output</h3>
+<p class="formula">mL of urine ÷ kg ÷ hours = mL/kg/hr</p>
+<p>About 1 mL/kg/hr on day 1, 2–4 mL/kg/hr by day 3 (can reach 5–7). After the first few days, keep output above 0.5 mL/kg/hr with a specific gravity of 1.012–1.016. In the first week, urine output and specific gravity aren't reliable hydration markers.</p>
+<p>Normal urine specific gravity 1.003–1.015, pH 4.5–5.2. No void by 48 hours: suspect renal pathology; by 72 hours it's very likely.</p>
+<p class="formula">Intake: mL infused per 24 h ÷ kg = mL/kg/day</p>
+<h3>Stool</h3>
+<p>About 95% of healthy term infants pass stool within 24 hours. Meconium for 2–3 days, then transitional, then normal stool by day 7. Preterm infants pass stool later, more so the more premature; extremely preterm infants may pass little in the first week.</p>
+<h3>Monitoring early on</h3>
+<p>Electrolytes every 6–8 hours in the first days. Daily weights, strict intake and output, urine specific gravity, and dipstick each shift.</p>
+<h3>Osmolarity limits</h3>
+<p>Peripheral IV under 900 mOsm/L. Deep line under 1000. Central line, no limit. (Blood is about 300.)</p>
+<p class="src">Source: NNP Brain (program reference).</p>
+</div></article><article class="card" id="fen-iv-fluid-contents"><h2>IV fluid contents</h2><div class="cb">
+<table><thead><tr><th>Fluid</th><th>Sodium</th><th>Notes</th></tr></thead><tbody>
+<tr><td><b>NS (0.9%)</b></td><td>154 mEq/L (0.154 mEq/mL)</td><td>Cl 154; 308 mOsm/L</td></tr>
+<tr><td><b>½ NS</b></td><td>77 mEq/L (0.077 mEq/mL)</td><td></td></tr>
+<tr><td><b>¼ NS</b></td><td>38.5 mEq/L (0.0385 mEq/mL)</td><td></td></tr>
+<tr><td><b>½ Na acetate</b></td><td>77 mEq/L</td><td>Acetate instead of chloride; use when acidotic</td></tr>
+<tr><td><b>D5 LR</b></td><td>130 mEq/L</td><td>K 4, Ca 3, Cl 109, lactate 28; about 525 mOsm/L</td></tr>
+<tr><td><b>D10W</b></td><td>0</td><td>10 g dextrose per 100 mL; 505 mOsm/L</td></tr>
+</tbody></table>
+<p class="src">Source: NNP Brain (program reference).</p>
 </div></article><article class="card" id="fen-gir"><h2>GIR</h2><div class="cb">
 <h3>Formulas (mg/kg/min)</h3>
 <table><tbody>
@@ -739,7 +902,43 @@ body.searching .tabs{display:none}
 <h3>Maximum dextrose</h3>
 <p>12.5% through a peripheral line. 25% through a central line with the tip in the SVC.</p>
 <p class="src">Source: NNP course lectures (Intro to Neonatal FEN; Neonatal TPN); FEN formulas handout.</p>
-</div></article><article class="card" id="fen-calories"><h2>Calories</h2><div class="cb">
+<div class="bcmbox"><p class="atlas-h"><span class="tag bcm">Baylor</span> Baylor practice</p>
+<table><tbody>
+<tr><td><b>Starting PN</b></td><td>GIR 4–6; some ELBW infants tolerate only 3.5–4.5 the first days</td></tr>
+<tr><td><b>NPO newborn</b></td><td>IV dextrose at GIR 5–8; check glucose by 30–60 min of life (&lt;25 wk: start 4–6)</td></tr>
+<tr><td><b>Goal on full PN</b></td><td>GIR 10–12</td></tr>
+<tr><td><b>Max dextrose</b></td><td>12.5% peripheral; up to <b>30%</b> central</td></tr>
+</tbody></table><p class="src">Baylor Guidelines for Acute Care of the Neonate, Ed. 34, Ch. 4.4 and 14.</p></div></div></article><article class="card" id="fen-hypoglycemia-first-24-hours"><h2>Hypoglycemia (first 24 hours)</h2><div class="cb">
+<p><b>Screen:</b> late-preterm infants (34–36 6/7 wk), and term infants who are SGA, LGA, or infants of diabetic mothers. Feed within the first hour; check glucose 30 minutes after the first feed.</p>
+<table><thead><tr><th>Age</th><th>Glucose (mg/dL)</th><th>Do</th></tr></thead><tbody>
+<tr><td rowspan="3"><b>0–4 h</b></td><td>&lt;25</td><td>Feed, recheck in 1 hour</td></tr>
+<tr><td>Still &lt;25</td><td>IV glucose</td></tr>
+<tr><td>25–40</td><td>Refeed or IV glucose as needed</td></tr>
+<tr><td rowspan="3"><b>4–24 h</b></td><td>&lt;35 (screen before each feed)</td><td>Feed, recheck in 1 hour</td></tr>
+<tr><td>Still &lt;35</td><td>IV glucose</td></tr>
+<tr><td>35–45</td><td>Refeed or IV glucose as needed</td></tr>
+</tbody></table>
+<p class="formula">Target ≥45 before routine feeds</p>
+<p><b>Symptomatic and &lt;40: IV glucose right away.</b></p>
+<p><b>IV glucose:</b> minibolus 200 mg/kg (D10 at 2 mL/kg) and/or an infusion at GIR 5–8 mg/kg/min (80–100 mL/kg/day). Aim for 40–50 in symptomatic infants.</p>
+<p><b>How long to screen:</b> IDM and LGA infants for 12 hours if glucose stays above 40; SGA and late-preterm infants for 24 hours. Keep screening before feeds if it stays below 45 after 24 hours.</p>
+<p class="small">These cutoffs cover the first 24 hours. The Pediatric Endocrine Society uses higher targets (above 50 mg/dL) for persistent hypoglycemia beyond 48 hours. Avoid giving glucose boluses through a UAC (arterial spasm, gut injury).</p>
+<p class="src">Sources: AAP Clinical Report, Postnatal Glucose Homeostasis in Late-Preterm and Term Infants (Adamkin, Pediatrics 2011); NNP Brain (UAC caution).</p>
+<div class="bcmbox"><p class="atlas-h"><span class="tag bcm">Baylor</span> Baylor practice</p>
+<p>The first-24-hour algorithm is the same AAP 2011 one. If below target and unable to feed: D10 2 mL/kg IV, then raise the GIR by 10–20%.</p>
+<p><b>Persistent hypoglycemia</b> (needing glucose beyond 48–72 hours): goal ≥60 mg/dL; ≥70 if a genetic hypoglycemia disorder is suspected or confirmed. Call endocrinology if the GIR is over 10 and can't be weaned.</p><p class="src">Baylor Guidelines for Acute Care of the Neonate, Ed. 34, Ch. 4.4–4.5.</p></div></div></article><article class="card" id="fen-hyperglycemia"><h2>Hyperglycemia</h2><div class="cb">
+<p><b>Definition:</b> serum glucose &gt;150 mg/dL (whole blood &gt;125). Persistent levels over 200 in VLBW infants need a careful look.</p>
+<p><b>Causes:</b> too much glucose, prematurity, stress hormones, sepsis, TPN, delayed feeds, steroids and other medications. Glucosuria of 1+ or more means the renal threshold is passed: risk of osmotic diuresis, dehydration, and electrolyte losses.</p>
+<h3>Treat</h3>
+<ol>
+<li><b>Lower the GIR</b> (dextrose % or rate) by 1–2 mg/kg/min about every 2 hours, checking glucose often, down to <b>4 mg/kg/min</b>.</li>
+<li><b>Insulin</b> if glucose stays above 250 with urine glucose 2+ or more on two samples 4 hours apart despite the GIR cut: infusion starting 0.01–0.05 units/kg/hr, titrated by 0.01, max 0.1. Target 100–150. Halve it at 180 and stop it below 150.</li>
+</ol>
+<p class="small">Insulin boluses carry a high hypoglycemia risk and are generally avoided. Check glucose often on insulin; responses are unpredictable.</p>
+<p class="src">Sources: StatPearls, Neonatal Hyperglycemia (2025); Merck Manual, Neonatal Hyperglycemia; UNC NCCC Hyperglycemia and Insulin guideline (2026).</p>
+<div class="bcmbox"><p class="atlas-h"><span class="tag bcm">Baylor</span> Baylor practice</p>
+<p>Glucose persistently &gt;150: lower the GIR by 1–2, but <b>not below 3.5</b>, and don't use dextrose below 5% (too hypo-osmolar).</p>
+<p><b>Insulin</b> if glucose stays <b>&gt;180</b> on a low GIR, aiming to keep it under 180: an optional bolus of 0.05–0.1 units/kg over 15 min, then an infusion. Insulin is linked to lower mortality in extremely preterm infants but carries more hypoglycemia risk.</p><p class="src">Baylor Guidelines for Acute Care of the Neonate, Ed. 34, Ch. 4.6.</p></div></div></article><article class="card" id="fen-calories"><h2>Calories</h2><div class="cb">
 <h3>kcal per gram</h3>
 <table><tbody>
 <tr><td><b>Glucose</b></td><td>3.4</td></tr>
@@ -753,14 +952,53 @@ body.searching .tabs{display:none}
 <h3>Other pieces</h3>
 <p>Dextrose kcal/mL = %D × 0.034 (D10 = 0.34)<br>Lipid g/kg/day = mL/hr × 24 × 0.2 ÷ kg<br>Protein g/day = %AA × TPN mL/day ÷ 100</p>
 <h3>Goals</h3>
-<p>Preterm 110–130 kcal/kg/day. Term 100–120 kcal/kg/day. Weight gain 15–20 g/kg/day to match intrauterine growth.</p>
+<p>Preterm on full enteral feeds: 115–140 kcal/kg/day (up to 160 only for poor growth). Preterm on TPN alone: about 90–120. Term: 100–120. Weight gain 15–20 g/kg/day to match intrauterine growth.</p>
 <h3>Feeds: kcal/mL = kcal/oz ÷ 30</h3>
 <table class="num"><thead><tr><th>kcal/oz</th><th>kcal/mL</th></tr></thead><tbody>
 <tr><td>20</td><td>0.67</td></tr><tr><td>22</td><td>0.73</td></tr><tr><td>24</td><td>0.8</td></tr>
 <tr><td>26</td><td>0.87</td></tr><tr><td>28</td><td>0.93</td></tr><tr><td>30</td><td>1.0</td></tr>
 </tbody></table>
 <p class="small">Also: MCT oil 8 kcal/mL, Polycose 2 kcal/mL, Trophamine 0.4 kcal/mL (Horn's Rule).</p>
-<p class="src">Source: NNP course lectures (Intro to Neonatal FEN; Neonatal TPN); Horn's Rule caloric density table.</p>
+<p class="src">Sources: NNP course lectures (Intro to Neonatal FEN; Neonatal TPN); ESPGHAN 2022 enteral nutrition position paper and Clinical Nutrition ESPEN, Principles of feeding the preterm infant (preterm goals); Horn's Rule caloric density table.</p>
+<div class="bcmbox"><p class="atlas-h"><span class="tag bcm">Baylor</span> Baylor practice</p>
+<p>Enteral energy of <b>110–130 kcal/kg/day</b> meets term and preterm needs. PN energy goal 90–100 kcal/kg/day. Growth goal: 15–20 g/kg/day under 2 kg; 20–30 g/day at 2 kg or more.</p><p class="src">Baylor Guidelines for Acute Care of the Neonate, Ed. 34, Ch. 14.</p></div></div></article><article class="card" id="fen-enteral-feeding-preterm"><h2>Enteral feeding (preterm)</h2><div class="cb">
+<h3>Daily goals once on full feeds</h3>
+<table><tbody>
+<tr><td><b>Fluid</b></td><td>150–180 mL/kg/day (135–200 can be appropriate)</td></tr>
+<tr><td><b>Energy</b></td><td>115–140 kcal/kg/day; go higher (max 160) only for poor growth after protein is adequate</td></tr>
+<tr><td><b>Protein</b></td><td>3.5–4.0 g/kg/day; up to 4.5 if growth is slow</td></tr>
+<tr><td><b>Sodium</b></td><td>3–5 mmol/kg/day; up to 8 with high intakes or big losses</td></tr>
+</tbody></table>
+<p>Human milk is the preferred feed for preterm infants. Unfortified human milk at 150–180 mL/kg/day won't meet protein needs, so <b>start fortifier once feeds reach 40–100 mL/kg/day</b>.</p>
+<h3>Advancing</h3>
+<p>In stable preterm infants, increase by <b>18–30 mL/kg/day</b>. After day 4, advancing at 30 mL/kg/day didn't raise NEC or death compared with 15–20 (SIFT, about 2,800 infants) and reached full feeds sooner.</p>
+<h3>Warning signs</h3>
+<p>Abdominal distension or discoloration, visible loops, bilious or bloody aspirates or vomiting, blood in the stool, and new apnea and bradycardia with a distended abdomen.</p>
+<p class="small">Gastric residuals are often used to judge tolerance, but there's little high-quality evidence linking them to NEC.</p>
+<p class="src">Sources: ESPGHAN position paper, Enteral Nutrition in Preterm Infants (2022; JPGN 2023); SIFT (Dorling et al., NEJM 2019); NHS GGC enteral feeding guideline (sodium); NNP Brain (warning signs).</p>
+<div class="bcmbox"><p class="atlas-h"><span class="tag bcm">Baylor</span> Baylor practice</p>
+<p>Start feeds within 6–12 hours if stable (ELBW: consider day 1). ≤1250 g: trophic feeds at <b>20 mL/kg/day</b>, not counted in total fluids, for 3 days (751–1250 g) or 3–5 days (≤750 g).</p>
+<table><thead><tr><th>Birth weight</th><th>Start</th><th>Advance</th></tr></thead><tbody>
+<tr><td>≤1250 g</td><td>20 mL/kg/day</td><td>20/day after the trophic days</td></tr>
+<tr><td>1251–1500 g</td><td>20</td><td>30/day after 24–48 h</td></tr>
+<tr><td>1501–2000 g</td><td>20</td><td>30–40/day after 24–48 h</td></tr>
+<tr><td>2001–2500 g</td><td>25–30</td><td>30–40/day</td></tr>
+<tr><td>Stable &gt;2500 g</td><td>50, or ad lib with a minimum</td><td>30–40/day</td></tr>
+<tr><td>Cardiac</td><td>20</td><td>20/day, often longer</td></tr>
+</tbody></table>
+<p><b>Fortify</b> after 1 day at 80 mL/kg/day (to 24 kcal/oz). Donor-milk-based fortifier (Prolacta) for ≤1250 g. Full feeds: about 160 mL/kg/day fortified human milk, 150 high-protein preterm formula, or 160–170 transitional formula; at ≥34 weeks, 180–200 of unfortified milk or term formula.</p><p class="src">Baylor Guidelines for Acute Care of the Neonate, Ed. 34, Ch. 14, Table 14-8a.</p></div></div></article><article class="card" id="fen-vitamins-and-iron"><h2>Vitamins and iron</h2><div class="cb">
+<table><tbody>
+<tr><td><b>Vitamin K</b></td><td>0.5–1 mg IM at birth. Prevents vitamin K deficiency bleeding (GI, cord, circumcision, or venipuncture sites), which is more likely if prophylaxis was missed or the mother took warfarin or phenytoin.</td></tr>
+<tr><td><b>Iron</b></td><td>Preterm infants: at least <b>2 mg/kg/day</b>, starting after 2 weeks and by 1 month of age, through 12 months or until iron-fortified formula or foods cover it. Can go up to 6 mg/kg/day for a while depending on iron levels. This doesn't apply to infants iron-loaded from multiple transfusions; check their iron status. Iron-fortified preterm formula already supplies it.</td></tr>
+<tr><td><b>Vitamin D</b></td><td>VLBW infants: 200–400 IU/day. All infants, breastfed or formula-fed: 400 IU/day.</td></tr>
+</tbody></table>
+<p class="src">Sources: AAP iron recommendations (Baker and Greer, Pediatrics 2010) and AAP First 1,000 Days, Well Care for Formerly Preterm Infants; AAP vitamin D recommendations; NNP Brain (vitamin K).</p>
+<div class="bcmbox"><p class="atlas-h"><span class="tag bcm">Baylor</span> Baylor practice</p>
+<p><b>Iron</b> 2–3 mg/kg/day for infants on fortified human milk (Prolacta, or Similac HMF under 2 kg), starting at <b>14 days</b> of age or later.</p>
+<p><b>Vitamin D</b> 200 IU/day for &lt;2 kg on EBM + Similac HMF, or &lt;1.5 kg on EBM + Enfamil HMF. Infants on Prolacta: 1 mL/day multivitamin. Term breastfed infants: 400 IU/day.</p><p class="src">Baylor Guidelines for Acute Care of the Neonate, Ed. 34, Ch. 14.</p></div></div></article><article class="card" id="fen-bpd-nutrition"><h2>BPD nutrition</h2><div class="cb">
+<p>Adequate nutrition inside a restricted fluid volume: <b>130–150 kcal/kg/day</b>.</p>
+<p>Keep serum sodium above 125. Check electrolytes once or twice a week. On diuretics, watch bone mineralization (x-rays, alkaline phosphatase) and get periodic renal ultrasounds for nephrocalcinosis.</p>
+<p class="src">Source: NNP Brain (program reference).</p>
 </div></article><article class="card" id="fen-tpn-start-and-advance"><h2>TPN: start and advance</h2><div class="cb">
 <h3>When</h3>
 <p>Preterm &lt;32 wk, VLBW and ELBW, GI anomalies or surgery, and NPO longer than 3–5 days.</p>
@@ -774,7 +1012,22 @@ body.searching .tabs{display:none}
 <h3>Each day</h3>
 <p>Increase AA and lipids, adjust dextrose for GIR and glucose, and adjust electrolytes to fluid status.</p>
 <p class="src">Source: NNP course lectures (Intro to Neonatal FEN; Neonatal TPN).</p>
-</div></article><article class="card" id="fen-tpn-additives-and-lines"><h2>TPN: additives and lines</h2><div class="cb">
+<div class="bcmbox"><p class="atlas-h"><span class="tag bcm">Baylor</span> Baylor practice</p>
+<table><thead><tr><th></th><th>Start</th><th>Goal</th></tr></thead><tbody>
+<tr><td><b>Protein</b></td><td>2–3 g/kg</td><td>3.5–4 preterm; 2–3 term</td></tr>
+<tr><td><b>Lipid</b></td><td>0.5–2 g/kg (by weight, below)</td><td>3 g/kg</td></tr>
+<tr><td><b>Glucose</b></td><td>GIR 4–6</td><td>GIR 10–12</td></tr>
+<tr><td><b>Ca and Phos</b></td><td>1–1.2 mmol/kg</td><td>1.5–2 mmol/kg</td></tr>
+<tr><td><b>Na and K</b></td><td>0</td><td>2–4 mEq/kg</td></tr>
+<tr><td><b>Energy (PN)</b></td><td>42–57 kcal/kg</td><td>90–100 kcal/kg</td></tr>
+</tbody></table>
+<h3>Lipid start by birth weight</h3>
+<table><tbody>
+<tr><td><b>≤750 g</b></td><td>0.5–1 g/kg/day, advance 1 g/kg/day</td></tr>
+<tr><td><b>751–1000 g, or SGA, IUGR, postnatal steroids, sepsis</b></td><td>1 g/kg/day, advance 1 g/kg/day</td></tr>
+<tr><td><b>AGA &gt;1000 g</b></td><td>2 g/kg/day, advance 1 g/kg/day</td></tr>
+</tbody></table>
+<p>Advance lipids only if triglycerides are <b>&lt;250</b>; check TG 12 hours after starting and with each advance. PN at 130 mL/kg/day meets most needs.</p><p class="src">Baylor Guidelines for Acute Care of the Neonate, Ed. 34, Ch. 14, Tables 14-1 and 14-5.</p></div></div></article><article class="card" id="fen-tpn-additives-and-lines"><h2>TPN: additives and lines</h2><div class="cb">
 <table><tbody>
 <tr><td><b>MVI</b></td><td>2 mL/kg/d, up to 5 mL/d. May not meet vitamin A needs.</td></tr>
 <tr><td><b>Trace elements</b></td><td>Zinc, copper, chromium, manganese from day 1. Reduce or remove selenium and chromium with poor renal output.</td></tr>
@@ -786,7 +1039,8 @@ body.searching .tabs{display:none}
 <p>Central line preferred for long-term TPN. Peripheral TPN must stay under 900 mOsm/L (dextrose 12.5% max). Use a dedicated TPN line when possible; protect vitamins from light.</p>
 <p>Aluminum in PN solutions can build up in preterm infants (anemia, neurotoxicity, bone disease).</p>
 <p class="src">Source: NNP course lectures (Intro to Neonatal FEN; Neonatal TPN).</p>
-</div></article><article class="card" id="fen-tpn-monitoring-and-problems"><h2>TPN: monitoring and problems</h2><div class="cb">
+<div class="bcmbox"><p class="atlas-h"><span class="tag bcm">Baylor</span> Baylor practice</p>
+<p>Cysteine at <b>30–40 mg per g</b> of amino acids.</p><p class="src">Baylor Guidelines for Acute Care of the Neonate, Ed. 34, Ch. 14.</p></div></div></article><article class="card" id="fen-tpn-monitoring-and-problems"><h2>TPN: monitoring and problems</h2><div class="cb">
 <table><tbody>
 <tr><td><b>Daily</b></td><td>Glucose, BUN, creatinine; Na, K, Cl, Ca, Mg, Phos; triglycerides</td></tr>
 <tr><td><b>Weekly</b></td><td>AST, ALT, direct bilirubin; prealbumin; trace elements and vitamins if prolonged</td></tr>
@@ -810,6 +1064,77 @@ body.searching .tabs{display:none}
 <h3>Electrolytes delivered by the fluid</h3>
 <p>mEq/kg/d = mEq per 100 mL × (total mL/d ÷ 100) ÷ kg</p>
 <p class="src">Source: NNP course lectures (Intro to Neonatal FEN; Neonatal TPN).</p>
+<div class="bcmbox"><p class="atlas-h"><span class="tag bcm">Baylor</span> Baylor practice</p>
+<p>Sodium and potassium start at 0 in early PN; goal <b>2–4 mEq/kg/day each</b>.</p><p class="src">Baylor Guidelines for Acute Care of the Neonate, Ed. 34, Ch. 14, Table 14-1.</p></div></div></article><article class="card" id="fen-sodium-problems"><h2>Sodium problems</h2><div class="cb">
+<table><tbody>
+<tr><td><b>Hypernatremia</b></td><td>Na &gt;150 (osmolality &gt;300)</td></tr>
+<tr><td><b>Hyponatremia</b></td><td>Na &lt;130. Below 120, seizures are common: an emergency.</td></tr>
+<tr><td><b>Goal</b></td><td>Keep Na 132–145.</td></tr>
+</tbody></table>
+<p>Low Na in the first few days is usually dilutional (excess free water). High Na is usually dehydration from insensible water loss or osmotic diuresis, or too much sodium, unless there's renal failure. A rise of 10 mEq/L in 24 hours points to dehydration or sodium overload.</p>
+<p><b>High Na from water loss:</b> raise water 10–20 mL/kg/day. Once Na normalizes (3–5 days), add sodium, titrating 1–2 mEq/kg/day of NaCl, or Na acetate if acidotic.</p>
+<p>Electrolytes every 6–12 hours the first day until stable, then daily the first week, then every other day to weekly.</p>
+<p>Tachycardia is an early sign of dehydration; hypotension is late.</p>
+<p class="formula">Urine Na loss (mEq/kg/day) = urine Na (mEq/L) ÷ 1000 × urine output (mL/day) ÷ kg</p>
+<p class="src">Source: NNP Brain (program reference).</p>
+</div></article><article class="card" id="fen-potassium-problems"><h2>Potassium problems</h2><div class="cb">
+<h3>Hyperkalemia</h3>
+<p><b>K &gt;6 mmol/L in a non-hemolyzed sample.</b> Heel sticks hemolyze, so confirm with a venous or arterial sample, but never delay treatment in a symptomatic baby.</p>
+<p><b>Causes:</b> too much potassium (fluids, older transfused blood); shift out of cells (acidosis: each 0.1 drop in pH raises K about 0.3–1.3; hyperosmolality; tissue breakdown such as NEC, hemolysis, IVH); poor renal excretion (kidney injury, CAH). Tiny preterm infants get non-oliguric hyperkalemia from immature tubules.</p>
+<table><tbody>
+<tr><td><b>K 6–7</b></td><td>Stop all potassium. STAT 12-lead ECG. ECG changes: treat. No changes: watch and trend.</td></tr>
+<tr><td><b>K ≥7</b></td><td>Stop all potassium, STAT ECG, and treat even if the ECG is normal.</td></tr>
+</tbody></table>
+<p class="small">ECG progression: peaked T → flat P, longer PR → wide QRS → SVT/VT, bradycardia, VF.</p>
+<h3>Treat</h3>
+<table><tbody>
+<tr><td><b>Protect the heart</b></td><td>10% calcium gluconate 100 mg/kg IV over 10–30 min. Lasts 30–60 min; repeat as needed. Doesn't lower K.</td></tr>
+<tr><td><b>Shift K into cells</b></td><td>Insulin 0.05 units/kg with D10 2 mL/kg, then insulin 0.05–0.1 units/kg/hr with D10; watch glucose closely.<br>Albuterol neb 0.4 mg/kg once: fast, lasts about 2 hours; tachycardia.<br>Sodium bicarbonate 4.2% 1–2 mEq/kg over 30–60 min; give slowly if &lt;34 wk and &lt;3 days old (IVH risk). Not in the same line as calcium (it precipitates).</td></tr>
+<tr><td><b>Remove K</b></td><td>Furosemide 1 mg/kg IV. Rectal Kayexalate 1 g/kg is not recommended in preterm infants or with compromised bowel. Dialysis or exchange as a last resort.</td></tr>
+</tbody></table>
+<h3>Hypokalemia (K &lt;3.5)</h3>
+<p><b>Causes:</b> too little in fluids; losses (thiazides, amphotericin B, severe diarrhea); alkalosis (each 0.1 rise in pH lowers K about 0.3–1.3).</p>
+<p><b>Signs:</b> ileus, weakness, decreased reflexes. ECG: long QT, flat T, ST depression.</p>
+<p>In tiny preterm infants whose K started high, start potassium in the IV fluids as it falls toward 4 (usually days 3–6).</p>
+<p class="src">Sources: UNC NCCC Management of Hyperkalemia guideline (2019); CAHS WA Neonatology, Hyperkalaemia; NNP Brain (program reference).</p>
+</div></article><article class="card" id="fen-calcium-problems"><h2>Calcium problems</h2><div class="cb">
+<h3>Hypocalcemia</h3>
+<p>Total Ca &lt;8 mg/dL in term, &lt;7 in preterm infants (first 3 days); ionized Ca &lt;1.0 mmol/L. Ionized calcium is the biologically active form.</p>
+<p>Ca falls for 12–24 hours after birth, rises after 72 hours, and is normal by 5–10 days. Early hypocalcemia is common after asphyxia and in IDMs.</p>
+<p><b>Treat (Ca &lt;6 mg/dL):</b> 10% calcium gluconate 100–200 mg/kg/dose over 30 minutes (push only in an emergency). <b>Stop if HR drops below 100.</b> Maintenance during treatment up to 200–800 mg/kg/day. Correct low magnesium too.</p>
+<h3>Hypercalcemia (Ca &gt;11)</h3>
+<p><b>Causes:</b> neonatal hyperparathyroidism (primary, or from maternal hypoparathyroidism), phosphate depletion (low-phosphate human milk), abnormal vitamin D metabolism, too much calcium infusion.</p>
+<p><b>Signs:</b> hypotonia, weakness, irritability, poor feeding, hypertension, weight loss, vomiting, constipation, polyuria and dehydration, fat necrosis. ECG: short QT, arrhythmias.</p>
+<p><b>Manage:</b> furosemide (calciuretic), restrict calcium, add phosphate if needed, calcitonin to oppose PTH.</p>
+<p><b>Complications:</b> nephrocalcinosis, renal failure, RTA, metastatic calcification, hypertensive encephalopathy.</p>
+<p class="small">Hypercalciuria: spot urine Ca:creatinine &gt;0.21–0.25, or 24-hour urine Ca &gt;4 mg/kg.</p>
+<p class="src">Source: NNP Brain (program reference).</p>
+</div></article><article class="card" id="fen-magnesium"><h2>Magnesium</h2><div class="cb">
+<p>Normal 1.5–2.8 mg/dL. Levels at birth track gestational age (lower when less mature).</p>
+<p><b>Low Mg (&lt;1.5) with low Ca:</b> correct the magnesium; the calcium won't normalize until you do.</p>
+<p><b>High Mg</b> (often after prolonged maternal MgSO₄; levels around 9–12 mg/dL): decreased reflexes, respiratory depression, ECG changes.</p>
+<p>Infants under 1.2 kg may need extra electrolytes; follow calcium, phosphorus, and alkaline phosphatase for bone mineralization.</p>
+<p class="src">Source: NNP Brain (program reference).</p>
+</div></article><article class="card" id="fen-anion-gap"><h2>Anion gap</h2><div class="cb">
+<p class="formula">Anion gap = Na − (Cl + HCO₃⁻)</p>
+<p>Normal about 5–15 mEq/L (runs higher in preterm infants).</p>
+<table><tbody>
+<tr><td><b>High (&gt;15)</b></td><td>Organic acids building up: lactic acidosis (usually poor perfusion), renal failure, inborn errors of metabolism, late metabolic acidosis, toxins.</td></tr>
+<tr><td><b>Normal gap</b></td><td>Buffer lost through the kidney or gut: RTA, acetazolamide, renal dysplasia, diarrhea, cholestyramine, small bowel drainage, dilutional or hyperalimentation acidosis.</td></tr>
+</tbody></table>
+<p class="src">Source: NNP Brain (program reference).</p>
+</div></article><article class="card" id="fen-diuretic-effects"><h2>Diuretic effects</h2><div class="cb">
+<table><thead><tr><th></th><th>Loop</th><th>Thiazide</th><th>K-sparing</th></tr></thead><tbody>
+<tr><td><b>Example</b></td><td>Furosemide</td><td>Chlorothiazide</td><td>Spironolactone</td></tr>
+<tr><td><b>Site</b></td><td>Ascending loop of Henle</td><td>Distal segment</td><td>Distal segment</td></tr>
+<tr><td><b>Na excreted</b></td><td>20–25%</td><td>5–8%</td><td>2–3%</td></tr>
+<tr><td><b>Volume depletion</b></td><td>+++</td><td>++</td><td>+</td></tr>
+<tr><td><b>Urine K</b></td><td>↑↑</td><td>↑↑</td><td>↓</td></tr>
+<tr><td><b>Urine Ca</b></td><td>↑↑</td><td>no change or ↓</td><td>↑</td></tr>
+<tr><td><b>Acid-base</b></td><td>Alkalosis</td><td>Alkalosis</td><td>Acidosis</td></tr>
+</tbody></table>
+<p class="small">Loop diuretics waste calcium (watch for nephrocalcinosis); thiazides spare it. Acetazolamide (carbonic anhydrase inhibitor) causes acidosis; mannitol is the osmotic diuretic.</p>
+<p class="src">Source: NNP Brain (program reference).</p>
 </div></article><article class="card" id="fen-lab-normals"><h2>Lab normals</h2><div class="cb">
 <table><tbody>
 <tr><td><b>Na</b></td><td>135–145 mEq/L</td></tr>
@@ -824,6 +1149,29 @@ body.searching .tabs{display:none}
 </tbody></table>
 <p class="small">Reference ranges vary by lab; use your lab's.</p>
 <p class="src">Sources: NNP course lectures (Intro to Neonatal FEN; Neonatal TPN); program NNP Brain reference (iCa, Mg, CO₂, glucose).</p>
+</div></article><article class="card" id="fen-hematology-normals"><h2>Hematology normals</h2><div class="cb">
+<table><tbody>
+<tr><td><b>Hemoglobin</b></td><td>14–24 g/dL first week; 14–17 after</td></tr>
+<tr><td><b>Hematocrit</b></td><td>Term 45–65%, preterm 40–55% (about Hgb × 3)</td></tr>
+<tr><td><b>RBC</b></td><td>5.5–6 × 10⁶/µL at birth</td></tr>
+<tr><td><b>Platelets</b></td><td>150,000–300,000 (newborns up to 400,000)</td></tr>
+<tr><td><b>Fibrinogen</b></td><td>200–400 mg/dL</td></tr>
+<tr><td><b>PT / PTT</b></td><td>15–20 s / 32–70 s (heparin interferes)</td></tr>
+<tr><td><b>Total protein</b></td><td>Preterm 4.0–7.0, term 5.0–7.1 g/dL</td></tr>
+</tbody></table>
+<p class="small">Coagulation ranges vary by lab and gestational age.</p>
+<p class="src">Source: NNP Brain (program reference).</p>
+</div></article><article class="card" id="fen-csf-normals"><h2>CSF normals</h2><div class="cb">
+<table><thead><tr><th></th><th>Preterm</th><th>Term</th></tr></thead><tbody>
+<tr><td><b>WBC</b></td><td>0–25 (57% PMNs)</td><td>0–22 (61% PMNs)</td></tr>
+<tr><td><b>Glucose</b></td><td>25–65 mg/dL</td><td>45–130 mg/dL</td></tr>
+<tr><td><b>Protein</b></td><td>65–150 mg/dL</td><td>20–170 mg/dL</td></tr>
+</tbody></table>
+<p>CSF glucose is about 2/3 of serum glucose. Opening pressure 80–180 mm H₂O.</p>
+<p><b>Suggests meningitis:</b> WBC &gt;25–30, protein &gt;200, glucose &lt;30.</p>
+<h3>Tubes</h3>
+<p>1: Gram stain and culture. 2: protein and glucose. 3: cell count and differential. 4: hold for extra or viral studies.</p>
+<p class="src">Source: NNP Brain (program reference).</p>
 </div></article><article class="card" id="fen-formula-options"><h2>Formula options</h2><div class="cb">
 <table><thead><tr><th>Need</th><th>Examples</th><th>Notes</th></tr></thead><tbody>
 <tr><td><b>Routine term</b></td><td>Similac Advance, Enfamil NeuroPro</td><td></td></tr>
@@ -874,7 +1222,16 @@ body.searching .tabs{display:none}
 <p>Add an aminoglycoside for synergy when GBS is suspected.</p>
 <p class="small">Why not the biggest dose: stewardship (lowest effective dose, shortest course), dose-dependent platelet dysfunction and longer bleeding times, and gut flora disruption that raises NEC risk with long courses.</p>
 <p class="src">Source: NNP course handout, Chorioamnionitis and Screening for Early Onset Sepsis (citing Neofax).</p>
-</div></article><article class="card" id="fen-bilirubin-35-weeks-and-up"><h2>Bilirubin, 35 weeks and up</h2><div class="cb">
+<div class="bcmbox"><p class="atlas-h"><span class="tag bcm">Baylor</span> Baylor practice</p>
+<table><tbody>
+<tr><td><b>≥35 weeks, maternal fever or intra-amniotic infection</b></td><td>Use the Kaiser EOS calculator; give antibiotics only if it recommends them. Vitals every 4 hours even if well.</td></tr>
+<tr><td><b>&lt;35 weeks</b> with ROM &gt;18 h, maternal fever, intra-amniotic infection, unexplained preterm labor, maternal antibiotics for infection, or signs of sepsis</td><td>Cultures and antibiotics</td></tr>
+<tr><td><b>C-section without labor or ruptured membranes</b>, no other risk factors</td><td>No evaluation unless signs of sepsis</td></tr>
+</tbody></table>
+<p>CRP and procalcitonin aren't recommended for EOS evaluations. Culture negative and course not consistent with sepsis: stop antibiotics by 48 hours. Sepsis strongly suspected or proven: at least 7–10 days, depending on the organism; meningitis at least 14–21 days.</p>
+<h3>Doses</h3>
+<p><b>Ampicillin</b>: EOS 100 mg/kg every 8 h. Meningitis (including GBS): 100 mg/kg every 8 h if ≤7 days old, 75 mg/kg every 6 h after. Other susceptible infections: ≤34 wk, 50 mg/kg every 12 h (75 after day 7); 35–43 wk, 50 mg/kg every 8 h.</p>
+<p><b>Gentamicin</b> (5 mg/kg unless noted): &lt;30 wk every 48 h (every 36 h after day 14); 30–34 wk every 36 h (every 24 h after day 14); 35–43 wk 4 mg/kg every 24 h in the first week, then 5 mg/kg every 24 h. Check levels if ELBW, renal dysfunction, or treating more than 72 hours.</p><p class="src">Baylor Guidelines for Acute Care of the Neonate, Ed. 34, Ch. 9 and Sec. 19 (Medications).</p></div></div></article><article class="card" id="fen-bilirubin-35-weeks-and-up"><h2>Bilirubin, 35 weeks and up</h2><div class="cb">
 <p>Phototherapy and exchange thresholds are <b>hour-specific</b>, by gestational age and whether neurotoxicity risk factors are present. They're curves, not single numbers, so plot them:</p>
 <p><a href="https://www.bilitool.org/" target="_blank" rel="noopener">BiliTool</a><br><a href="https://peditools.org/bili2022/" target="_blank" rel="noopener">PediTools bili 2022</a><br><span class="small">Both need internet.</span></p>
 <h3>Neurotoxicity risk factors <span class="tag atl" style="background:#E8F0FB">AAP 2022</span></h3>
@@ -895,7 +1252,10 @@ body.searching .tabs{display:none}
 <p>Beyond 3–4 weeks breastfed or 2 weeks formula-fed: total and direct bilirubin and the newborn screen.</p>
 <p class="small"><a href="brain.html#bilirubin">More background in the Brain</a> (predates the 2022 guideline).</p>
 <p class="src">Sources: AAP 2022 Clinical Practice Guideline (Kemper et al., Pediatrics 150(3)); UNC NCCC Management of Non-Hemolytic Hyperbilirubinemia (2025); BiliTool.</p>
-</div></article><article class="card" id="fen-bilirubin-under-35-weeks"><h2>Bilirubin, under 35 weeks</h2><div class="cb">
+<div class="bcmbox"><p class="atlas-h"><span class="tag bcm">Baylor</span> Baylor practice</p>
+<p>Baylor uses the same AAP 2022 curves. Also:</p>
+<p><b>IVIG</b> for isoimmune hemolytic disease when the TSB keeps rising despite intensive phototherapy or is within 2–3 mg/dL of the exchange level: <b>0.5–1 g/kg over 2 hours</b>, repeat after 12 hours if needed.</p>
+<p><b>Bilirubin/albumin ratio</b> (TSB mg/dL ÷ albumin g/dL) at which to consider exchange: 8.0 at ≥38 weeks without risk factors; 7.2 at 35–37 weeks without, or ≥38 weeks with risk factors; 6.8 at 35–37 weeks with risk factors.</p><p class="src">Baylor Guidelines for Acute Care of the Neonate, Ed. 34, Ch. 8.5.</p></div></div></article><article class="card" id="fen-bilirubin-under-35-weeks"><h2>Bilirubin, under 35 weeks</h2><div class="cb">
 <table class="num"><thead><tr><th>PMA</th><th>Phototherapy<br>TSB mg/dL</th><th>Exchange<br>TSB mg/dL</th></tr></thead><tbody>
 <tr><td>&lt;28 wk</td><td>5–6</td><td>11–14</td></tr>
 <tr><td>28–29 wk</td><td>6–8</td><td>12–14</td></tr>
@@ -906,12 +1266,506 @@ body.searching .tabs{display:none}
 <p>Uses <b>postmenstrual age</b>. A baby born before 35 weeks <b>stays on the highest row</b> after passing 35 weeks PMA rather than switching to the AAP curves.</p>
 <p class="small">These are consensus recommendations (Maisels 2012). They sit between the aggressive and conservative thresholds of the Morris ELBW trial, which cut profound impairment with aggressive phototherapy but raised the probability of death under 750 g.</p>
 <p class="src">Sources: Maisels et al., J Perinatol 2012; UNC NCCC hyperbilirubinemia guideline (2025), Appendix C.</p>
+<div class="bcmbox"><p class="atlas-h"><span class="tag bcm">Baylor</span> Baylor practice</p>
+<p>Baylor's table goes by <b>birth weight</b> and hours of age (TSB mg/dL):</p>
+<table class="num"><thead><tr><th>Birth weight</th><th>Phototherapy</th><th>Exchange</th></tr></thead><tbody>
+<tr><td>&lt;750 g</td><td>≥5</td><td>&gt;13</td></tr>
+<tr><td>750–999 g</td><td>≥5 (week 1); ≥7 (week 2)</td><td>&gt;15</td></tr>
+<tr><td>1000–1499 g</td><td>5–7 (&lt;24 h); 7–9 (to 1 wk); 10–12 (week 2)</td><td>15–16</td></tr>
+<tr><td>1500–1999 g</td><td>5–8 (&lt;24 h); 8–10 (24–48 h); 10–12 (to 1 wk); 13–15 (week 2)</td><td>16–18</td></tr>
+<tr><td>2000–2500 g</td><td>5–8 (&lt;24 h); 8–11 (24–48 h); 11–13 (48–72 h); 13–15 (to 1 wk); 14–15 (week 2)</td><td>18–19</td></tr>
+</tbody></table>
+<p class="small">Use lower levels for sick infants (acidosis, sepsis, hemolysis, low albumin). For SGA and LGA infants, use the 50th-percentile weight for GA. VLBW: TSB at 24 hours, then daily for the first few days.</p><p class="src">Baylor Guidelines for Acute Care of the Neonate, Ed. 34, Ch. 8.5, Table 8-6.</p></div></div></article></section>
+<section class="sec dx" data-sec="dx" hidden><nav class="jump" aria-label="Conditions topics"><a href="#dx-early-and-late-sepsis">Early and late sepsis</a><a href="#dx-what-shifts-the-neutrophil-count">What shifts the neutrophil count</a><a href="#dx-dic">DIC</a><a href="#dx-polycythemia">Polycythemia</a><a href="#dx-isoimmunization">Isoimmunization</a><a href="#dx-chd-lung-or-sepsis">CHD, lung, or sepsis?</a><a href="#dx-subarachnoid-hemorrhage">Subarachnoid hemorrhage</a><a href="#dx-subdural-hemorrhage">Subdural hemorrhage</a><a href="#dx-cranial-nerve-exam">Cranial nerve exam</a><a href="#dx-adrenal-crisis">Adrenal crisis</a><a href="#dx-seizures">Seizures</a><a href="#dx-hie-and-cooling">HIE and cooling</a><a href="#dx-anemia-and-rbc-transfusion">Anemia and RBC transfusion</a><a href="#dx-rop">ROP</a><a href="#dx-ivh-and-head-ultrasounds">IVH and head ultrasounds</a><a href="#dx-thyroid">Thyroid</a></nav><article class="card" id="dx-early-and-late-sepsis"><h2>Early and late sepsis</h2><div class="cb">
+<table><thead><tr><th></th><th>Early onset</th><th>Late onset</th></tr></thead><tbody>
+<tr><td><b>Onset</b></td><td>&lt;7 days</td><td>&gt;7 days</td></tr>
+<tr><td><b>History</b></td><td>PROM, preterm labor, LBW, chorio, maternal illness, traumatic delivery, fetal hypoxia</td><td>Variable</td></tr>
+<tr><td><b>Source</b></td><td>Transplacental, genital tract</td><td>Genital tract, postnatal environment</td></tr>
+<tr><td><b>Picture</b></td><td>Fulminant, multisystem; pneumonia common</td><td>Slowly progressive, focal; meningitis common</td></tr>
+</tbody></table>
+<h3>Organisms</h3>
+<p><b>Early onset:</b> GBS, E. coli, Listeria monocytogenes, H. influenzae, S. pneumoniae, Klebsiella.</p>
+<p><b>Late onset:</b> coagulase-negative staph (S. epidermidis), S. aureus, Pseudomonas, late-onset GBS.</p>
+<p><b>Of special concern in LBW infants:</b> S. aureus, coagulase-negative staph, gram-negative organisms, Candida, GBS, Listeria.</p>
+<h3>UTI</h3>
+<p>Gram stain of unspun urine often identifies the organism. The urine should be sterile within 36–48 hours of starting treatment.</p>
+<p class="src">Source: NNP Brain (program reference).</p>
+</div></article><article class="card" id="dx-what-shifts-the-neutrophil-count"><h2>What shifts the neutrophil count</h2><div class="cb">
+<table><thead><tr><th>Factor</th><th>Count</th><th>I:T ↑</th><th>Lasts</th></tr></thead><tbody>
+<tr><td>Maternal hypertension</td><td>↓↓↓↓</td><td>+</td><td>72 h</td></tr>
+<tr><td>Maternal fever</td><td>↑↑</td><td>++++</td><td>24 h</td></tr>
+<tr><td>Stressful labor</td><td>↑↑↑</td><td>++++</td><td>24 h</td></tr>
+<tr><td>Asphyxia</td><td>↓ or ↑↑</td><td>+++</td><td>24–60 h</td></tr>
+<tr><td>Meconium aspiration</td><td>↑↑↑↑</td><td>++</td><td>72 h</td></tr>
+<tr><td>Pneumothorax without RDS</td><td>↑↑↑↑</td><td>++++</td><td>24 h</td></tr>
+<tr><td>IVH</td><td>↓↓↓ or ↑</td><td>++++</td><td>120 h</td></tr>
+<tr><td>Seizures</td><td>↑↑↑</td><td>++++</td><td>24 h</td></tr>
+<tr><td>Prolonged crying</td><td>↑↑↑↑</td><td>++++</td><td>1 h</td></tr>
+<tr><td>Hypoglycemia</td><td>↑↑</td><td>+++</td><td>24 h</td></tr>
+<tr><td>Surgery</td><td>↑↑↑↑</td><td>+++</td><td>24 h</td></tr>
+<tr><td>High altitude</td><td>↑↑↑↑</td><td></td><td>6 h</td></tr>
+</tbody></table>
+<p>Infection more often causes neutropenia than neutrophilia. Correct the WBC for nucleated RBCs before reading it (CBC and sepsis card, FEN tab).</p>
+<p class="src">Source: NNP Brain (program reference).</p>
+</div></article><article class="card" id="dx-dic"><h2>DIC</h2><div class="cb">
+<p><b>Signs:</b> spontaneous bleeding (GI, hematuria, skin and scalp petechiae); prolonged or renewed bleeding from heel sticks and injection sites.</p>
+<table><tbody>
+<tr><td><b>Platelets</b></td><td>&lt;50,000</td></tr>
+<tr><td><b>PT / PTT</b></td><td>PT &gt;16 s, PTT &gt;80 s</td></tr>
+<tr><td><b>Fibrinogen</b></td><td>&lt;150 mg/dL</td></tr>
+<tr><td><b>Fibrin split products</b></td><td>&gt;10</td></tr>
+<tr><td><b>Smear</b></td><td>Schistocytes</td></tr>
+</tbody></table>
+<p>D-dimer measures breakdown of fibrin, which separates DIC from a liver that simply can't make fibrinogen.</p>
+<p class="small">PTT tests the intrinsic pathway (damage inside the vessel); PT tests the extrinsic pathway (tissue injury; calcium is a cofactor).</p>
+<p class="src">Source: NNP Brain (program reference).</p>
+</div></article><article class="card" id="dx-polycythemia"><h2>Polycythemia</h2><div class="cb">
+<p><b>Signs:</b> feeding problems, cyanosis, plethora, lethargy, jitteriness, hypotonia, tachypnea, NEC.</p>
+<p><b>Labs:</b> hyperbilirubinemia, hypoglycemia, hypocalcemia, hypomagnesemia, thrombocytopenia; prominent vascular markings on chest x-ray.</p>
+<h3>Partial exchange</h3>
+<p class="formula">Volume (mL) = blood volume × (observed Hct − desired Hct) ÷ observed Hct</p>
+<p class="small">Example: 3 kg, Hct 75, blood volume 80 mL/kg, goal 60: (240 × 15) ÷ 75 = 48 mL. Usually 10–20 mL/kg.</p>
+<p class="src">Source: NNP Brain (program reference).</p>
+<div class="bcmbox"><p class="atlas-h"><span class="tag bcm">Baylor</span> Baylor practice</p>
+<p>Term infant: polycythemia is a <b>peripheral venous Hct &gt;65%</b>. Venous (or UVC) values run 5–15% lower than capillary, so diagnose on a venous sample.</p>
+<p>Partial exchange hasn't been shown to change long-term outcomes and has been linked to GI problems and NEC. If done: replace with an equal volume of normal saline, as early as possible (viscosity peaks 2–4 hours after birth), using 80 mL/kg as blood volume. Watch glucose: if IV fluids are needed, dextrose at ≥100 mL/kg/day (GIR 6–8) for the first 24–48 hours.</p><p class="src">Baylor Guidelines for Acute Care of the Neonate, Ed. 34, Ch. 8.6.</p></div></div></article><article class="card" id="dx-isoimmunization"><h2>Isoimmunization</h2><div class="cb">
+<p>Fetal red cells enter the mother's circulation and trigger antibodies. Maternal IgG crosses back, binds the baby's red cells, and destroys them.</p>
+<h3>Rh disease</h3>
+<p>An Rh-negative mother is sensitized by an Rh-positive fetus; disease is worse in later pregnancies.</p>
+<h3>ABO disease</h3>
+<p>Mother type O, baby A or B. The most common isoimmune hemolytic disease, usually mild and managed with phototherapy. Only IgG anti-A or anti-B crosses the placenta, and disease occurs when the mother's IgG titers are high.</p>
+<p><b>Findings:</b> jaundice within 24 hours, mild or no anemia, DAT negative or weakly positive, spherocytes, raised reticulocyte count.</p>
+<p class="src">Source: NNP Brain (program reference).</p>
+</div></article><article class="card" id="dx-chd-lung-or-sepsis"><h2>CHD, lung, or sepsis?</h2><div class="cb">
+<table><thead><tr><th></th><th>CHD</th><th>Lung disease</th><th>Sepsis</th></tr></thead><tbody>
+<tr><td><b>Cyanosis</b></td><td>Central, from mixing; doesn't respond to O₂</td><td>Generalized, from hypoxemia; usually responds to O₂</td><td>Peripheral, from poor perfusion</td></tr>
+<tr><td><b>Breathing</b></td><td>Worse with crying; cyanotic lesions: tachypnea without distress; acyanotic: tachypnea, rales, distress</td><td>Better with crying; tachypnea with labored breathing</td><td>Little change with crying; early tachypnea, later distress or apnea</td></tr>
+<tr><td><b>Feeding</b></td><td>Tires easily; sweats with feeds</td><td>Hard because of distress</td><td>May tire; emesis</td></tr>
+<tr><td><b>Murmur</b></td><td>Usually</td><td>Usually not</td><td>Usually not</td></tr>
+<tr><td><b>Liver</b></td><td>Enlarged with high pulmonary blood flow</td><td>Normal</td><td>Normal</td></tr>
+<tr><td><b>Chest x-ray</b></td><td>Big or abnormally shaped heart; ↑ or ↓ pulmonary markings</td><td>"White out"; normal heart</td><td>May look like pneumonia</td></tr>
+<tr><td><b>Gas</b></td><td>Normal in acyanotic lesions; low PO₂ and acidosis in cyanotic</td><td>Low PO₂, high PCO₂</td><td>Variable</td></tr>
+</tbody></table>
+<p class="src">Source: NNP Brain (program reference).</p>
+</div></article><article class="card" id="dx-subarachnoid-hemorrhage"><h2>Subarachnoid hemorrhage</h2><div class="cb">
+<p>Usually from ordinary birth trauma (bridging veins, small leptomeningeal vessels). Irritability or seizures, with a normal exam between seizures. Confirm with CT; ultrasound isn't sensitive.</p>
+<p><b>Manage:</b> treat seizures, support blood volume and circulation, treat hyperbilirubinemia. Large bleeds occasionally cause hydrocephalus.</p>
+<p>Most do well with no long-term effects.</p>
+<p class="src">Source: NNP Brain (program reference).</p>
+</div></article><article class="card" id="dx-subdural-hemorrhage"><h2>Subdural hemorrhage</h2><div class="cb">
+<p>Usually trauma in term infants (molding and twisting forces tear the tentorium or falx); in preterm infants, trauma or germinal matrix bleeding. Bleeding is rapid and large.</p>
+<p><b>Signs:</b> bulging fontanelle or growing head circumference, lethargy, irritability, abnormal breathing, cranial nerve palsies, nystagmus, disconjugate gaze, hypotonia, vomiting, shock, pallor, DIC, jaundice. Seizures are less common.</p>
+<p><b>Diagnose</b> with CT. <b>Manage:</b> support blood volume and circulation; surgical evacuation if there are neurologic signs.</p>
+<p class="src">Source: NNP Brain (program reference).</p>
+</div></article><article class="card" id="dx-cranial-nerve-exam"><h2>Cranial nerve exam</h2><div class="cb">
+<table><thead><tr><th>Nerve</th><th>Bedside test</th></tr></thead><tbody>
+<tr><td><b>I</b> Olfactory</td><td>Ammonia under the nose: startle or grimace</td></tr>
+<tr><td><b>II</b> Optic</td><td>Pupils equal and reactive to light</td></tr>
+<tr><td><b>III, IV</b> Oculomotor, trochlear</td><td>Pupils reactive; eye movements full and conjugate</td></tr>
+<tr><td><b>V</b> Trigeminal</td><td>Touch the cheek: turns toward it (rooting)</td></tr>
+<tr><td><b>VI</b> Abducens</td><td>Rotate the infant: eyes look in the direction of travel</td></tr>
+<tr><td><b>VII</b> Facial</td><td>Watch for asymmetric facial movement</td></tr>
+<tr><td><b>VIII</b> Auditory</td><td>Quiets to voice; blinks to a hand clap</td></tr>
+<tr><td><b>IX</b> Glossopharyngeal</td><td>Strong gag</td></tr>
+<tr><td><b>X</b> Vagus</td><td>Cry isn't hoarse</td></tr>
+<tr><td><b>XI</b> Accessory</td><td>Turn the supine head to one side: infant tries to bring it to midline</td></tr>
+<tr><td><b>XII</b> Hypoglossal</td><td>Finger in the mouth while sucking: note tongue force; fasciculations are uncommon</td></tr>
+</tbody></table>
+<p class="src">Source: NNP Brain (program reference), adapted from Scanlon et al., A System of Newborn Physical Examination.</p>
+</div></article><article class="card" id="dx-adrenal-crisis"><h2>Adrenal crisis</h2><div class="cb">
+<p><b>Triggers:</b> infection, injury, physical stress.</p>
+<p><b>Signs:</b> vomiting, extreme weakness, dehydration, hypotension, hyponatremia, hyperkalemia, hypoglycemia, fever.</p>
+<h3>Treat now</h3>
+<p><b>Fluids, then hydrocortisone.</b></p>
+<table><tbody>
+<tr><td><b>Birth to 6 weeks</b></td><td>25 mg IV or IM, then 5–10 mg every 6 hours</td></tr>
+<tr><td><b>By surface area</b></td><td>50–100 mg/m² bolus, then 50–100 mg/m²/day divided every 6 hours</td></tr>
+</tbody></table>
+<p>Use the higher end if the baby is hypovolemic, hyponatremic, or hyperkalemic; hydrocortisone's mineralocorticoid effect helps.</p>
+<h3>After</h3>
+<p>Once stable, step down to oral stress dosing (about 30–50 mg/m²/day), then maintenance (about 10–15 mg/m²/day in CAH, in 2–3 doses). Primary adrenal insufficiency also needs fludrocortisone, set with endocrinology.</p>
+<p><b>Diagnosis:</b> cortisol, then a cosyntropin (ACTH) stimulation test, interpreted with endocrinology.</p>
+<p class="src">Sources: Royal Children's Hospital Melbourne, Adrenal crisis guideline; Endotext, Adrenal Insufficiency in Children; Medscape, Pediatric Adrenal Insufficiency; NNP Brain (signs).</p>
+</div></article><article class="card" id="dx-seizures"><h2>Seizures</h2><div class="cb">
+<p><b>Treat the seizure, then find the cause.</b> Correct low glucose, calcium, or sodium first. Base drug decisions on EEG-confirmed seizures when you can.</p>
+<h3>Medications</h3>
+<table><tbody>
+<tr><td><b>First line</b></td><td><b>Phenobarbital 20 mg/kg IV.</b> Second load 10–20 mg/kg if needed. Watch for respiratory depression and hypotension.</td></tr>
+<tr><td><b>Second line</b></td><td><b>Levetiracetam</b> 40 mg/kg IV (second load 20 mg/kg; maintenance 40–60 mg/kg/day in 3 doses), preferred with heart disease.<br>Or <b>fosphenytoin</b> 20 mg/kg IV (phenytoin equivalents).</td></tr>
+<tr><td><b>Other options</b></td><td>Midazolam 0.1 mg/kg IV, then 0.1 mg/kg/hr.<br>Lidocaine 2 mg/kg over 10 min, then 7 mg/kg/hr for 4 h, 3.5 for 12 h, 1.75 for 12 h, stop; adjust for weight, PMA, and cooling.</td></tr>
+</tbody></table>
+<p>Phenobarbital controlled seizures in 80% vs 28% with levetiracetam in the head-to-head trial. If a channelopathy is suspected (family history), a sodium channel blocker (phenytoin or carbamazepine) goes first.</p>
+<h3>Workup</h3>
+<ul>
+<li>Glucose; Na, K, Cl, CO₂, Ca, Mg</li>
+<li>BUN and creatinine; AST, ALT, ammonia, lactate</li>
+<li>PT, PTT, fibrinogen, D-dimer</li>
+<li>Sepsis workup, bacterial and viral</li>
+<li>ECG and echo; cranial ultrasound; chest film</li>
+<li>Ongoing seizures: urine amino and organic acids</li>
+</ul>
+<p class="src">Sources: ILAE Task Force, Treatment of Seizures in the Neonate (Pressler et al., Epilepsia 2023); UNC NCCC neonatal seizure guideline (2023); CHOC neonatal seizure care guideline; NNP Brain (workup).</p>
+<div class="bcmbox"><p class="atlas-h"><span class="tag bcm">Baylor</span> Baylor practice</p>
+<table><tbody>
+<tr><td><b>First</b></td><td>Phenobarbital 20 mg/kg IV at 1–2 mg/kg/min; two more 10 mg/kg doses if needed (total 40). Level 20–40 mcg/mL.</td></tr>
+<tr><td><b>Second</b></td><td><b>Midazolam</b> 0.15 mg/kg IV, another 0.1–0.15 mg/kg in 5–10 min if needed, then 0.1–0.4 mg/kg/hr; preferred in sick or intubated babies.<br><b>Fosphenytoin</b> 20 mg/kg IV at 0.5–1 mg/kg/min; level 2 hours after (goal 15–20); avoid in cardiac patients.</td></tr>
+<tr><td><b>Third</b></td><td>Levetiracetam 60 mg/kg IV; maintenance 20–60 mg/kg/day in 3 doses.</td></tr>
+</tbody></table><p class="src">Baylor Guidelines for Acute Care of the Neonate, Ed. 34, Ch. 12.</p></div></div></article><article class="card" id="dx-hie-and-cooling"><h2>HIE and cooling</h2><div class="cb">
+<h3>Who gets cooled: all three</h3>
+<table><tbody>
+<tr><td><b>1. Age and GA</b></td><td>≥36 weeks, and cooling can start within 6 hours of birth</td></tr>
+<tr><td><b>2. Acidosis or event</b></td><td>Cord or first-hour gas: pH ≤7.0 or base deficit ≥16.<br>If pH 7.01–7.15, BD 10–15.9, or no gas: an acute perinatal event (abruption, cord prolapse, severe FHR abnormality) <b>and</b> a 10-minute Apgar ≤5 or ventilation (including CPAP) started at birth and still needed at 10 minutes</td></tr>
+<tr><td><b>3. Encephalopathy</b></td><td>Moderate or severe: seizures, or moderate/severe signs in at least 3 of the 6 modified Sarnat categories (level of consciousness, spontaneous activity, posture, tone, primitive reflexes, autonomic)</td></tr>
+</tbody></table>
+<p><b>Usually excluded:</b> known chromosomal anomaly, major congenital anomalies, severe IUGR (&lt;1800 g).</p>
+<h3>Cooling</h3>
+<p>Esophageal temperature <b>33.5 °C for 72 hours</b> on a servo-controlled blanket, then rewarm slowly by <b>0.5 °C per hour</b>.</p>
+<h3>While cooled</h3>
+<p>Continuous EEG and neurology; treat seizures (see Seizures). Blood culture and ampicillin plus an aminoglycoside. NPO with TPN at the start; trophic feeds may begin at 12–24 hours if stable. Morphine for shivering or discomfort. Watch glucose, coagulation, and blood pressure; avoid bicarbonate if possible. Turn every 2 hours to protect the skin.</p>
+<p class="src">Sources: NICHD whole-body hypothermia trial (Shankaran et al., NEJM 2005) for eligibility and cooling; Baylor Guidelines Ed. 34, Ch. 12.2–12.3 for exclusions and care during cooling.</p>
+<div class="bcmbox"><p class="atlas-h"><span class="tag bcm">Baylor</span> Baylor practice</p>
+<p>Same core criteria. Baylor may also cool, after a documented shared decision with parents: infants <b>35 0/7–35 6/7 weeks</b>, or ≥36 weeks who are <b>6–24 hours old</b>.</p>
+<p><b>Mild HIE isn't cooled</b> routinely. Exam hourly until the 6-hour window closes. First modified Sarnat exam at about 1 hour of life, by two NICU providers.</p>
+<p><b>Referral hospital:</b> start passive cooling once the baby qualifies (remove all heat sources) and check temperature every 15 minutes to avoid overcooling.</p>
+<p><b>Esophageal probe:</b> nose to earlobe to xiphoid, minus 2 cm; confirm on 2-view x-ray with the tip at T7–T9.</p>
+<p><b>Rewarming:</b> raise the set temperature 0.5 °C every hour to 36.5 °C and hold 1 hour; then radiant warmer servo 0.4 °C above skin temperature until skin is 36.5–37 °C. Morphine 0.1 mg/kg load, then 0.01 mg/kg/hr. Trophic feeds 10–20 mL/kg/day of unfortified human milk; don't advance until rewarmed.</p><p class="src">Baylor Guidelines for Acute Care of the Neonate, Ed. 34, Ch. 12.2–12.3, Table 12-3.</p></div></div></article><article class="card" id="dx-anemia-and-rbc-transfusion"><h2>Anemia and RBC transfusion</h2><div class="cb">
+<h3>Normal values</h3>
+<table><tbody>
+<tr><td><b>Cord Hgb (term)</b></td><td>About 16.8 g/dL (14–20); below 14.3 is low</td></tr>
+<tr><td><b>Anemia, first 2 weeks</b></td><td>Venous Hgb &lt;13 or capillary &lt;14.5 (capillary runs higher)</td></tr>
+<tr><td><b>Nadir</b></td><td>Term: stays above about 9.8 through 12 weeks. Preterm: 7–8, lower the smaller the baby.</td></tr>
+<tr><td><b>Reticulocytes</b></td><td>Term day 1: 4.2–7.2%. Preterm at birth: 6–10%.</td></tr>
+</tbody></table>
+<p>Red cell production slows after birth; erythropoietin reappears around 8–12 weeks, which drives the physiologic nadir.</p>
+<h3>When to transfuse: preterm &lt;30 weeks</h3>
+<table class="num"><thead><tr><th>Postnatal week</th><th>On respiratory support</th><th>No or minimal support</th></tr></thead><tbody>
+<tr><td>Week 1</td><td><b>Hct 33</b> (Hgb 11)</td><td><b>Hct 30</b> (Hgb 10)</td></tr>
+<tr><td>Week 2</td><td><b>Hct 30</b> (Hgb 10)</td><td><b>Hct 25.5</b> (Hgb 8.5)</td></tr>
+<tr><td>Week 3+</td><td><b>Hct 27</b> (Hgb 9)</td><td><b>Hct 21</b> (Hgb 7)</td></tr>
+</tbody></table>
+<p class="small">The guideline is written in hemoglobin; the Hct values are Hgb × 3. Respiratory support = nasal cannula ≥1 L/min or any positive pressure. Restrictive thresholds made little to no difference in short- and long-term outcomes in the trials (TOP, ETTNO).</p>
+<h3>How much</h3>
+<p>PRBCs <b>10–20 mL/kg over 3–4 hours</b>; no more than 15 mL/kg in very preterm or low birth weight infants.</p>
+<p class="formula">Volume = blood volume × (Hct desired − Hct observed) ÷ Hct of the unit (about 0.7)</p>
+<p class="src">Sources: Clinical Practice Guideline for RBC Transfusion Thresholds in Very Preterm Neonates (Deschmann et al., JAMA Netw Open 2024); Canadian Paediatric Society, Minimizing blood loss and the need for transfusions in newborns (2025); NNP Brain (normal values, volume formula).</p>
+<div class="bcmbox"><p class="atlas-h"><span class="tag bcm">Baylor</span> Baylor practice</p>
+<p>Baylor uses <b>hematocrit</b> thresholds by illness severity and age:</p>
+<table class="num"><thead><tr><th>Severity</th><th>Days 1–7</th><th>8–14</th><th>&gt;14</th></tr></thead><tbody>
+<tr><td><b>Severe</b>: ventilated; NIPPV, CPAP, or HFNC &gt;2 L with FiO₂ &gt;40%; shock, sepsis, or NEC on pressors</td><td>33</td><td>30</td><td>27</td></tr>
+<tr><td><b>Moderate</b>: NIPPV, CPAP, or HFNC &gt;2 L with FiO₂ &lt;40%</td><td>30</td><td>30</td><td>25</td></tr>
+<tr><td><b>Mild</b>: no support or ≤2 L, but signs likely from anemia (poor weight gain, apnea, tachycardia &gt;24 h)</td><td>30</td><td>27</td><td>23</td></tr>
+<tr><td><b>Asymptomatic</b></td><td>30</td><td>25</td><td>21</td></tr>
+</tbody></table>
+<p>PRBCs <b>15 mL/kg over 2–4 hours</b>; if hemodynamically unstable, 10 mL/kg over 1–2 hours.</p><p class="src">Baylor Guidelines for Acute Care of the Neonate, Ed. 34, Ch. 8.4, Table 8-3.</p></div></div></article><article class="card" id="dx-rop"><h2>ROP</h2><div class="cb">
+<h3>Who gets screened</h3>
+<p>Birth weight ≤1500 g <b>or</b> GA ≤30 weeks. Also selected infants 1500–2000 g or &gt;30 weeks with an unstable course (hypotension needing inotropes, oxygen for more than a few days, or oxygen without saturation monitoring).</p>
+<h3>First exam</h3>
+<p class="formula">31 weeks PMA or 4 weeks after birth, whichever is later</p>
+<table class="num"><thead><tr><th>GA at birth</th><th>First exam at</th></tr></thead><tbody>
+<tr><td>22 wk</td><td>9 weeks old (31 PMA)</td></tr>
+<tr><td>23 wk</td><td>8 weeks old (31 PMA)</td></tr>
+<tr><td>24 wk</td><td>7 weeks old (31 PMA)</td></tr>
+<tr><td>25 wk</td><td>6 weeks old (31 PMA)</td></tr>
+<tr><td>26 wk</td><td>5 weeks old (31 PMA)</td></tr>
+<tr><td>27–30 wk</td><td>4 weeks old</td></tr>
+</tbody></table>
+<h3>Classification (ICROP3, 2021)</h3>
+<table><tbody>
+<tr><td><b>Zones</b></td><td>I (around the optic nerve), II, III (peripheral crescent). Posterior zone II = the first 2 disc diameters of zone II.</td></tr>
+<tr><td><b>Stage 1</b></td><td>Demarcation line</td></tr>
+<tr><td><b>Stage 2</b></td><td>Ridge</td></tr>
+<tr><td><b>Stage 3</b></td><td>Extraretinal fibrovascular proliferation</td></tr>
+<tr><td><b>Stage 4</b></td><td>Partial retinal detachment: 4A spares the macula, 4B involves it</td></tr>
+<tr><td><b>Stage 5</b></td><td>Total detachment: 5A disc visible, 5B disc hidden, 5C plus anterior segment changes</td></tr>
+<tr><td><b>Plus disease</b></td><td>Dilated, tortuous posterior vessels; a spectrum from normal through pre-plus to plus</td></tr>
+<tr><td><b>A-ROP</b></td><td>Aggressive ROP: rapid, severe disease that skips the usual stages. Replaces "AP-ROP" because it also occurs in larger infants.</td></tr>
+</tbody></table>
+<h3>Treat type 1 ROP within 72 hours</h3>
+<ul>
+<li>Zone I, any stage, with plus</li>
+<li>Zone I, stage 3, without plus</li>
+<li>Zone II, stage 2 or 3, with plus</li>
+</ul>
+<p>Laser photocoagulation, or anti-VEGF injection (benefit shown for zone I stage 3 with plus). Type 2 ROP (zone I stage 1–2 without plus; zone II stage 3 without plus) gets close follow-up instead.</p>
+<p><b>Risk:</b> prematurity and low birth weight above all, plus oxygen exposure. Infants with ROP need eye follow-up for life (refractive error, strabismus, amblyopia, late detachment).</p>
+<p class="src">Sources: AAP policy statement, Screening Examination of Premature Infants for ROP (Pediatrics 2018); ICROP3 (Ophthalmology 2021); ETROP type 1 criteria (as used in PEDIG trials); Canadian Paediatric Society ROP statement (exam timing); AAO EyeNet, Managing ROP.</p>
+</div></article><article class="card" id="dx-ivh-and-head-ultrasounds"><h2>IVH and head ultrasounds</h2><div class="cb">
+<h3>Papile grades</h3>
+<table><tbody>
+<tr><td><b>Grade I</b></td><td>Germinal matrix (subependymal) hemorrhage, often near the foramen of Monro</td></tr>
+<tr><td><b>Grade II</b></td><td>Blood partly filling the lateral ventricles, no dilation</td></tr>
+<tr><td><b>Grade III</b></td><td>IVH with ventricular dilation</td></tr>
+<tr><td><b>Grade IV</b></td><td>Extension into the brain tissue (parenchymal hemorrhage)</td></tr>
+</tbody></table>
+<p class="small">Papile's grading is still widely used; many reports use Volpe's adaptation, which grades by how much of the ventricle is filled.</p>
+<h3>Screening head ultrasounds</h3>
+<table><tbody>
+<tr><td><b>Who</b></td><td>All infants ≤30 weeks GA, plus selected older preterm infants with risk factors</td></tr>
+<tr><td><b>First</b></td><td>7–10 days of life</td></tr>
+<tr><td><b>Repeat</b></td><td>At 4–6 weeks, and near term-equivalent age or before discharge</td></tr>
+<tr><td><b>Grade II–IV found</b></td><td>Repeat every 1–2 weeks until stable</td></tr>
+</tbody></table>
+<p>Routine MRI isn't recommended for every infant born at ≤30 weeks.</p>
+<h3>How it can present</h3>
+<p>Sudden deterioration: desaturation, bradycardia, metabolic acidosis, falling hematocrit, hypotonia, shock, hyperglycemia, tense fontanelle. As it worsens: full tense fontanelle, more ventilator support, seizures, apnea, decreased activity. Many bleeds are silent, which is why routine screening matters.</p>
+<p class="src">Sources: AAP Clinical Report, Routine Neuroimaging of the Preterm Brain (Pediatrics 2020); UNC NCCC Cranial Ultrasounds in the Preterm Infant (2023); Canadian Paediatric Society, Routine imaging of the preterm neonatal brain; NNP Brain (grades, presentation).</p>
+<div class="bcmbox"><p class="atlas-h"><span class="tag bcm">Baylor</span> Baylor practice</p>
+<p>First head ultrasound on day of life 7 for birth weight <b>under 1500 g</b>. Repeat at term or discharge to look for cystic PVL. Severe IVH: follow-up scans as it evolves, watching for hydrocephalus.</p><p class="src">Baylor Guidelines for Acute Care of the Neonate, Ed. 34, Ch. 2.1.</p></div></div></article><article class="card" id="dx-thyroid"><h2>Thyroid</h2><div class="cb">
+<h3>Newborn screen (Texas)</h3>
+<p>The state lab measures T4 first; the lowest 10% are retested with TSH. A positive screen isn't a diagnosis: confirm with a venous <b>free T4 and TSH</b>, and call pediatric endocrinology.</p>
+<table><tbody>
+<tr><td><b>High TSH, low FT4</b></td><td>Primary hypothyroidism: start treatment promptly</td></tr>
+<tr><td><b>High TSH, normal FT4</b></td><td>Subclinical: treat if TSH is markedly high (typically &gt;20 mIU/L); otherwise watch and retest</td></tr>
+<tr><td><b>Low or normal TSH, low FT4</b></td><td>Central hypothyroidism, but also common in preterm or sick infants; repeat before treating and look for other pituitary deficiencies</td></tr>
+</tbody></table>
+<p><b>Levothyroxine:</b> usually 10–15 mcg/kg/day to start, individualized. Crushed tablet in a little water or breast milk, same time daily, apart from soy, calcium, and iron.</p>
+<p><b>Clues:</b> often none at birth. Goiter, prolonged indirect hyperbilirubinemia, a wide posterior fontanelle; later lethargy, poor feeding, constipation, hypotonia, hypothermia, dry skin, coarse face, hoarse cry.</p>
+<h3>Preterm hypothyroxinemia</h3>
+<p>Low T4 with normal or low TSH is common under 32 weeks and usually resolves in 4–8 weeks. Treating it hasn't been shown to help (Cochrane). VLBW infants also have an 8-fold higher risk of transient primary hypothyroidism (low T4, high TSH).</p>
+<p class="small">Thyroid levels change quickly after birth; use your lab's age-specific ranges.</p>
+<p class="src">Sources: Baylor College of Medicine, Guidelines for Acute Care of the Neonate, Ed. 34 (2026–2027), Ch. 4.2; AAP Clinical Report, Congenital Hypothyroidism: Screening and Management (Pediatrics 2023).</p>
 </div></article></section>
-<section class="sec ref" data-sec="ref" hidden><nav class="jump" aria-label="Reference topics"><a href="#ref-outside-links">Outside links</a><a href="#ref-master-brain">Master Brain</a><a href="#ref-print-files">Print files</a><a href="#ref-how-to-read-an-x-ray">How to read an x-ray</a><a href="#ref-x-ray-tip-targets">X-ray tip targets</a><a href="#ref-sources">Sources</a><a href="#ref-how-to-read-the-tags">How to read the tags</a></nav><article class="card" id="ref-outside-links"><h2>Outside links</h2><div class="cb">
+<section class="sec rx" data-sec="rx" hidden><nav class="jump" aria-label="Medications topics"><a href="#rx-drugs-on-other-tabs">Drugs on other tabs</a><a href="#rx-ampicillin-penicillin-nafcillin">Ampicillin, penicillin, nafcillin</a><a href="#rx-gentamicin-amikacin-vancomycin">Gentamicin, amikacin, vancomycin</a><a href="#rx-ceftazidime-and-clindamycin">Ceftazidime and clindamycin</a><a href="#rx-drug-levels">Drug levels</a><a href="#rx-pain-and-sedation">Pain and sedation</a><a href="#rx-iv-infiltration">IV infiltration</a><a href="#rx-emergency-drugs">Emergency drugs</a><a href="#rx-intubation-drugs">Intubation drugs</a><a href="#rx-infusions">Infusions</a><a href="#rx-sedation-and-other-drugs">Sedation and other drugs</a></nav><article class="card" id="rx-drugs-on-other-tabs"><h2>Drugs on other tabs</h2><div class="cb">
+<table><tbody>
+<tr><td><b>RSI</b> (atropine, fentanyl, rocuronium, vecuronium, midazolam)</td><td><a href="#air-rsi-premedication">Airway</a></td></tr>
+<tr><td><b>Resuscitation</b> (epinephrine, NS)</td><td><a href="#res-resus-doses-by-weight">Resus</a></td></tr>
+<tr><td><b>Pressors and hydrocortisone</b></td><td><a href="#cv-pressor-doses">CV</a></td></tr>
+<tr><td><b>Caffeine, surfactant, diuretics, iNO</b></td><td><a href="#resp-resp-meds">Resp</a></td></tr>
+<tr><td><b>Insulin</b></td><td><a href="#fen-hyperglycemia">FEN</a></td></tr>
+<tr><td><b>Hyperkalemia drugs</b></td><td><a href="#fen-potassium-problems">FEN</a></td></tr>
+<tr><td><b>Vitamin K, iron, vitamin D</b></td><td><a href="#fen-vitamins-and-iron">FEN</a></td></tr>
+<tr><td><b>IVIG</b></td><td><a href="#fen-bilirubin-35-weeks-and-up">FEN</a></td></tr>
+<tr><td><b>Seizure medicines</b></td><td><a href="#dx-seizures">Dx</a></td></tr>
+<tr><td><b>Adrenal crisis hydrocortisone</b></td><td><a href="#dx-adrenal-crisis">Dx</a></td></tr>
+<tr><td><b>Levothyroxine</b></td><td><a href="#dx-thyroid">Dx</a></td></tr>
+</tbody></table>
+<p class="small">Doses here are starting points from published guidance; confirm with pharmacy and your order set.</p>
+</div></article><article class="card" id="rx-ampicillin-penicillin-nafcillin"><h2>Ampicillin, penicillin, nafcillin</h2><div class="cb">
+<p class="small">GA = gestational age at birth; PNA = postnatal age. <span class="tag bcm">Baylor</span></p>
+<h3>Ampicillin (IV or IM)</h3>
+<table><tbody>
+<tr><td><b>Early-onset sepsis</b></td><td>100 mg/kg every 8 h</td></tr>
+<tr><td><b>Meningitis, incl. GBS</b></td><td>PNA ≤7 d: 100 mg/kg every 8 h<br>PNA &gt;7 d: 75 mg/kg every 6 h</td></tr>
+<tr><td><b>Other infection, GA ≤34 wk</b></td><td>PNA ≤7 d: 50 mg/kg every 12 h<br>PNA &gt;7 d: 75 mg/kg every 12 h</td></tr>
+<tr><td><b>Other infection, GA 35–43 wk</b></td><td>50 mg/kg every 8 h</td></tr>
+<tr><td><b>UTI prophylaxis</b></td><td>25 mg/kg IV every 24 h (or amoxicillin 10 mg/kg PO daily)</td></tr>
+</tbody></table>
+<h3>Penicillin G (IV)</h3>
+<table><tbody>
+<tr><td><b>GBS, not meningitis</b></td><td>50,000 units/kg: every 12 h (PNA ≤7 d), every 8 h (8–28 d), every 6 h (29–60 d)</td></tr>
+<tr><td><b>GBS meningitis</b></td><td>PNA 0–7 d: 84,000–150,000 units/kg every 8 h<br>8–28 d: 100,000–125,000 units/kg every 6 h<br>29–60 d: 100,000 units/kg every 6 h</td></tr>
+<tr><td><b>Other meningitis</b></td><td>50,000 units/kg: every 8 h (0–7 d), every 6 h (8–28 d)</td></tr>
+</tbody></table>
+<h3>Nafcillin (IV)</h3>
+<table><tbody>
+<tr><td><b>GA ≤34 wk</b></td><td>25 mg/kg: every 12 h (PNA ≤7 d), every 8 h (&gt;7 d)</td></tr>
+<tr><td><b>GA 35–43 wk</b></td><td>25 mg/kg: every 8 h (PNA ≤7 d), every 6 h (&gt;7 d)</td></tr>
+<tr><td><b>Meningitis, GA &lt;44 wk</b></td><td>25 mg/kg every 8 h (PNA ≤7 d); 25–37.5 mg/kg every 6 h (&gt;7 d)</td></tr>
+</tbody></table>
+<p class="src">Source: Baylor Guidelines for Acute Care of the Neonate, Ed. 34, Table 19-4.</p>
+</div></article><article class="card" id="rx-gentamicin-amikacin-vancomycin"><h2>Gentamicin, amikacin, vancomycin</h2><div class="cb">
+<h3>Gentamicin (IV) <span class="tag bcm">Baylor</span></h3>
+<table><tbody>
+<tr><td><b>GA &lt;30 wk</b></td><td>5 mg/kg every 48 h (PNA ≤14 d); every 36 h (&gt;14 d)</td></tr>
+<tr><td><b>GA 30–34 wk</b></td><td>5 mg/kg every 36 h (PNA ≤14 d); every 24 h (&gt;14 d)</td></tr>
+<tr><td><b>GA 35–43 wk</b></td><td>4 mg/kg every 24 h (PNA ≤7 d); 5 mg/kg every 24 h (&gt;7 d)</td></tr>
+</tbody></table>
+<h3>Amikacin (IV)</h3>
+<table><tbody>
+<tr><td><b>GA &lt;30 wk</b></td><td>15 mg/kg every 48 h (PNA ≤14 d); every 24 h (&gt;14 d)</td></tr>
+<tr><td><b>GA 30–34 wk</b></td><td>15 mg/kg every 24 h (PNA ≤60 d)</td></tr>
+<tr><td><b>GA 35–43 wk</b></td><td>15 mg/kg every 24 h (PNA ≤7 d); 17.5 mg/kg every 24 h (&gt;7 d)</td></tr>
+</tbody></table>
+<h3>Vancomycin (IV)</h3>
+<table><tbody>
+<tr><td><b>&lt;1.2 kg</b></td><td>15 mg/kg every 18–24 h (PNA ≤28 d)</td></tr>
+<tr><td><b>1.2–2 kg</b></td><td>15 mg/kg every 12–18 h (PNA &lt;7 d); every 8–12 h (≥7 d)</td></tr>
+<tr><td><b>&gt;2 kg</b></td><td>15 mg/kg every 8–12 h (PNA &lt;7 d); every 6–8 h (≥7 d)</td></tr>
+</tbody></table>
+<p class="small">Check aminoglycoside levels if ELBW, renal dysfunction, or treating more than 72 hours (Drug levels card).</p>
+<p class="src">Source: Baylor Guidelines for Acute Care of the Neonate, Ed. 34, Table 19-4 and Ch. 9.</p>
+</div></article><article class="card" id="rx-ceftazidime-and-clindamycin"><h2>Ceftazidime and clindamycin</h2><div class="cb">
+<h3>Ceftazidime (IV or IM) <span class="tag bcm">Baylor</span></h3>
+<table><tbody>
+<tr><td><b>&lt;1 kg</b></td><td>50 mg/kg every 12 h (PNA ≤14 d); every 8 h (&gt;14 d)</td></tr>
+<tr><td><b>1–2 kg</b></td><td>50 mg/kg every 12 h (PNA ≤7 d); every 8–12 h (&gt;7 d)</td></tr>
+<tr><td><b>&gt;2 kg</b></td><td>50 mg/kg every 12 h (PNA ≤7 d); every 8 h (8–60 d)</td></tr>
+<tr><td><b>Meningitis</b></td><td>50 mg/kg every 8–12 h (PNA ≤7 d); every 8 h (&gt;7 d)</td></tr>
+</tbody></table>
+<h3>Clindamycin (IV or IM)</h3>
+<table><tbody>
+<tr><td><b>&lt;1 kg</b></td><td>5 mg/kg every 12 h (PNA ≤14 d); every 8 h (&gt;14 d)</td></tr>
+<tr><td><b>1–2 kg</b></td><td>5 mg/kg every 12 h (PNA ≤7 d); every 8 h (&gt;7 d)</td></tr>
+<tr><td><b>&gt;2 kg</b></td><td>5 mg/kg every 8 h (PNA ≤7 d)</td></tr>
+</tbody></table>
+<p class="src">Source: Baylor Guidelines for Acute Care of the Neonate, Ed. 34, Table 19-4.</p>
+</div></article><article class="card" id="rx-drug-levels"><h2>Drug levels</h2><div class="cb">
+<table><thead><tr><th>Drug</th><th>Draw</th><th>Goal</th></tr></thead><tbody>
+<tr><td><b>Gentamicin</b></td><td>Peak 30 min after the infusion ends; trough 30 min before the next dose</td><td>Peak 8–10 (life-threatening), 6–10 (serious), 4–6 (UTI). Trough &lt;1.5</td></tr>
+<tr><td><b>Amikacin</b></td><td>Same timing</td><td>Peak 25–40, 20–25, 15–20. Trough &lt;8</td></tr>
+<tr><td><b>Vancomycin</b></td><td>Trough 30 min before the next dose</td><td>8–20, by indication and site</td></tr>
+<tr><td><b>Phenobarbital</b></td><td>Trough before the next maintenance dose</td><td>20–40</td></tr>
+<tr><td><b>Phenytoin (fosphenytoin)</b></td><td>Trough before the next maintenance dose</td><td>Total 15–20; free 1–2 (toxic &gt;4). Order free and total.</td></tr>
+</tbody></table>
+<p class="small">All mcg/mL. Peaks show efficacy, troughs show safety. Hold the dose for a trough result only when the level was drawn for renal dysfunction. Goals can be individualized with the team.</p>
+<p class="src">Source: Baylor Guidelines for Acute Care of the Neonate, Ed. 34, Table 19-3. <span class="tag bcm">Baylor</span></p>
+</div></article><article class="card" id="rx-pain-and-sedation"><h2>Pain and sedation</h2><div class="cb">
+<h3>Morphine <span class="tag bcm">Baylor</span></h3>
+<table><tbody>
+<tr><td><b>Intermittent IV</b></td><td>0.05–0.1 mg/kg over 5–10 min every 4–6 h</td></tr>
+<tr><td><b>PO (neonates)</b></td><td>0.08–0.1 mg/kg every 4–6 h</td></tr>
+<tr><td><b>Infusion</b></td><td>Load 0.05–0.1 mg/kg over 5 min, then 0.01–0.02 mg/kg/hr; titrate by no more than 0.02 mg/kg/hr every 30 min (a bolus is usually needed when going up)</td></tr>
+</tbody></table>
+<h3>Fentanyl</h3>
+<table><tbody>
+<tr><td><b>Intermittent IV</b></td><td>1–2 mcg/kg over 5 min every 2–4 h</td></tr>
+<tr><td><b>Infusion</b></td><td>Start 0.5–1 mcg/kg/hr; titrate by no more than 1 mcg/kg/hr every 30 min</td></tr>
+</tbody></table>
+<h3>Procedures</h3>
+<p><b>24% oral sucrose</b> about 2 minutes before the procedure: &lt;35 weeks corrected, 0.2 mL every 2 min, up to 3 doses (max 0.6 mL); ≥35 weeks, 1 mL every 2 min, up to 3 doses (max 3 mL). Up to 3 series per 24 hours without a new order. Pacifier, facilitated tucking, and skin-to-skin (≥32 weeks, heel sticks) help too.</p>
+<p class="small">Wean slowly after prolonged opioids. Sedatives (benzodiazepines, barbiturates) don't relieve pain. Pain scales: PIPP, CRIES, NIPS, N-PASS.</p>
+<p class="src">Source: Baylor Guidelines for Acute Care of the Neonate, Ed. 34, Ch. 12 (pain management).</p>
+</div></article><article class="card" id="rx-iv-infiltration"><h2>IV infiltration</h2><div class="cb">
+<ol>
+<li>Stop the infusion and disconnect the tubing. <b>Don't flush.</b></li>
+<li>Leave the catheter in only if you'll aspirate or give an antidote through it; otherwise remove it.</li>
+<li>Elevate the limb (or the head of the bed for a scalp site). Use dry cold or warm compresses only if the specific drug's guidance calls for them. Don't apply heat, especially moist heat, to an IV fluid infiltration.</li>
+<li>Tell the provider if the site stays swollen, red, blanched, or dark. Consider plastic surgery.</li>
+</ol>
+<h3>Hyaluronidase <span class="tag bcm">Baylor</span></h3>
+<p>For infiltrations of <b>hypertonic solutions</b>, best within an hour. Not for dopamine, dobutamine, epinephrine, or norepinephrine. After povidone-iodine prep (let it dry 1 minute): five 0.2 mL injections of 15 units/mL, subcutaneous or intradermal, around the leading edge, with a fresh 25–30 gauge needle each time.</p>
+<p class="small">Highest risk: hypertonic fluids, pressors, calcium, and blood.</p>
+<p class="src">Source: Baylor Guidelines for Acute Care of the Neonate, Ed. 34, Ch. 19.2.</p>
+</div></article><article class="card" id="rx-emergency-drugs"><h2>Emergency drugs</h2><div class="cb">
+<table><thead><tr><th>Drug</th><th>Dose and how</th></tr></thead><tbody>
+<tr><td><b>Adenosine</b></td><td>0.1 mg/kg; if no effect in 2 min, 0.2 mg/kg. Rapid push over 1–2 s with saline flush before and after, central or as close to the trunk as possible.</td></tr>
+<tr><td><b>Albumin 5%</b></td><td>10–20 mL/kg over 2–4 h. Volume only; use 25% to replace albumin.</td></tr>
+<tr><td><b>Calcium chloride 10%</b></td><td>20 mg/kg IV push over 3–5 min (hyperkalemia, arrest with hypocalcemia). Not with phosphate fluids.</td></tr>
+<tr><td><b>Calcium gluconate</b></td><td>100 mg/kg slow IV push over 5–10 min. Not with phosphate fluids.</td></tr>
+<tr><td><b>Cardioversion</b> (synchronized)</td><td>0.5–1 J/kg, then 2 J/kg. Sedate if possible but don't delay.</td></tr>
+<tr><td><b>Dextrose 10%</b></td><td>Hypoglycemia 2 mL/kg; hyperkalemia 4 mL/kg with 0.1 units/kg regular insulin. 1 mL/min.</td></tr>
+<tr><td><b>Epinephrine</b> 0.1 mg/mL</td><td>IV 0.01–0.03 mg/kg (0.1–0.3 mL/kg); ET 0.05–0.1 mg/kg (0.5–1 mL/kg). Max 0.1 mg (1 mL); repeat every 3–5 min.</td></tr>
+<tr><td><b>Lidocaine</b></td><td>IV 1 mg/kg over 1 min; ET 2 mg/kg. Pulseless VT/VF, not SVT.</td></tr>
+<tr><td><b>Naloxone</b></td><td>IV/IM 0.1 mg/kg, repeat every 2–3 min if needed; ET 0.2 mg/kg. Reverses all pain relief; may precipitate withdrawal.</td></tr>
+<tr><td><b>Sodium bicarbonate</b> 4.2%</td><td>2 mEq/kg over 2 min. Discouraged in codes; can cause IVH and worsen intracellular acidosis.</td></tr>
+</tbody></table>
+<p class="small">ET doses: follow with 5 manual breaths.</p>
+<p class="src">Source: Baylor Guidelines for Acute Care of the Neonate, Ed. 34, Table 19-5. <span class="tag bcm">Baylor</span></p>
+</div></article><article class="card" id="rx-intubation-drugs"><h2>Intubation drugs</h2><div class="cb">
+<table><tbody>
+<tr><td><b>Atropine</b></td><td>0.02 mg/kg rapid IV push; no minimum dose</td></tr>
+<tr><td><b>Fentanyl</b> 5 mcg/mL</td><td>IV 1–2 mcg/kg over 5 min if no paralytic is used. Intranasal 1.5–2 mcg/kg using 50 mcg/mL, half in each nostril, no atomizer.</td></tr>
+<tr><td><b>Vecuronium</b></td><td>0.08–0.1 mg/kg rapid IV push</td></tr>
+</tbody></table>
+<p class="small">Make fentanyl 5 mcg/mL: 1 mL of 50 mcg/mL + 9 mL NS. Vecuronium 1 mg/mL: 10 mL sterile water into a 10 mg vial. Give analgesia before intubation. Premedication plan and dose ranges are on the RSI card (Airway).</p>
+<p class="src">Source: Baylor Guidelines for Acute Care of the Neonate, Ed. 34, Table 19-5. <span class="tag bcm">Baylor</span></p>
+</div></article><article class="card" id="rx-infusions"><h2>Infusions</h2><div class="cb">
+<table><thead><tr><th>Drug</th><th>Range</th><th>Notes</th></tr></thead><tbody>
+<tr><td><b>Alprostadil</b></td><td>0.0125–0.1 mcg/kg/min</td><td>Titrate to effect</td></tr>
+<tr><td><b>Dopamine</b></td><td>2.5–20 mcg/kg/min</td><td></td></tr>
+<tr><td><b>Epinephrine</b></td><td>0.01–1 mcg/kg/min</td><td></td></tr>
+<tr><td><b>Norepinephrine</b></td><td>0.02–1 mcg/kg/min</td><td></td></tr>
+<tr><td><b>Phenylephrine</b></td><td>0.1–0.5 mcg/kg/min</td><td></td></tr>
+<tr><td><b>Vasopressin</b> (shock)</td><td>0.01–0.04 units/kg/<b>hr</b></td><td>Watch sodium; DI dosing differs</td></tr>
+<tr><td><b>Milrinone</b></td><td>0.25–0.75 mcg/kg/min</td><td>Avoid in severe obstructive valve disease; loading can drop BP; caution in renal dysfunction</td></tr>
+<tr><td><b>Nitroprusside</b></td><td>0.5–10 mcg/kg/min</td><td>Tachyphylaxis; thiosulfate added against cyanide (risk &gt;4 mcg/kg/min); step down if no response in 10 min at max; &lt;3 in renal dysfunction</td></tr>
+<tr><td><b>Nicardipine</b></td><td>0.5–2 mcg/kg/min</td><td>Caution: can depress contractility</td></tr>
+<tr><td><b>Esmolol</b></td><td>25–500 mcg/kg/min</td><td>Watch HR and cardiac output</td></tr>
+</tbody></table>
+<p class="small">These are the chart's full ranges. Usual starting doses for pressors are on the CV tab. The Drip section of the calculator turns a dose into mL/hr.</p>
+<p class="src">Source: Baylor Guidelines for Acute Care of the Neonate, Ed. 34, Table 19-5. <span class="tag bcm">Baylor</span></p>
+</div></article><article class="card" id="rx-sedation-and-other-drugs"><h2>Sedation and other drugs</h2><div class="cb">
+<table><tbody>
+<tr><td><b>Lorazepam</b></td><td>Sedation 0.05 mg/kg (0.02–0.1) every 4–8 h. Status epilepticus 0.1 mg/kg, may repeat in 10–15 min. Contains benzyl alcohol, PEG, and propylene glycol.</td></tr>
+<tr><td><b>Midazolam</b></td><td>0.05–0.15 mg/kg every 2–4 h. Infusion 0.03 mg/kg/hr (≤32 wk PMA) or 0.06 (&gt;32 wk). Caution in liver dysfunction.</td></tr>
+<tr><td><b>Morphine</b></td><td>Tolerance in 5–7 days; avoid in renal dysfunction.</td></tr>
+<tr><td><b>Fentanyl</b></td><td>Tolerance in 3–5 days; preferred opioid in renal dysfunction; bolus faster than 5 min can cause chest wall rigidity.</td></tr>
+<tr><td><b>Ibuprofen lysine</b> (PDA)</td><td>10 mg/kg, then 5 mg/kg every 24 h × 2 (birth weight), over 15 min. Preferred over indomethacin: less nephrotoxicity.</td></tr>
+<tr><td><b>Indomethacin</b> (IVH prophylaxis)</td><td>0.1 mg/kg every 24 h × 3 (birth weight), starting within 12 h, for ≤26 6/7 wk or &lt;800 g.</td></tr>
+<tr><td><b>Vecuronium</b> (ongoing)</td><td>0.1 mg/kg every 1–2 h as needed; maintenance 0.03–0.15 mg/kg; infusion 0.06–0.09 mg/kg/hr. Lasts longer with liver or kidney dysfunction.</td></tr>
+</tbody></table>
+<p class="small">The chart advises avoiding benzodiazepines before 44 weeks PMA (neurodegenerative concerns). Opioid doses are on the Pain and sedation card.</p>
+<p class="src">Source: Baylor Guidelines for Acute Care of the Neonate, Ed. 34, Table 19-5. <span class="tag bcm">Baylor</span></p>
+</div></article></section>
+<section class="sec ref" data-sec="ref" hidden><nav class="jump" aria-label="Reference topics"><a href="#ref-baylor-guidelines-full-pdf">Baylor Guidelines (full PDF)</a><a href="#ref-normal-vital-signs">Normal vital signs</a><a href="#ref-newborn-screening-texas">Newborn screening (Texas)</a><a href="#ref-cchd-pulse-ox-screen">CCHD pulse ox screen</a><a href="#ref-hearing-screen">Hearing screen</a><a href="#ref-discharge-readiness">Discharge readiness</a><a href="#ref-outside-links">Outside links</a><a href="#ref-master-brain">Master Brain</a><a href="#ref-print-files">Print files</a><a href="#ref-how-to-read-an-x-ray">How to read an x-ray</a><a href="#ref-x-ray-tip-targets">X-ray tip targets</a><a href="#ref-sources">Sources</a><a href="#ref-how-to-read-the-tags">How to read the tags</a></nav><article class="card" id="ref-baylor-guidelines-full-pdf"><h2>Baylor Guidelines (full PDF)</h2><div class="cb">
+<p><a class="bigbtn" href="https://drive.google.com/file/d/1qR4T9R7UsSgZzCbQEO-91yWTW5MgIt0D/view" target="_blank" rel="noopener">Open the Baylor Guidelines for Acute Care of the Neonate</a></p>
+<p>Edition 34 (2026–2027), 366 pages: the guide Baylor/TCH neonatologists use. Opens your copy in Google Drive; it's private to your Google account.</p>
+<p class="small">To read it with no signal, open the Google Drive app, find guidelines.pdf, tap ⋯, and turn on <b>Available offline</b>. A new edition comes out each July from Baylor's site (link in Outside links).</p>
+<p class="small"><b>Each July:</b> download the new edition, replace your Drive copy, and have the Baylor boxes and Rx tab re-checked against it; every box cites its chapter or table.</p>
+</div></article><article class="card" id="ref-normal-vital-signs"><h2>Normal vital signs</h2><div class="cb">
+<table><tbody>
+<tr><td><b>Temperature</b></td><td>36.5–37.5 °C axillary. Rectal temps don't reflect core temperature and can injure the newborn.</td></tr>
+<tr><td><b>Heart rate</b></td><td>120–160. Tachycardia &gt;180. Bradycardia &lt;80. At birth, a HR below 100 calls for PPV.</td></tr>
+<tr><td><b>Respiratory rate</b></td><td>40–60. Tachypnea &gt;60.</td></tr>
+<tr><td><b>Apnea</b></td><td>No breathing for ≥20 seconds, or shorter with bradycardia (&lt;100), cyanosis, or pallor.</td></tr>
+<tr><td><b>Periodic breathing</b></td><td>Breathing cycles of 10–18 seconds broken by pauses of at least 3 seconds, repeating for at least 2 minutes. Normal.</td></tr>
+<tr><td><b>Blood pressure</b></td><td>See BP norms in the CV tab.</td></tr>
+</tbody></table>
+<h3>Central venous pressure</h3>
+<p>Normal 3–7 mmHg. Bringing CVP to 5–8 mmHg with volume is associated with better cardiac output; above 5–8, more volume usually doesn't help. Ventilator pressures and tricuspid valve function also change CVP.</p>
+<p class="src">Sources: NRP (temperature, HR at birth); Baylor College of Medicine, Guidelines for Acute Care of the Neonate, Ed. 34 (2026–2027), Ch. 16.1 (apnea, periodic breathing); NNP Brain (program reference).</p>
+</div></article><article class="card" id="ref-newborn-screening-texas"><h2>Newborn screening (Texas)</h2><div class="cb">
+<h3>Blood spot screen</h3>
+<p>Texas screens for more than 50 disorders, including cystic fibrosis, SCID, SMA, inborn errors of metabolism, congenital hypothyroidism, galactosemia, hemoglobinopathies, CAH, and biotinidase deficiency. Pompe, MPS I, MPS II, and infantile Krabbe were added in 2025; GAMT deficiency in June 2026.</p>
+<table><tbody>
+<tr><td><b>First screen</b></td><td>24–48 hours of age, on every newborn regardless of feeding or prematurity</td></tr>
+<tr><td><b>Second screen</b></td><td>1–2 weeks of age</td></tr>
+<tr><td><b>Transfusion</b></td><td>Collect the first screen before any transfusion (including ECMO or emergency blood). After a transfusion, retest 6–8 weeks later.</td></tr>
+</tbody></table>
+<h3>Other routine screens</h3>
+<p><b>Bilirubin:</b> total and direct at 24–48 hours, with the blood spot. A high direct (conjugated) bilirubin can be an early sign of biliary atresia.</p>
+<p><b>Glucose:</b> LGA, SGA, preterm (&lt;37 wk), and IDM infants: first check at 30 minutes to 2 hours of life, then regularly for 12–24 hours. Many nurseries use 40% oral glucose gel with a feed as first treatment. See the Hypoglycemia card (FEN).</p>
+<p><b>CCHD and hearing:</b> see their cards below.</p>
+<p class="src">Source: Baylor College of Medicine, Guidelines for Acute Care of the Neonate, Ed. 34 (2026–2027), Ch. 13.11.</p>
+</div></article><article class="card" id="ref-cchd-pulse-ox-screen"><h2>CCHD pulse ox screen</h2><div class="cb">
+<p>Required in Texas. Infant <b>off oxygen</b>, at <b>24 hours or older</b> (or before discharge). Check the <b>right hand and one foot</b>.</p>
+<table><tbody>
+<tr><td><b>Either site &lt;90%</b></td><td><b>Fail.</b> Don't repeat; get an immediate clinical assessment.</td></tr>
+<tr><td><b>Both ≥95% and difference ≤3%</b></td><td><b>Pass.</b> Routine care.</td></tr>
+<tr><td><b>Anything else</b></td><td>Retest once in 1 hour. Then both ≥95% and difference ≤3% passes; anything else fails.</td></tr>
+</tbody></table>
+<p class="small">The 2025 AAP algorithm allows one retest. Confirmed CCHD must be reported to Texas DSHS. Screening also picks up non-cardiac causes of low saturation: infection, lung disease, PPHN, hemoglobinopathy, hypothermia.</p>
+<p class="src">Sources: AAP Clinical Report, Newborn Screening for CCHD: A New Algorithm (Oster et al., Pediatrics 2025); Baylor College of Medicine, Guidelines for Acute Care of the Neonate, Ed. 34 (2026–2027), Ch. 13.11.</p>
+</div></article><article class="card" id="ref-hearing-screen"><h2>Hearing screen</h2><div class="cb">
+<p class="formula">Screen by 1 month, diagnose by 3 months, intervene by 6 months</p>
+<p>Required by law in Texas. Hearing loss affects about 1–3 per 1,000 well newborns but 20–40 per 1,000 NICU infants, and risk factors alone catch only about half.</p>
+<table><tbody>
+<tr><td><b>Well babies</b></td><td>OAE or AABR. If referred, rescreen before discharge. If the rescreen refers on either side: urine CMV PCR and an outpatient hearing appointment.</td></tr>
+<tr><td><b>NICU</b></td><td>AABR required. If referred on either side: diagnostic audiology evaluation (ABR) plus urine or saliva CMV PCR; ENT referral if hearing loss is confirmed.</td></tr>
+</tbody></table>
+<h3>NICU timing</h3>
+<p><b>Can screen:</b> &gt;34 weeks PMA, medically stable; in a crib, isolette, or warmer; on CPAP, nasal cannula, or a ventilator.</p>
+<p><b>Wait if:</b> &lt;34 weeks PMA, on HFOV, on continuous EEG, or on vasoactive drips.</p>
+<p class="small">Rescreen infants readmitted in the first month with hyperbilirubinemia needing exchange or culture-positive sepsis or meningitis.</p>
+<p class="src">Source: Baylor College of Medicine, Guidelines for Acute Care of the Neonate, Ed. 34 (2026–2027), Ch. 13.11 and 2.1.</p>
+</div></article><article class="card" id="ref-discharge-readiness"><h2>Discharge readiness</h2><div class="cb">
+<h3>Every newborn</h3>
+<ul>
+<li>Exam and course show nothing needing continued hospital care</li>
+<li>Stable vital signs for 12 hours, including temperature in an open crib</li>
+<li>Two successful feeds in a row (latch, swallow, and satiety documented, or suck-swallow-breathe coordination for bottle feeds)</li>
+<li>Has voided and stooled at least once</li>
+<li>Sepsis risk managed per current guidelines</li>
+<li>Maternal HIV, syphilis, hepatitis B surface antigen, and GBS results reviewed</li>
+<li>Blood spot, hearing, and CCHD screens done</li>
+<li>Bilirubin risk assessed and follow-up arranged</li>
+</ul>
+<h3>Preterm and NICU infants, also</h3>
+<ul>
+<li>Car seat observation for apnea, bradycardia, or desaturation</li>
+<li>CPR training offered to parents</li>
+<li>Hearing screen done; ROP follow-up exam scheduled if the retina isn't mature or ROP was treated</li>
+<li>High-risk developmental follow-up (all &lt;1500 g birth weight)</li>
+<li>RSV prevention (nirsevimab) as appropriate</li>
+<li>Apnea criteria met: see Apnea of prematurity (Resp)</li>
+</ul>
+<p class="src">Source: Baylor College of Medicine, Guidelines for Acute Care of the Neonate, Ed. 34 (2026–2027), Ch. 13.9 and 2.1 (citing the AAP Committee on Fetus and Newborn).</p>
+</div></article><article class="card" id="ref-outside-links"><h2>Outside links</h2><div class="cb">
 <p><a href="https://neonatalsepsiscalculator.kaiserpermanente.org/" target="_blank" rel="noopener">Kaiser Permanente EOS Calculator</a><br><span class="small">Early-onset sepsis risk for infants born at 35 weeks or later (2024 update).</span></p>
 <p><a href="https://tomheslin.github.io/NICU-Codes/" target="_blank" rel="noopener">NICU Codes</a><br><span class="small">NICU ICD-10 and CPT code lookup.</span></p>
 <p><a href="https://www.bilitool.org/" target="_blank" rel="noopener">BiliTool</a> and <a href="https://peditools.org/bili2022/" target="_blank" rel="noopener">PediTools bili 2022</a><br><span class="small">AAP 2022 bilirubin thresholds, plotted (35 weeks and up).</span></p>
 <p><a href="https://peditools.org/fenton2013/" target="_blank" rel="noopener">Fenton 2013 preterm growth calculator</a> (PediTools)<br><span class="small">Weight, length, and head circumference percentiles and z-scores, weekly growth needed to hold a percentile, plus ROP and RSV prophylaxis prompts.</span></p>
+<p><a href="https://www.bcm.edu/departments/pediatrics/sections-divisions-centers/neonatology/publications/physician-publications" target="_blank" rel="noopener">Baylor Guidelines for Acute Care of the Neonate</a><br><span class="small">Ed. 34 (2026–2027), the guide Baylor/TCH neonatologists use. Free PDF for personal use after a short agreement on Baylor's site.</span></p>
 <p class="small">All need internet.</p></div></article><article class="card" id="ref-master-brain"><h2>Master Brain</h2><div class="cb"><p>The NNP Brain: a full, searchable neonatal reference with all of its charts.</p><p><a class="btn" href="brain.html">Open the NNP Brain</a></p><p class="small">Works offline too.</p></div></article><article class="card" id="ref-print-files"><h2>Print files</h2><div class="cb"><p>Print double-sided, flip on the long edge, at Actual size.</p><ul class="files"><li><a href="badge-print-letter.pdf" target="_blank" rel="noopener">Badge buddies, letter sheet (3 sets)</a></li><li><a href="booklet-print-letter.pdf" target="_blank" rel="noopener">Booklet, letter sheets (cut into 8 cards)</a></li><li><a href="badge-cards.pdf" target="_blank" rel="noopener">Badge faces, actual size (print shop)</a></li><li><a href="booklet-pages.pdf" target="_blank" rel="noopener">Booklet pages, 4.25 x 5.5 in (print shop)</a></li><li><a href="guide2-print-letter.pdf" target="_blank" rel="noopener">Guide 2 (FEN, CV, Resp), letter sheets (cut into 8 cards)</a></li><li><a href="guide2-pages.pdf" target="_blank" rel="noopener">Guide 2 pages, 4.25 x 5.5 in (print shop)</a></li></ul></div></article><article class="card" id="ref-how-to-read-an-x-ray"><h2>How to read an x-ray</h2><div class="cb">
 <p class="small">Remember <b>RIPE ABCDEFG</b>.</p>
 <table class="cmp"><tbody>
@@ -955,16 +1809,17 @@ body.searching .tabs{display:none}
 <tr><td><span class="tag e8">8th</span></td><td>NRP 8th edition</td></tr>
 <tr><td><span class="tag e9">9th</span></td><td>NRP 9th edition (effective 2026)</td></tr>
 <tr><td><span class="tag atl">Atlas</span></td><td>MacDonald's Atlas of Procedures in Neonatology, 6th ed</td></tr>
+<tr><td><span class="tag bcm">Baylor</span></td><td>Baylor Guidelines for Acute Care of the Neonate, Ed. 34, where it differs</td></tr>
 <tr><td><span class="tag atl" style="background:#E8F0FB">AAP 2022</span></td><td>AAP 2022 hyperbilirubinemia guideline</td></tr></table>
 <p class="small">Doses and depths are starting points. Confirm every tube and line clinically and on film, and follow unit protocol.</p></div></article></section>
 <p class="none" id="none">No matches. Try a shorter word.</p>
 </main>
-<footer>v27, October 2026. Badge through Lines match the printed booklet and badge cards (v5); Guide 2 prints the core of FEN, CV, and Resp. Works offline after the first open.</footer>
+<footer>v48, October 2026. Badge through Lines match the printed booklet (v7) and badge cards (v5); Guide 2 prints the core of FEN, CV, and Resp. Works offline after the first open.</footer>
 <script>
 (function(){
  const tabs=[...document.querySelectorAll('.tab')], secs=[...document.querySelectorAll('.sec')], cards=[...document.querySelectorAll('.card')];
- const q=document.getElementById('q'), none=document.getElementById('none'), names={bad:'Badge',air:'Airway',res:'Resus',lin:'Lines',pro:'Procedures',cv:'Drips and pressors',resp:'Blood gas and vent',fen:'FEN + Labs',ref:'Reference'};
- cards.forEach(c=>{const s=c.closest('.sec').dataset.sec;const f=document.createElement('div');f.className='from';f.textContent=names[s];c.prepend(f);c._t=c.textContent.toLowerCase();});
+ const q=document.getElementById('q'), none=document.getElementById('none'), names={bad:'Badge',air:'Airway',res:'Resus',lin:'Lines',pro:'Procedures',cv:'Drips and pressors',resp:'Blood gas and vent',fen:'FEN + Labs',dx:'Conditions',rx:'Medications',ref:'Reference'};
+ cards.forEach(c=>{const s=c.closest('.sec').dataset.sec;const f=document.createElement('div');f.className='from';f.textContent=names[s];c.prepend(f);const tw=document.createTreeWalker(c,NodeFilter.SHOW_TEXT);const parts=[];while(tw.nextNode())parts.push(tw.currentNode.nodeValue);c._t=parts.join(' ').toLowerCase();});
  let current='bad';
  function show(sec){current=sec;tabs.forEach(t=>t.setAttribute('aria-selected',t.dataset.sec===sec));secs.forEach(s=>s.hidden=s.dataset.sec!==sec);scrollTo(0,0);}
  tabs.forEach(t=>t.addEventListener('click',()=>{if(q.value){q.value='';filter();}show(t.dataset.sec);t.scrollIntoView({inline:'nearest',block:'nearest'});}));
@@ -973,12 +1828,17 @@ body.searching .tabs{display:none}
   if(!v){document.body.classList.remove('searching');cards.forEach(c=>c.hidden=false);none.style.display='none';show(current);return;}
   document.body.classList.add('searching');let n=0;
   secs.forEach(s=>s.hidden=false);
-  cards.forEach(c=>{const hit=!c.classList.contains('noidx')&&c._t.includes(v);c.hidden=!hit;if(hit)n++;});
+  const esc=v.replace(/[.*+?^${}()|[\]\\]/g,'\\$&');const rx=v.length<=4?new RegExp('(^|[^a-z0-9])'+esc):null;
+  cards.forEach(c=>{const hit=!c.classList.contains('noidx')&&(rx?rx.test(c._t):c._t.includes(v));c.hidden=!hit;if(hit)n++;});
   none.style.display=n?'none':'block';
  }
  q.addEventListener('input',filter);
  q.addEventListener('keydown',e=>{if(e.key==='Escape'){q.value='';filter();}});
 
+ // in-app links to cards on other tabs
+ document.addEventListener('click',e=>{const a=e.target.closest('a[href^="#"]');if(!a)return;const el=document.getElementById(a.getAttribute('href').slice(1));if(!el)return;const sec=el.closest('.sec');if(sec&&sec.hidden){e.preventDefault();if(q.value){q.value='';filter();}show(sec.dataset.sec);document.querySelector('.tab.'+sec.dataset.sec).scrollIntoView({inline:'nearest',block:'nearest'});requestAnimationFrame(()=>el.scrollIntoView());}});
+ // yearly Baylor edition reminder
+ (function(){try{const now=new Date();const y=now.getMonth()>=6?now.getFullYear():now.getFullYear()-1;if(y<2027)return;const k='baylorRemind'+y;if(localStorage.getItem(k))return;const b=document.createElement('div');b.className='remind';b.innerHTML='<span>A new Baylor Guidelines edition comes out each July. Time to update your copy and re-check the Baylor boxes.</span><button type=\"button\">OK</button>';b.querySelector('button').onclick=()=>{try{localStorage.setItem(k,'1')}catch(e){}b.remove()};document.querySelector('main').prepend(b);}catch(e){}})();
  // ---------- stars (saved on this phone only)
  const KEY='nnp-stars'; let stars=[];
  try{stars=JSON.parse(localStorage.getItem(KEY)||'[]')}catch(e){stars=[]}
@@ -1019,7 +1879,7 @@ body.searching .tabs{display:none}
   const fluids=(w)=>{
    if(!(fl!==null&&fl>0))return `<div class="cgroup fen"><h3>Fluids and GIR</h3><p class="cnote">Enter mL/kg/day and dextrose % for GIR. No weight needed.</p></div>`;
    let fh=w?row('Rate',f(fl*w/24,2)+' mL/hr',f(fl,0)+' mL/kg/day'):'';
-   if(d!==null&&d>0)fh+=row('GIR',f(d*fl/144,1)+' mg/kg/min','%D × mL/kg/day ÷ 144; target 4–8');
+   if(d!==null&&d>0)fh+=row('GIR',f(d*fl/144,1)+' mg/kg/min','%D × mL/kg/day ÷ 144. Start 4–6; Baylor goal on full PN 10–12');
    if(tg!==null&&tg>0)fh+=row('%D for GIR '+f(tg,1),f(tg*144/fl,1)+'%','GIR × 144 ÷ mL/kg/day');
    if(!fh)fh='<p class="cnote">Add dextrose % for GIR, or a weight for mL/hr.</p>';
    return `<div class="cgroup fen"><h3>Fluids and GIR</h3>`+fh+`</div>`;};
@@ -1036,11 +1896,110 @@ body.searching .tabs{display:none}
    if(haveA){tot+=aa*4; totS+=aa*4; r+=row('Amino acids',f(aa*4,1)+' kcal/kg/day',f(aa,2)+' g/kg × 4');}
    if(haveL){tot+=lg*10; totS+=lg*10; r+=row('Lipid (20%)',f(lg*10,1)+' kcal/kg/day',lsub||(f(lg,2)+' g/kg × 10'));}
    else if(lsub) r+=row('Lipid (20%)','—',lsub);
-   r+=row('<b>Total from TPN</b>','<b>'+f(tot,1)+' kcal/kg/day</b>','Shortcut total '+f(totS,1)+'. Goals: preterm 110–130, term 100–120.');
+   r+=row('<b>Total from TPN</b>','<b>'+f(tot,1)+' kcal/kg/day</b>','Shortcut total '+f(totS,1)+'. Preterm on TPN alone: about 90–120 (Baylor goal 90–100).');
    return `<div class="cgroup fen"><h3>TPN calories</h3>`+r+`<p class="cnote">TPN only; feeds are not included. Formula from your TPN lecture.</p></div>`;};
-  if(raw===null||raw<=0){what.textContent='Enter a weight for airway, lines, and resus. GIR works without one. Nothing you type here is saved.';out.innerHTML=fluids(null)+tpn(null);return}
+  // ---- shared: age, GA, birth weight ----
+  const ageStr=($('cage').value||'').trim().toLowerCase();
+  let ageH=null; {const m=ageStr.match(/^(\d+(?:\.\d+)?)\s*(h|hr|hrs|hours?|d|days?)?$/); if(m){const v=parseFloat(m[1]); ageH=(m[2]&&m[2][0]==='h')?v:v*24;}}
+  const gaW=gaIn===null?null:Math.floor(gaIn);
+  const dol=ageH===null?null:Math.floor(ageH/24)+1;  // day of life
+  const pnaD=ageH===null?null:ageH/24;
+  const bwRaw=num($('cbw').value); const bwG=bwRaw!==null&&bwRaw>0?(bwRaw>20?bwRaw:bwRaw*1000):(raw!==null&&raw>0?(raw>20?raw:raw*1000):null);
+  const ageTxt=ageH===null?'':(ageH<72?f(ageH,0)+' h':f(pnaD,1)+' days');
+  // ---- antibiotics (Baylor Table 19-4) ----
+  const abx=(w)=>{
+   if(!w) return '';
+   let r='';
+   const gentFor=(ga,p)=>{ if(ga<30) return p<=14?[5,48]:[5,36]; if(ga<=34) return p<=14?[5,36]:[5,24]; if(ga<=43) return p<=7?[4,24]:[5,24]; return [2.5,8]; };
+   if(gaW===null){ r+=row('Gentamicin','—','Add GA at birth (and age) for Baylor dosing'); }
+   else if(pnaD===null){ const a=gentFor(gaW,1), b=gentFor(gaW,30);
+     r+=row('Gentamicin',f(a[0]*w,2)+' mg every '+a[1]+' h','First days of life; later: '+f(b[0]*w,2)+' mg every '+b[1]+' h. Add age to pick one'); }
+   else { const a=gentFor(gaW,pnaD); r+=row('Gentamicin '+a[0]+' mg/kg',f(a[0]*w,2)+' mg every '+a[1]+' h','Baylor, GA '+gaW+' wk, age '+f(pnaD,1)+' d. Levels if ELBW, renal issues, or &gt;72 h'); }
+   {const vi=(kg,p)=>{ if(kg<1.2) return p<=28?'18–24':null; if(kg<=2) return p<7?'12–18':'8–12'; return p<7?'8–12':'6–8'; };
+    if(pnaD===null){ r+=row('Vancomycin 15 mg/kg',f(15*w,1)+' mg','Interval by weight and age; add age (Baylor)'); }
+    else { const iv=vi(w,pnaD); r+=row('Vancomycin 15 mg/kg',iv?f(15*w,1)+' mg every '+iv+' h':'—',iv?'Baylor, '+f(w,2)+' kg, age '+f(pnaD,1)+' d. Trough 8–20':'Under 1.2 kg and older than 28 days is outside the table'); }}
+   r+=row('Ampicillin, EOS',f(100*w,0)+' mg every 8 h','100 mg/kg');
+   if(pnaD===null||pnaD<=7) r+=row('Ampicillin, meningitis',f(100*w,0)+' mg every 8 h','100 mg/kg, age ≤7 d'+(pnaD===null?'; after day 7: '+f(75*w,0)+' mg every 6 h':''));
+   else r+=row('Ampicillin, meningitis',f(75*w,0)+' mg every 6 h','75 mg/kg, age &gt;7 d');
+   return `<div class="cgroup rx"><h3>Antibiotics (Baylor)</h3>`+r+`<p class="cnote">Rx tab has the full tables. Confirm with pharmacy.</p></div>`;};
+  // ---- drip rate ----
+  const drip=(w)=>{
+   const dd=num($('cdd').value), cn=num($('ccn').value), rt=num($('crt').value), du=$('cdu').value, cu=$('ccu').value;
+   if(dd===null&&rt===null&&cn===null) return '';
+   const head='<div class="cgroup cv"><h3>Drip rate</h3>';
+   if(!w) return head+'<p class="cnote">Add a weight.</p></div>';
+   if(cn===null||cn<=0) return head+'<p class="cnote">Add the concentration.</p></div>';
+   const dUnit=du.split('/')[0], cUnit=cu.split('/')[0];
+   if((dUnit==='units')!==(cUnit==='units')) return head+'<p class="cnote">Dose and concentration units don\'t match (units vs mcg/mg).</p></div>';
+   const toMcg=u=>u==='mg'?1000:1;
+   const perMin=du.endsWith('/min');
+   const cPer=cn*(cUnit==='units'?1:toMcg(cUnit));            // per mL, in mcg or units
+   const dFac=(dUnit==='units'?1:toMcg(dUnit))*(perMin?60:1);   // dose -> per hour, in mcg or units
+   let r='';
+   if(dd!==null&&dd>0){ const mlhr=dd*dFac*w/cPer; r+=row(f(dd,4)+' '+du,f(mlhr,2)+' mL/hr','at '+f(cn,3)+' '+cu+', '+f(w,3)+' kg'); }
+   else if(rt!==null&&rt>0){ const dose=rt*cPer/(w*dFac); r+=row(f(rt,2)+' mL/hr',f(dose,4)+' '+du,'at '+f(cn,3)+' '+cu+', '+f(w,3)+' kg'); }
+   else r+='<p class="cnote">Enter a dose (for mL/hr) or a rate (for the dose).</p>';
+   return head+r+'<p class="cnote">mL/hr = dose × kg'+(perMin?' × 60':'')+' ÷ concentration. Double-check against the pump library.</p></div>';};
+  // ---- transfusion ----
+  const trx=()=>{
+   const sev=$('csev').value, rs=$('cresp').value;
+   if(sev===''&&rs==='') return '';
+   if(dol===null) return `<div class="cgroup res"><h3>Transfusion threshold</h3><p class="cnote">Add age.</p></div>`;
+   const col=dol<=7?0:(dol<=14?1:2), colTxt=['days 1–7','days 8–14','after day 14'][col];
+   let r='';
+   const B=[[33,30,27],[30,30,25],[30,27,23],[30,25,21]], BN=['Severe','Moderate','Mild','Asymptomatic'];
+   if(sev!=='') r+=row('Baylor: transfuse below','Hct '+B[+sev][col]+'%',BN[+sev]+', '+colTxt);
+   else r+=row('Baylor','—','Choose illness severity');
+   const N=[[11,10],[10,8.5],[9,7]];
+   if(gaW!==null&&gaW>=30) r+=row('National (&lt;30 wk)','—','Applies to infants born before 30 weeks');
+   else if(rs!==''){ const hgb=N[col][rs==='1'?0:1]; r+=row('National: transfuse below','Hct '+f(hgb*3,1)+'%','Hgb '+hgb+'; '+(rs==='1'?'on respiratory support':'no or minimal support')+', '+['week 1','week 2','week 3+'][col]+(gaW===null?'. For infants born &lt;30 wk':'')); }
+   else r+=row('National','—','Choose respiratory support');
+   return `<div class="cgroup res"><h3>Transfusion threshold</h3>`+r+`<p class="cnote">PRBC 15 mL/kg over 2–4 h (Baylor). See Anemia card (Dx).</p></div>`;};
+  // ---- bilirubin, preterm ----
+  const bili=()=>{
+   if(ageH===null||(bwG===null&&gaW===null)) return '';
+   if(gaW!==null&&gaW>=35) return '';
+   let r='';
+   if(bwG!==null){
+    const T=[[750,['≥5','≥5','≥5','≥5','≥5'],'&gt;13'],[1000,['≥5','≥5','≥5','≥5','≥7'],'&gt;15'],[1500,['5–7','7–9','7–9','7–9','10–12'],'15–16'],[2000,['5–8','8–10','10–12','10–12','13–15'],'16–18'],[2501,['5–8','8–11','11–13','13–15','14–15'],'18–19']];
+    const ci=ageH<24?0:ageH<48?1:ageH<72?2:ageH<168?3:(ageH<336?4:null);
+    const rowT=T.find(x=>bwG<x[0]);
+    if(!rowT) r+=row('Baylor','—','Birth weight above 2500 g is outside the table');
+    else if(ci===null) r+=row('Baylor','—','Older than 2 weeks is outside the table');
+    else r+=row('Baylor: phototherapy at','TSB '+rowT[1][ci],'Birth weight '+Math.round(bwG)+' g, '+['&lt;24 h','24–48 h','48–72 h','72–168 h','week 2'][ci]+'. Exchange '+rowT[2]);
+   } else r+=row('Baylor','—','Add birth weight');
+   if(gaW!==null){
+    const pma=gaW+ageH/24/7;
+    const M=[[28,'5–6','11–14'],[30,'6–8','12–14'],[32,'8–10','13–16'],[34,'10–12','15–18'],[99,'12–14','17–19']];
+    const m=M.find(x=>pma<x[0]);
+    r+=row('National: phototherapy at','TSB '+m[1],'PMA '+f(pma,1)+' wk. Exchange '+m[2]);
+   } else r+=row('National','—','Add GA at birth');
+   return `<div class="cgroup fen"><h3>Bilirubin, born &lt;35 weeks</h3>`+r+`<p class="cnote">mg/dL. Use lower levels for sick infants.</p></div>`;};
+  // ---- HIE cooling check ----
+  const hie=()=>{
+   const ph=num($('cph').value), bd=num($('cbd').value), sar=$('csar').value;
+   const ck=id=>$(id).checked;
+   const any=ph!==null||bd!==null||sar!==''||['cevt','capg','cvnt','csz','cchr','cano'].some(ck);
+   if(!any) return '';
+   const why=[], maybe=[]; let ok=true;
+   if(gaW===null){ok=false;why.push('add GA')} else if(gaW<35){ok=false;why.push('GA under 35 weeks')} else if(gaW===35){maybe.push('35 weeks')}
+   if(ageH===null){ok=false;why.push('add age')} else if(ageH>24){ok=false;why.push('older than 24 hours')} else if(ageH>6){maybe.push('6–24 hours old')}
+   const A=(ph!==null&&ph<=7.0)||(bd!==null&&bd>=16);
+   const Bgas=(ph===null&&bd===null)||(ph!==null&&ph>7.0&&ph<=7.15)||(bd!==null&&bd>=10&&bd<16);
+   const B=Bgas&&ck('cevt')&&(ck('capg')||ck('cvnt'));
+   if(!(A||B)){ok=false;why.push(Bgas?'needs an acute event plus a 10-min Apgar ≤5 or ventilation at 10 min':'gas doesn\'t meet criteria')}
+   const enc=ck('csz')||(sar!==''&&+sar>=3);
+   if(!enc){ok=false;why.push(sar===''&&!ck('csz')?'add the Sarnat count':'encephalopathy not moderate/severe')}
+   const ex=[]; if(ck('cchr'))ex.push('chromosomal anomaly'); if(ck('cano'))ex.push('major anomaly'); if(bwG!==null&&bwG<1800)ex.push('birth weight &lt;1800 g');
+   let verdict, sub;
+   if(ex.length){verdict='Excluded'; sub=ex.join(', ');}
+   else if(!ok){verdict='Not yet'; sub=why.join('; ');}
+   else if(maybe.length){verdict='Baylor: consider'; sub=maybe.join(' and ')+'; shared decision with parents, documented';}
+   else {verdict='Meets criteria'; sub='≥36 wk, &lt;6 h, gas or event criteria, moderate/severe encephalopathy';}
+   return `<div class="cgroup dx"><h3>HIE cooling check</h3>`+row('Result','<b>'+verdict+'</b>',sub)+`<p class="cnote">A checklist only; the team decides. Criteria on the HIE card (Dx).</p></div>`;};
+  if(raw===null||raw<=0){what.textContent='Enter a weight for doses. GIR, transfusion, and HIE work without one. Nothing you type here is saved.';out.innerHTML=drip(null)+trx()+bili()+hie()+fluids(null)+tpn(null);return}
   const w=raw>20?raw/1000:raw, g=Math.round(w*1000);
-  if(w<0.3||w>6){what.textContent='Weight should be between 300 g and 6 kg. GIR works without one.';out.innerHTML=fluids(null)+tpn(null);return}
+  if(w<0.3||w>6){what.textContent='Weight should be between 300 g and 6 kg. GIR works without one.';out.innerHTML=drip(null)+trx()+bili()+hie()+fluids(null)+tpn(null);return}
   const ga=gaIn===null?null:Math.floor(gaIn);
   what.textContent=`Using ${f(w,3)} kg (${g} g)`+(ga!==null?`, ${ga} completed weeks.`:'. Add GA for the ETT depth table.');
   let h='';
@@ -1053,17 +2012,19 @@ body.searching .tabs{display:none}
   h+=`<div class="cgroup air"><h3>Airway</h3>`+row('ETT size, NRP 9th',sz(a9w,a9g,(w<0.8)||(ga!==null&&ga<=25)))+row('ETT size, NRP 8th',sz(a8w,a8g,false))
     +row('ETT depth',dep,dsub+'. 9th: to the gum. 8th: to the lip')+row('Cross-check','NTL + 1 cm')
     +row('Atropine 0.02 mg/kg',f(0.02*w,3)+' mg',f(20*w,1)+' mcg, IV or IM')
-    +row('Fentanyl 1–4 mcg/kg',f(1*w,2)+'–'+f(4*w,2)+' mcg','IV; give slowly (chest wall rigidity)')
+    +row('Fentanyl 1–4 mcg/kg',f(1*w,2)+'–'+f(4*w,2)+' mcg','Atlas; IV, give slowly (chest wall rigidity)')
+    +row('Fentanyl 0.5–2 mcg/kg',f(0.5*w,2)+'–'+f(2*w,2)+' mcg','Baylor; IV over 3–5 min')
     +row('Rocuronium 0.6–1.2 mg/kg',f(0.6*w,3)+'–'+f(1.2*w,3)+' mg','IV')
-    +row('Vecuronium 0.1 mg/kg',f(0.1*w,3)+' mg','IV, alternative paralytic')
-    +`<p class="cnote">RSI doses from MacDonald's Atlas (Table 38.2). Confirm with your order set.</p></div>`;
+    +row('Vecuronium 0.1 mg/kg',f(0.1*w,3)+' mg','IV; Atlas alternative, Baylor first choice')
+    +row('Midazolam 0.1 mg/kg',f(0.1*w,3)+' mg','Baylor premed, if more sedation needed. Baylor chart: avoid benzos &lt;44 wk PMA. Atlas: not for preterm')
+    +`<p class="cnote">RSI doses from MacDonald's Atlas (Table 38.2) and Baylor Guidelines (Ch. 16). Confirm with your order set.</p></div>`;
   // lines
   const uac=3*w+9;
   h+=`<div class="cgroup lin"><h3>Umbilical lines, before stump</h3>`+row('UAC high, Shukla',f(uac,1)+' cm','(3 × kg) + 9')
     +(w<=1.5?row('UAC high, Wright',f(4*w+7,1)+' cm','(4 × kg) + 7, studied in VLBW'):'')
     +row('UVC, Shukla',f(uac/2+1,1)+' cm','half the UAC + 1')+row('UVC, revised',f(uac/2,1)+' cm','half the UAC')
-    +row('UAC catheter',g<1200?'3.5 Fr':(g>1200?'5 Fr':'3.5 or 5 Fr'),'Atlas: 3.5 Fr &lt;1200 g, 5 Fr &gt;1200 g')
-    +row('UVC catheter',w<3.5?'3.5 Fr':(w>3.5?'5 Fr':'3.5 or 5 Fr'),'Atlas: 3.5 Fr &lt;3.5 kg, 5 Fr &gt;3.5 kg')
+    +row('UAC catheter',g<1200?'3.5 Fr':(g>1200?'5 Fr':'3.5 or 5 Fr'),'Atlas: 3.5 Fr &lt;1200 g, 5 Fr &gt;1200 g. Baylor: 3.5 Fr &lt;1500 g, 3.5–5 Fr &gt;1500 g')
+    +row('UVC catheter',w<3.5?'3.5 Fr':(w>3.5?'5 Fr':'3.5 or 5 Fr'),'Atlas: 3.5 Fr &lt;3.5 kg, 5 Fr &gt;3.5 kg. Baylor: 3.5 Fr &lt;1500 g, 3.5–5 Fr &gt;1500 g')
     +`<p class="cnote">Add stump length. Confirm the tip on film.</p></div>`;
   // procedures
   let pig, pigsub='Atlas: 6 or 8 Fr &lt;28 wk, 8 Fr &gt;28 wk';
@@ -1084,10 +2045,11 @@ body.searching .tabs{display:none}
   // resus
   h+=`<div class="cgroup res"><h3>Resus (epi 0.1 mg/mL)</h3>`+row('Epi IV/IO, start',f(0.2*w,3)+' mL',f(0.02*w,3)+' mg; range '+f(0.1*w,3)+'–'+f(0.3*w,3)+' mL; flush 3 mL NS')
     +row('Epi ETT',f(0.5*w,3)+'–'+f(1*w,3)+' mL',f(0.05*w,3)+'–'+f(0.1*w,3)+' mg')+row('NS bolus',f(10*w,1)+' mL','10 mL/kg over 5–10 min')+`</div>`;
-  h+=fluids(w)+tpn(w);
+  h+=abx(w)+drip(w)+trx()+bili()+hie()+fluids(w)+tpn(w);
   out.innerHTML=h;
  }
- ['cw','cga','cd','cf','cg','caa','clg','clh'].forEach(id=>$(id).addEventListener('input',update));
+ ['cw','cga','cage','cbw','cd','cf','cg','caa','clg','clh','cph','cbd','cdd','ccn','crt'].forEach(id=>$(id).addEventListener('input',update));
+ ['csev','cresp','csar','cevt','capg','cvnt','csz','cchr','cano','cdu','ccu'].forEach(id=>$(id).addEventListener('change',update));
  if('serviceWorker' in navigator){
   const hadController=!!navigator.serviceWorker.controller; let reloaded=false;
   navigator.serviceWorker.addEventListener('controllerchange',()=>{if(!hadController||reloaded)return;reloaded=true;location.reload();});

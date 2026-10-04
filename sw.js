@@ -1,4 +1,4 @@
-const CACHE = 'nicu-proc-v48';
+const CACHE = 'nicu-proc-v52';
 const FILES = ['./', './index.html', './brain.html', './manifest.webmanifest', './icon-192.png', './icon-512.png', './apple-touch-icon.png',
   './badge-print-letter.pdf', './badge-cards.pdf', './booklet-print-letter.pdf', './booklet-pages.pdf', './guide2-print-letter.pdf', './guide2-pages.pdf'];
 // Install: download fresh copies (skip the browser's HTTP cache) so a new version never picks up old files.

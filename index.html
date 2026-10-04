@@ -123,6 +123,32 @@ footer{max-width:760px;margin:0 auto;padding:0 14px 24px;color:var(--muted);font
 .starred{margin:0 0 6px}
 .st-h{font:700 13px var(--font);text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin:2px 2px 8px}
 body.searching .starred{display:none}
+
+/* ===== Look: Clinical Navy+ with colored section tabs ===== */
+:root{--bg:#EDF1F6}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0B0F14}}
+.top{background:linear-gradient(165deg,#0B2240 0%,#16407A 100%);box-shadow:0 2px 10px rgba(8,24,48,.25);padding-bottom:0}
+h1{font:800 26px/1 ui-rounded,-apple-system,system-ui,sans-serif;letter-spacing:.5px}
+.brainbtn{font-family:ui-rounded,-apple-system,system-ui,sans-serif;font-weight:700}
+.tabs{margin:12px -14px 0;max-width:none;padding:8px 6px;gap:2px;border-radius:0;background:var(--card);border-bottom:1px solid var(--rule)}
+.tab{color:#fff;font:700 12px ui-rounded,-apple-system,system-ui,sans-serif;border-radius:7px;padding:8px 2px;opacity:.78}
+.tab.bad{background:#5B6675}.tab.air{background:#1F4E86}.tab.res{background:#9B2C2C}.tab.lin{background:#276749}.tab.pro{background:#0E6F7A}.tab.cv{background:#B4235A}.tab.resp{background:#0B6E4F}.tab.fen{background:#8A5A12}.tab.ref{background:#553C9A}
+.tab[aria-selected="true"]{color:#fff;opacity:1;box-shadow:inset 0 -3px 0 rgba(255,255,255,.75),0 2px 6px rgba(0,0,0,.18)}
+.tab:focus-visible{outline:2px solid var(--accent)}
+body.searching .tabs{display:none}
+.card{border:0;border-radius:16px;padding:0 0 12px;overflow:hidden;box-shadow:0 1px 2px rgba(16,24,40,.06),0 6px 16px rgba(16,24,40,.06)}
+.card h2{margin:0 0 8px;padding:12px 14px;background:color-mix(in srgb,var(--c) 11%,var(--card));color:color-mix(in srgb,var(--c) 85%,var(--ink));font:800 19px/1.2 ui-rounded,-apple-system,system-ui,sans-serif}
+.card h2::before{width:6px;height:20px}
+.card .cb,.card .from{padding:0 14px}
+.card .from{padding-top:8px}
+.cb th{background:color-mix(in srgb,var(--c) 9%,var(--card))}
+.cb td.big,.cb .formula{color:color-mix(in srgb,var(--c) 85%,var(--ink))}
+.cb h3{color:color-mix(in srgb,var(--c) 85%,var(--ink))}
+.jump a{border:0;box-shadow:0 1px 2px rgba(16,24,40,.08);font-weight:600}
+.starred .card{box-shadow:0 0 0 2px color-mix(in srgb,#E3A008 40%,transparent),0 6px 16px rgba(16,24,40,.06)}
+.cgroup{border:0;border-radius:16px;box-shadow:0 1px 2px rgba(16,24,40,.06),0 6px 16px rgba(16,24,40,.06)}
+.calc-top{background:linear-gradient(165deg,#0B2240 0%,#16407A 100%)}
+.calc-top h2{font-family:ui-rounded,-apple-system,system-ui,sans-serif;font-weight:800}
 @media (prefers-reduced-motion:no-preference){html{scroll-behavior:smooth}}
 </style>
 </head>
@@ -168,14 +194,14 @@ body.searching .starred{display:none}
 <div class="side">
 <p><b>Measure to:</b><br><span class="tag e9">9th</span> upper gum<br><span class="tag e8">8th</span> upper lip</p>
 <p><b>Check:</b> NTL + 1 cm</p>
-<p><b>Tip:</b> T1–T2</p>
+<p><b>Tip:</b> T1–T2 (text)<br>T2–T3 (program)</p>
 <p>Flexion ↓ deeper<br>Extension ↑ higher</p>
 </div></div>
 </div></div></article><article class="card noidx" id="bad-rsi-resus"><h2>RSI + Resus</h2><div class="cb"><p class="small facelbl">Card 1, back</p><div class="face res">
 <p class="h">RSI order <span class="tag unit">Unit</span></p>
 <table><tbody>
 <tr><td class="b">1</td><td><b>Atropine</b> 0.02 mg/kg</td></tr>
-<tr><td class="b">2</td><td><b>Fentanyl</b> 1–4 mcg/kg<br><span class="s">Dilute in 2 mL NS over 3 min, flush 1 mL over 3 min</span></td></tr>
+<tr><td class="b">2</td><td><b>Fentanyl</b> 1–4 mcg/kg<br><span class="s">Give slowly (chest wall rigidity)</span></td></tr>
 <tr><td class="b">3</td><td><b>Rocuronium</b> 0.6–1.2 mg/kg</td></tr>
 </tbody></table>
 <p class="s">Doses: MacDonald's Atlas. Confirm with order set.</p>
@@ -195,15 +221,16 @@ body.searching .starred{display:none}
 <table class="num"><thead><tr><th>kg</th><th>UAC cm</th><th>UVC cm</th></tr></thead><tbody><tr><td class="b">0.5</td><td>10.5</td><td>6.3</td></tr><tr><td class="b">0.75</td><td>11.3</td><td>6.6</td></tr><tr><td class="b">1</td><td>12</td><td>7</td></tr><tr><td class="b">1.25</td><td>12.8</td><td>7.4</td></tr><tr><td class="b">1.5</td><td>13.5</td><td>7.8</td></tr><tr><td class="b">2</td><td>15</td><td>8.5</td></tr><tr><td class="b">2.5</td><td>16.5</td><td>9.3</td></tr><tr><td class="b">3</td><td>18</td><td>10</td></tr><tr><td class="b">3.5</td><td>19.5</td><td>10.8</td></tr><tr><td class="b">4</td><td>21</td><td>11.5</td></tr></tbody></table>
 </div></div></article><article class="card noidx" id="bad-picc-film"><h2>PICC + Film</h2><div class="cb"><p class="small facelbl">Card 2, back</p><div class="face ref">
 <p class="h">PICC measure</p>
-<p><b>Arm/scalp:</b> site → R sternal border, 3rd ICS (arm 90°)<br><b>Leg:</b> site → R of umbilicus → xiphoid</p>
+<p><b>Arm:</b> site → suprasternal notch → 3rd R ICS (arm 90°, head toward side)<br><b>Leg:</b> site → along vein → xiphoid</p>
 <p class="h">Tip targets on film</p>
 <table><tbody>
-<tr><td>ETT</td><td>T1–T2</td></tr>
+<tr><td>ETT</td><td>T1–T2 / T2–T3</td></tr>
 <tr><td>UAC</td><td>T6–T9 / L3–L4</td></tr>
-<tr><td>UVC</td><td>IVC–RA jxn</td></tr>
-<tr><td>PICC arm</td><td>SVC–RA jxn</td></tr>
-<tr><td>PICC leg</td><td>IVC–RA jxn + lateral</td></tr>
+<tr><td>UVC</td><td>IVC–RA jxn: T9–10 / T8–9</td></tr>
+<tr><td>PICC arm</td><td>SVC, outside heart</td></tr>
+<tr><td>PICC leg</td><td>Above L4–5 + lateral</td></tr>
 </tbody></table>
+<p class="s">ETT, UVC: textbook / NNP program</p>
 <p class="h"><span class="tag e9">9th</span> Start FiO₂</p>
 <table class="mini"><tbody><tr><td>≥35 wk</td><td>32–34 wk</td><td>&lt;32 wk</td></tr><tr><td class="b">21%</td><td class="b">21–30%</td><td class="b">≥30%</td></tr></tbody></table>
 <p class="h">SpO₂ targets</p>
@@ -221,23 +248,20 @@ body.searching .starred{display:none}
 <p><span class="tag e9">9th</span> Tip to <b>front edge of the upper gum, midline</b>.</p>
 <h3>Supraglottic airway <span class="tag e9">9th</span></h3>
 <p>Can be used as the primary device if face-mask ventilation or intubation is unsuccessful or unavailable (≥34 wk).</p>
-<div class="atlas"><p class="atlas-h"><span class="tag atl">Atlas</span> MacDonald's Atlas</p>
-<p>Same size bands as NRP 8th: 2.5 (&lt;1000 g, &lt;28 wk), 3.0 (1000–2000 g, 28–34 wk), 3.5 (&gt;2000 g, &gt;34 wk).</p>
+<div class="atlas"><p class="atlas-h"><span class="tag atl">Atlas</span> More from MacDonald's Atlas</p>
 <p><b>Blade:</b> Miller 1 term, 0 preterm, 00 may be considered for extremely preterm.</p>
 <p class="src">Atlas ch. 38, Endotracheal Intubation.</p></div></div></article><article class="card" id="air-ett-depth"><h2>ETT depth</h2><div class="cb">
 <table><thead><tr><th>GA (wk)</th><th>Weight (g)</th><th>cm</th></tr></thead><tbody><tr><td>&lt;23 <span class="tag e9">9th</span></td><td>&lt;500</td><td class="big">5.0–5.5</td></tr><tr><td>23–24</td><td>500–600</td><td class="big">5.5</td></tr><tr><td>25–26</td><td>700–800</td><td class="big">6.0</td></tr><tr><td>27–29</td><td>900–1000</td><td class="big">6.5</td></tr><tr><td>30–32</td><td>1100–1400</td><td class="big">7.0</td></tr><tr><td>33–34</td><td>1500–1800</td><td class="big">7.5</td></tr><tr><td>35–37</td><td>1900–2400</td><td class="big">8.0</td></tr><tr><td>38–40</td><td>2500–3100</td><td class="big">8.5</td></tr><tr><td>41–43</td><td>3200–4200</td><td class="big">9.0</td></tr></tbody></table>
 <p><span class="tag e9">9th</span> values are measured <b>at the gum</b>. <span class="tag e8">8th</span> used the same bands <b>at the lip</b>, confirmed in the Atlas. <span class="tag atl">Atlas</span></p>
 <h3>Cross-checks</h3>
 <p>Nasal-tragus length + 1 cm. Weight (kg) + 6 cm tends to run deep, especially in ELBW infants.</p>
-<div class="atlas"><p class="atlas-h"><span class="tag atl">Atlas</span> MacDonald's Atlas</p>
-<p>Depth at the <b>lip</b> by GA: 25–26 wk 6 cm, 30–32 wk 7 cm, 35–37 wk 8 cm. This matches the table above and confirms the lip landmark for the NRP 8th era.</p>
-<p><b>Differs:</b> the Atlas lists &gt;37 wk as 9 cm; the NRP table gives 8.5 cm for 38–40 wk.</p>
-<p>Vocal cord guide marks vary by manufacturer and may mislead, especially in extremely preterm infants. Nasal tubes: about 2 cm deeper than oral. CDH: some authors suggest 5.5 cm + weight in kg.</p>
+<div class="atlas"><p class="atlas-h"><span class="tag atl">Atlas</span> More from MacDonald's Atlas</p>
+<p>Vocal cord guide marks vary by manufacturer and may mislead, especially in extremely preterm infants. Nasal tubes sit about 2 cm deeper than oral. For CDH, some authors suggest 5.5 cm + weight in kg.</p>
 <p class="src">Atlas ch. 38.</p></div></div></article><article class="card" id="air-ett-tip-and-confirmation"><h2>ETT tip and confirmation</h2><div class="cb">
 <h3>Tip position on film</h3>
-<p><b>Target T1–T2</b> (optimal in recent trials).</p>
-<p><span class="tag dir">Dir.</span> Between the clavicles and carina, at least 0.5–1.0 cm above the carina. Carina at about T4. Her sheet lists T2–T3.</p>
-<h3>Head position moves the tube <span class="tag dir">Dir.</span></h3>
+<table><tbody><tr><td><b>Textbook</b> <span class="tag atl">Atlas</span></td><td><b>T1–T2</b> (also optimal in recent trials)</td></tr><tr><td><b>NNP program</b></td><td><b>T2–T3</b></td></tr></tbody></table>
+<p>Either way: between the clavicles and the carina, at least 0.5–1.0 cm above the carina (carina at about T4).</p>
+<h3>Head position moves the tube</h3>
 <p>Neck <b>flexion</b>: tube moves <b>down</b> (deeper).<br>Neck <b>extension</b>: tube moves <b>up</b>.</p>
 <h3>Confirm placement</h3>
 <ul>
@@ -247,22 +271,21 @@ body.searching .starred{display:none}
 <li>Exhaled CO₂ detector color change</li>
 <li>Chest x-ray</li>
 </ul>
-<div class="atlas"><p class="atlas-h"><span class="tag atl">Atlas</span> MacDonald's Atlas</p>
-<p>Tip between <b>T1 and T2</b> on film, agreeing with the trials above (the director's sheet says T2–T3).</p>
+<div class="atlas"><p class="atlas-h"><span class="tag atl">Atlas</span> More from MacDonald's Atlas</p>
 <p>Limit each attempt to about <b>30 seconds</b>; stop sooner for hypoxia or bradycardia and ventilate by mask or supraglottic airway between attempts.</p>
 <p>Colorimetric CO₂ detector turns purple to yellow when CO₂ is present.</p>
 <p class="src">Atlas ch. 38.</p></div></div></article><article class="card" id="air-rsi-premedication"><h2>RSI premedication</h2><div class="cb">
-<h3>Order <span class="tag unit">Unit</span></h3>
+<h3>Typical order</h3>
 <table><tbody>
 <tr><td class="big">1</td><td><b>Atropine</b></td><td>0.02 mg/kg IV or IM <span class="tag atl">Atlas</span></td></tr>
 <tr><td class="big">2</td><td><b>Fentanyl</b></td><td>1–4 mcg/kg IV <span class="tag atl">Atlas</span></td></tr>
 <tr><td class="big">3</td><td><b>Rocuronium</b></td><td>0.6–1.2 mg/kg IV <span class="tag atl">Atlas</span><br><span class="small">Alternative: vecuronium 0.1 mg/kg IV</span></td></tr>
 </tbody></table>
-<h3>Fentanyl administration <span class="tag unit">Unit</span></h3>
-<p>Dilute the dose in 2 mL NS and infuse over 3 min, then flush with 1 mL NS over 3 min. Giving it slowly matters: fentanyl can cause chest wall rigidity.</p>
-<div class="atlas"><p class="atlas-h"><span class="tag atl">Atlas</span> MacDonald's Atlas</p>
-<p>The AAP endorses premedication for nonemergent intubation, but there's no standardized regimen. A typical practice is atropine, fentanyl, and a nondepolarizing paralytic. Confirm doses with your unit's order set.</p>
-<p>Fentanyl rigidity is less likely with a slow infusion and can be reversed with naloxone or a paralytic. Midazolam is not recommended for preterm infants.</p>
+<h3>Fentanyl</h3>
+<p>Give it slowly: a fast push can cause chest wall rigidity. Naloxone or a paralytic reverses it. <span class="tag atl">Atlas</span></p>
+<p class="small">There's no single standard regimen; follow your unit's order set.</p>
+<div class="atlas"><p class="atlas-h"><span class="tag atl">Atlas</span> More from MacDonald's Atlas</p>
+<p>The AAP endorses premedication for nonemergent intubation, but there's no standardized regimen. A typical practice is atropine, fentanyl, and a nondepolarizing paralytic. Midazolam is not recommended for preterm infants.</p>
 <p class="src">Atlas ch. 38, Table 38.2.</p></div></div></article></section>
 <section class="sec res" data-sec="res" hidden><nav class="jump" aria-label="Resus topics"><a href="#res-nrp-8th-vs-9th">NRP 8th vs 9th</a><a href="#res-pre-ductal-spo-targets">Pre-ductal SpO₂ targets</a><a href="#res-emergency-access-and-meds">Emergency access and meds</a><a href="#res-resus-doses-by-weight">Resus doses by weight</a></nav><article class="card" id="res-nrp-8th-vs-9th"><h2>NRP 8th vs 9th</h2><div class="cb">
 <table class="cmp"><thead><tr><th></th><th><span class="tag e8">8th</span></th><th><span class="tag e9">9th</span></th></tr></thead><tbody>
@@ -271,7 +294,7 @@ body.searching .starred{display:none}
 <tr><td>Initial FiO₂</td><td>≥35 wk: 21%<br>&lt;35 wk: 21–30%</td><td>≥35 wk: 21%<br>32–34 wk: 21–30%<br>&lt;32 wk: ≥30%</td></tr>
 <tr><td>SpO₂ table starts</td><td>1 min</td><td>2 min</td></tr>
 <tr><td>PPV rate</td><td>40–60/min</td><td>30–60/min</td></tr>
-<tr><td>Initial PIP</td><td>20–25 cm H₂O <span class="flag">&#9873;</span></td><td>≥32 wk: 25 (25–30)<br>&lt;32 wk: 20–25</td></tr>
+<tr><td>Initial PIP</td><td>20–25 cm H₂O</td><td>≥32 wk: 25 (25–30)<br>&lt;32 wk: 20–25</td></tr>
 <tr><td>PEEP</td><td>5</td><td>5</td></tr>
 <tr><td>Initial steps</td><td>Includes "suction if needed"</td><td>Suction removed from the initial-steps box</td></tr>
 <tr><td>Corrective steps</td><td>—</td><td>Start after 15–30 s of PPV</td></tr>
@@ -301,8 +324,7 @@ body.searching .starred{display:none}
 </tbody></table>
 <h3>Volume</h3>
 <p>NS <b>10 mL/kg</b> over 5–10 min, via UVC or IO.</p>
-<p class="small">No change to epinephrine or volume dosing appeared in the 9th edition change summaries reviewed. <span class="flag">&#9873;</span></p>
-<div class="atlas"><p class="atlas-h"><span class="tag atl">Atlas</span> MacDonald's Atlas</p>
+<div class="atlas"><p class="atlas-h"><span class="tag atl">Atlas</span> More from MacDonald's Atlas</p>
 <p>For a UVC, insert 2–3 cm from the abdominal wall and check for blood return. If the catheter won't pass the ductus venosus in an emergency, pull back into the umbilical vein (about 2 cm), confirm blood return, and infuse slowly, avoiding very hypertonic solutions.</p>
 <p class="src">Atlas ch. 32, Umbilical Vein Catheterization.</p></div></div></article><article class="card" id="res-resus-doses-by-weight"><h2>Resus doses by weight</h2><div class="cb">
 <table class="num"><thead><tr><th>kg</th><th>IV/IO epi<br>0.2 mL/kg</th><th>ETT epi<br>1 mL/kg</th><th>NS<br>10 mL/kg</th></tr></thead><tbody><tr><td class="big">0.5</td><td>0.1</td><td>0.5</td><td>5</td></tr><tr><td class="big">0.75</td><td>0.15</td><td>0.75</td><td>7.5</td></tr><tr><td class="big">1</td><td>0.2</td><td>1</td><td>10</td></tr><tr><td class="big">1.5</td><td>0.3</td><td>1.5</td><td>15</td></tr><tr><td class="big">2</td><td>0.4</td><td>2</td><td>20</td></tr><tr><td class="big">2.5</td><td>0.5</td><td>2.5</td><td>25</td></tr><tr><td class="big">3</td><td>0.6</td><td>3</td><td>30</td></tr><tr><td class="big">3.5</td><td>0.7</td><td>3.5</td><td>35</td></tr><tr><td class="big">4</td><td>0.8</td><td>4</td><td>40</td></tr></tbody></table>
@@ -310,7 +332,7 @@ body.searching .starred{display:none}
 </div></article></section>
 <section class="sec lin" data-sec="lin" hidden><nav class="jump" aria-label="Lines topics"><a href="#lin-uac">UAC</a><a href="#lin-uvc">UVC</a><a href="#lin-umbilical-line-depth-by-weight">Umbilical line depth by weight</a><a href="#lin-removing-a-uac">Removing a UAC</a><a href="#lin-picc">PICC</a></nav><article class="card" id="lin-uac"><h2>UAC</h2><div class="cb">
 <h3>Tip position</h3>
-<p><b>High (preferred): T6–T9</b>, above the celiac axis. <span class="tag dir">Dir.</span> sheet lists T6–T10.</p>
+<p><b>High (preferred): T6–T9</b>, above the celiac axis; ideal T7–T9.</p>
 <p><b>Low: L3–L4</b>, above the aortic bifurcation (L4–L5). Low lines displace more easily and are not preferred.</p>
 <h3>Insertion depth (cm), add stump length</h3>
 <table><tbody>
@@ -321,16 +343,14 @@ body.searching .starred{display:none}
 <h3>Catheter and flush <span class="tag atl">Atlas</span></h3>
 <p>3.5 Fr &lt;1200 g, 5 Fr &gt;1200 g. Heparin 1–2 units/mL in 0.45–0.9 NS.</p>
 <p>Confirm tip position on film before use.</p>
-<div class="atlas"><p class="atlas-h"><span class="tag atl">Atlas</span> MacDonald's Atlas</p>
-<p><b>Use the high position</b>; low only if high fails. On film, T7–T9 is ideal ("7 is heaven, 8 is great, 9 is fine").</p>
+<div class="atlas"><p class="atlas-h"><span class="tag atl">Atlas</span> More from MacDonald's Atlas</p>
+<p>Use the high position; low only if high fails.</p>
 <p>Tip above T6 or between T10 and L2: pull back the measured difference and re-film. Tip below L5: remove. Never advance a catheter once it's in.</p>
 <p><b>Formula:</b> Shukla for &gt;1500 g, Wright for &lt;1500 g. No formula is accurate for every baby.</p>
-<p><b>Catheter:</b> 3.5 Fr &lt;1200 g, 5 Fr &gt;1200 g.</p>
-<p><b>Flush:</b> 0.45–0.9 NS with heparin 1–2 units/mL; even 0.25 units/mL lowers occlusion.</p>
 <p class="src">Atlas ch. 31, Umbilical Artery Catheterization.</p></div></div></article><article class="card" id="lin-uvc"><h2>UVC</h2><div class="cb">
 <h3>Tip position</h3>
 <p><b>IVC–right atrial junction</b>, just above the diaphragm.</p>
-<p><span class="tag dir">Dir.</span> T8–T9. Follows the ductus venosus. Sits to the right of the spine on x-ray.</p>
+<p>On film: <b>T9–T10</b> per the textbook <span class="tag atl">Atlas</span>; <b>T8–T9</b> per NNP program teaching. Follows the ductus venosus; sits to the right of the spine.</p>
 <h3>Insertion depth (cm), add stump length</h3>
 <table><tbody>
 <tr><td><b>Shukla</b></td><td>[(3 × BW kg) + 9] ÷ 2 + 1<br>(half the high UAC + 1)</td></tr>
@@ -340,23 +360,21 @@ body.searching .starred{display:none}
 <h3>Catheter <span class="tag atl">Atlas</span></h3>
 <p>3.5 Fr &lt;3.5 kg, 5 Fr &gt;3.5 kg.</p>
 <p>Confirm with AP and lateral films or ultrasound. Emergency UVC: see the Resus tab.</p>
-<div class="atlas"><p class="atlas-h"><span class="tag atl">Atlas</span> MacDonald's Atlas</p>
-<p><b>Desired location T9–T10</b>, just above the right diaphragm. <span class="tag dir">Dir.</span> lists T8–T9. The ductus venosus is acceptable except for CVP monitoring.</p>
-<p>The "revised" formula is Verheij's. Other options: Gupta (umbilicus-to-nipple − 1), Dunn nomogram. No formula is accurate for every baby; confirm on film.</p>
-<p><b>Catheter:</b> 3.5 Fr &lt;3.5 kg, 5 Fr &gt;3.5 kg. Avoid double-lumen catheters for exchange transfusion.</p>
-<p>Once secured, don't advance it. Bright red blood means it crossed the foramen ovale; pull back.</p>
+<div class="atlas"><p class="atlas-h"><span class="tag atl">Atlas</span> More from MacDonald's Atlas</p>
+<p>The ductus venosus is acceptable except for CVP monitoring. The "revised" formula is Verheij's; other options are Gupta (umbilicus-to-nipple − 1) and the Dunn nomogram. No formula is accurate for every baby; confirm on film.</p>
+<p>Avoid double-lumen catheters for exchange transfusion. Once secured, don't advance it. Bright red blood means it crossed the foramen ovale; pull back.</p>
 <p class="src">Atlas ch. 32.</p></div></div></article><article class="card" id="lin-umbilical-line-depth-by-weight"><h2>Umbilical line depth by weight</h2><div class="cb">
 <table class="num"><thead><tr><th>BW kg</th><th>UAC<br>Shukla</th><th>UAC<br>Wright</th><th>UVC<br>Shukla</th><th>UVC<br>revised</th></tr></thead>
 <tbody><tr><td class="big">0.5</td><td>10.5</td><td>9</td><td>6.3</td><td>5.3</td></tr><tr><td class="big">0.75</td><td>11.3</td><td>10</td><td>6.6</td><td>5.6</td></tr><tr><td class="big">1</td><td>12</td><td>11</td><td>7</td><td>6</td></tr><tr><td class="big">1.25</td><td>12.8</td><td>12</td><td>7.4</td><td>6.4</td></tr><tr><td class="big">1.5</td><td>13.5</td><td>13</td><td>7.8</td><td>6.8</td></tr><tr><td class="big">2</td><td>15</td><td>—</td><td>8.5</td><td>7.5</td></tr><tr><td class="big">2.5</td><td>16.5</td><td>—</td><td>9.3</td><td>8.3</td></tr><tr><td class="big">3</td><td>18</td><td>—</td><td>10</td><td>9</td></tr><tr><td class="big">3.5</td><td>19.5</td><td>—</td><td>10.8</td><td>9.8</td></tr><tr><td class="big">4</td><td>21</td><td>—</td><td>11.5</td><td>10.5</td></tr></tbody></table>
 <p>Centimeters <b>before</b> adding stump length. Wright shown only to 1.5 kg because it was studied in VLBW infants. Rounded to 0.1 cm.</p>
 </div></article><article class="card" id="lin-removing-a-uac"><h2>Removing a UAC</h2><div class="cb">
-<h3>Steps <span class="tag dir">Dir.</span></h3>
+<h3>Steps <span class="tag atl">Atlas</span></h3>
 <ol>
-<li>Stopcock off to the patient.</li>
-<li>Stop IV fluid flow.</li>
-<li>Pull back to the 2–3 cm mark on the catheter.</li>
-<li>Wait 30–60 min.</li>
-<li>Pull the catheter.</li>
+<li>Leave the umbilical tie loose around the stump.</li>
+<li>Withdraw slowly until about 5 cm remain, then tighten the tie.</li>
+<li>Stop the infusion.</li>
+<li>Pull the rest at 1 cm per minute to allow vasospasm.</li>
+<li>For bleeding, pinch the cord from the sides.</li>
 </ol>
 <h3>Reminders for every umbilical line</h3>
 <ul>
@@ -364,37 +382,28 @@ body.searching .starred{display:none}
 <li>Confirm the tip on film before using the line.</li>
 <li>A formula is a starting point; the film decides.</li>
 </ul>
-<div class="atlas"><p class="atlas-h"><span class="tag atl">Atlas</span> MacDonald's Atlas</p>
-<p>A different method from the director's:</p>
-<ol><li>Leave the umbilical tie loose around the stump.</li>
-<li>Withdraw slowly until about 5 cm remain, then tighten the tie.</li>
-<li>Stop the infusion.</li>
-<li>Pull the rest out at <b>1 cm per minute</b> to allow vasospasm. For bleeding, pinch the cord from the sides.</li></ol>
-<p class="src">Atlas ch. 31.</p></div></div></article><article class="card" id="lin-picc"><h2>PICC</h2><div class="cb">
-<h3>Measure (NANN)</h3>
+</div></article><article class="card" id="lin-picc"><h2>PICC</h2><div class="cb">
+<h3>Measure <span class="tag atl">Atlas</span></h3>
 <table><tbody>
-<tr><td><b>Arm or scalp</b></td><td>Site → along the vein → right sternal border at the 3rd intercostal space. Arm at 90°.</td></tr>
-<tr><td><b>Leg</b></td><td>Site → along the vein → just right of the umbilicus → xiphoid.</td></tr>
+<tr><td><b>Arm</b></td><td>Arm abducted 90°, head turned toward the insertion side. Site → along the vein → suprasternal notch → 3rd right intercostal space.</td></tr>
+<tr><td><b>Scalp</b></td><td>Site → along the vein → jugular → right sternoclavicular joint → 3rd right intercostal space.</td></tr>
+<tr><td><b>Leg</b></td><td>Site → along the vein → xiphoid.</td></tr>
 </tbody></table>
-<h3>Tip position</h3>
-<p>SVC–RA or IVC–RA junction, outside the heart.</p>
-<p><span class="tag dir">Dir.</span> SVC tip at T3–T4.</p>
+<h3>Tip position <span class="tag atl">Atlas</span></h3>
+<p>Arm or scalp: SVC outside the heart, or at the SVC–RA junction.<br>Leg: above L4–L5 or the iliac crest, not in the heart.</p>
 <h3>Film tips</h3>
-<p><span class="tag dir">Dir.</span> You can insert with the arm in any position. Before the x-ray, return the arm to the position the infant usually lies in.</p>
+<p>You can insert with the arm in any position. Before the x-ray, return the arm to the position the infant usually lies in.</p>
 <p>A leg line can divert into the ascending lumbar vein and still look correct on an AP film. Get a lateral.</p>
-<div class="atlas"><p class="atlas-h"><span class="tag atl">Atlas</span> MacDonald's Atlas</p>
-<p><b>Arm:</b> abduct 90° and turn the head toward the insertion side so the catheter doesn't go up the jugular. Measure site → along the vein → suprasternal notch → 3rd right intercostal space.</p>
-<p><b>Leg tip:</b> above L4–L5 or the iliac crest, but not in the heart. Get AP and lateral films.</p>
+<div class="atlas"><p class="atlas-h"><span class="tag atl">Atlas</span> More from MacDonald's Atlas</p>
 <p><b>Contrast check:</b> 0.5 mL NS, then 0.5 mL iohexol, take the film, then flush 0.5 mL NS.</p>
 <p><b>Infusion:</b> at least 1 mL/hr; heparin 0.5 units/mL of fluid (or 0.5 units/kg/hr) lowers occlusion. Don't draw routine labs through a PICC under 2 Fr.</p>
-<p class="src">Atlas ch. 34, Central Venous Catheterization, Table 34.3.</p></div></div></article></section>
+<p class="src">Atlas ch. 34, Central Venous Catheterization.</p></div></div></article></section>
 <section class="sec pro" data-sec="pro" hidden><nav class="jump" aria-label="Procedures topics"><a href="#pro-needle-decompression">Needle decompression</a><a href="#pro-chest-tube">Chest tube</a><a href="#pro-lumbar-puncture">Lumbar puncture</a><a href="#pro-exchange-transfusion">Exchange transfusion</a><a href="#pro-peripheral-arterial-line">Peripheral arterial line</a></nav><article class="card" id="pro-needle-decompression"><h2>Needle decompression</h2><div class="cb">
 <p class="small">Emergency only, for a critically compromised baby. It buys time while you set up the chest tube.</p>
 <h3>Site <span class="tag atl">Atlas</span></h3>
 <p><b>2nd intercostal space, midclavicular line</b>, or <b>4th intercostal space, anterior axillary line</b>. Avoid the breast bud. The Atlas prefers the anterior approach so the lateral chest stays clear for the tube.</p>
 <h3>Equipment <span class="tag atl">Atlas</span></h3>
 <p><b>20- or 22-gauge angiocath</b>, T-connector, 3-way stopcock, 10 and 20 mL syringes.</p>
-<p class="small">Differs: the Atlas says a catheter-over-needle is less traumatic than straight needles or butterfly (scalp vein) sets. Other guidelines use a 23–25G butterfly (Safer Care Victoria) or 18–24G angiocath (Cochrane review).</p>
 <h3>Technique <span class="tag atl">Atlas</span></h3>
 <ol>
 <li>Pull the skin sideways to make a Z-track.</li>
@@ -404,7 +413,7 @@ body.searching .starred{display:none}
 </ol>
 <p>If a tube will follow, remove air only until vital signs stabilize. The leftover air pocket makes tube insertion safer.</p>
 <p>For a nontension pneumothorax, especially in a baby not on positive pressure, needle evacuation is sometimes all that's needed.</p>
-<p class="src">Sources: Atlas ch. 41, Thoracostomy; Safer Care Victoria, Pneumothorax drainage for neonates (2014); Cochrane review CD011724 (2019).</p>
+<p class="src">Source: MacDonald's Atlas, ch. 41, Thoracostomy.</p>
 </div></article><article class="card" id="pro-chest-tube"><h2>Chest tube</h2><div class="cb">
 <h3>Site <span class="tag atl">Atlas</span></h3>
 <p><b>4th (or 5th) intercostal space, just anterior to the midaxillary line.</b> A horizontal line from the nipple marks about the 4th space. Enter over the top of the rib.</p>
@@ -413,7 +422,6 @@ body.searching .starred{display:none}
 <tr><td><b>Pigtail</b> <span class="tag atl">Atlas</span></td><td>6 or 8 Fr if &lt;28 wk<br>8 Fr if &gt;28 wk</td></tr>
 <tr><td><b>Straight tube</b> <span class="tag atl">Atlas</span></td><td>8–12 Fr</td></tr>
 </tbody></table>
-<p class="small">Differs: Safer Care Victoria uses a pigtail of 8 Fr under 1500 g and 10 Fr over 1500 g.</p>
 <h3>Technique <span class="tag atl">Atlas</span></h3>
 <p>Pigtails go in percutaneously. For a straight tube, <b>a trocar is not recommended</b> because of the risk of lung perforation; use blunt dissection and puncture the pleura with closed forceps.</p>
 <p>For air, direct the tip <b>cephalad and anterior</b>, toward the apex (midclavicle), with all side holes inside the chest.</p>
@@ -421,7 +429,7 @@ body.searching .starred{display:none}
 <p><b>10–15 cm H₂O</b> for most ventilated infants. Too much suction can pull tissue into the side holes.</p>
 <h3>Confirm <span class="tag atl">Atlas</span></h3>
 <p><b>AP and lateral films</b>, both, to confirm the anterior course and that the side holes are in the chest. Bubbling pattern and ultrasound help.</p>
-<p class="src">Sources: Atlas ch. 41, Thoracostomy; Safer Care Victoria, Pneumothorax drainage for neonates (2014).</p>
+<p class="src">Source: MacDonald's Atlas, ch. 41, Thoracostomy.</p>
 </div></article><article class="card" id="pro-lumbar-puncture"><h2>Lumbar puncture</h2><div class="cb">
 <h3>Level <span class="tag atl">Atlas</span></h3>
 <p>Use <b>L3–L4 or L4–L5</b>. Use the <b>lower space for &lt;28 wk</b>.</p>
@@ -439,11 +447,10 @@ body.searching .starred{display:none}
 <h3>Don't do it if <span class="tag atl">Atlas</span></h3>
 <p>Signs of raised intracranial pressure (image first), uncorrected thrombocytopenia or bleeding disorder, skin infection at the site, lumbosacral anomalies, or instability where the risk outweighs the benefit.</p>
 <p><a href="brain.html#normal-csf-values">Normal CSF values in the Brain</a></p>
-<p class="src">Sources: Atlas ch. 19, Lumbar Puncture; Royal Children's Hospital Melbourne, Lumbar puncture guideline.</p>
+<p class="src">Source: MacDonald's Atlas, ch. 19, Lumbar Puncture.</p>
 </div></article><article class="card" id="pro-exchange-transfusion"><h2>Exchange transfusion</h2><div class="cb">
 <h3>Blood volume <span class="tag atl">Atlas</span></h3>
 <p>Term about <b>80–85 mL/kg</b>. Preterm about <b>100–120 mL/kg</b>.</p>
-<p class="small">Other guidelines use term 80–90 and preterm 90–100 mL/kg.</p>
 <h3>How much <span class="tag atl">Atlas</span></h3>
 <table><tbody>
 <tr><td><b>Double volume</b></td><td>2 × blood volume. Exchanges about 85% of the blood volume.</td></tr>
@@ -462,22 +469,21 @@ body.searching .starred{display:none}
 <p><b>Before:</b> draw any diagnostic tests first (serologies, metabolic screen, genetics), plus Hb/Hct, platelets, electrolytes, calcium, gas, glucose, total and direct bilirubin, and coags. NPO 4 hours if possible; empty the stomach; start a PIV for glucose.</p>
 <p><b>During:</b> glucose every 60 minutes; gases as needed.</p>
 <p><b>After:</b> glucose every 2–4 hours for 24 hours. Ionized calcium and platelets right away in sick or preterm babies. Hb, Hct, and bilirubin about 4 hours later.</p>
-<p class="src">Sources: Atlas ch. 49, Exchange Transfusions; Brigham and Women's Newborn Medicine guideline; Italian recommendations for transfusion therapy in neonatology (PMC4607607).</p>
+<p class="src">Source: MacDonald's Atlas, ch. 49, Exchange Transfusions.</p>
 </div></article><article class="card" id="pro-peripheral-arterial-line"><h2>Peripheral arterial line</h2><div class="cb">
 <h3>Sites <span class="tag atl">Atlas</span></h3>
 <p><b>Radial</b> is most common, then ulnar and posterior tibial; dorsalis pedis occasionally. <b>Avoid</b> axillary and brachial (poor collateral flow) and temporal (neurologic risk). Use the <b>right arm</b> when you need preductal values.</p>
-<p class="small">One NICU guideline (Leeds) calls the umbilical arterial line the arterial line of choice in the newborn.</p>
+<p class="small">An umbilical arterial line is usually preferred in the newborn period.</p>
 <h3>Collateral check <span class="tag atl">Atlas</span></h3>
 <p>Do an Allen test before a radial line, but it's not fully reliable, so keep watching perfusion during and after. For the foot, occlude dorsalis pedis and posterior tibial, release one, and look for reperfusion within 10 seconds. Don't hyperextend the wrist; it can occlude the artery and give a false result.</p>
 <h3>Catheter <span class="tag atl">Atlas</span></h3>
 <p><b>24G</b> (0.56 or 0.75 inch) or 22G × 1 inch. Transilluminate the wrist in 45–60° extension. Flush gently with 0.5 mL and watch for blanching.</p>
-<h3>Infusion <span class="tag atl">Atlas</span> <span class="tag unit">Unit</span></h3>
+<h3>Infusion <span class="tag atl">Atlas</span></h3>
 <p>0.5–0.95 NS with heparin <b>1–2 units/mL</b> at <b>1 mL/hr</b>, started right away. Below 1 mL/hr, blood tends to back up and clot.</p>
-<p class="small">Other guidelines: 1 unit/mL at 0.5–1 mL/hr; 0.5 units/mL for preterm; 2 units/mL at 0.3–0.5 mL/hr.</p>
 <p>Use it for sampling and pressure only; nothing but the heparinized flush runs through it.</p>
 <h3>Don't place if <span class="tag atl">Atlas</span></h3>
 <p>Uncorrectable bleeding disorder, poor perfusion or collateral flow in that limb, local infection, limb malformation, or previous surgery there.</p>
-<p class="src">Sources: Atlas ch. 33, Peripheral Arterial Cannulation; Leeds Teaching Hospitals neonatal PAL guideline; Safer Care Victoria; CAHS WA; Ashford and St Peter's.</p>
+<p class="src">Sources: MacDonald's Atlas, ch. 33, Peripheral Arterial Cannulation; Leeds Teaching Hospitals neonatal arterial line guideline.</p>
 </div></article></section>
 <section class="sec cv" data-sec="cv" hidden><nav class="jump" aria-label="Drips and pressors topics"><a href="#cv-pick-the-pressor">Pick the pressor</a><a href="#cv-hemodynamic-profiles">Hemodynamic profiles</a><a href="#cv-bp-norms-by-age">BP norms by age</a><a href="#cv-pressor-doses">Pressor doses</a><a href="#cv-receptors">Receptors</a><a href="#cv-choosing-between-two">Choosing between two</a><a href="#cv-treatment-algorithm">Treatment algorithm</a><a href="#cv-adjuncts">Adjuncts</a></nav><article class="card" id="cv-pick-the-pressor"><h2>Pick the pressor</h2><div class="cb">
 <p class="formula">BP = CO × SVR. Is it the pipes, the pump, or both?</p>
@@ -504,7 +510,7 @@ body.searching .starred{display:none}
 <li><b>Both failing, unstable</b> → epinephrine</li>
 <li><b>Still low on catecholamines</b> → vasopressin; think hydrocortisone</li>
 </ol>
-<p class="src">Source: your Choosing a Pressor study guide (N5537 practice questions).</p>
+<p class="src">Source: NNP course materials, Choosing a Pressor.</p>
 </div></article><article class="card" id="cv-hemodynamic-profiles"><h2>Hemodynamic profiles</h2><div class="cb">
 <p>Read six things together, not one BP: diastolic BP, pulse pressure, perfusion index, SVR, cardiac output, and tissue O₂ (StO₂). All normally sit between the 10th and 90th centiles.</p>
 <table><thead><tr><th>Profile</th><th>Pattern</th><th>Think</th></tr></thead><tbody>
@@ -516,11 +522,10 @@ body.searching .starred{display:none}
 </tbody></table>
 <p>Two babies with the same low diastolic can need opposite treatment: vasodilatory (low SVR, high output) needs a vasoconstrictor; volume-depleted (high SVR, low output) needs volume.</p>
 <p class="small">Infusion check: epinephrine 0.2 mcg/kg/min for an hour is about one resuscitation bolus (10 mcg/kg).</p>
-<p class="src">Source: your Neonatal Hemodynamics study guide (lecture; Elsayed &amp; Abdul Wahab 2022 profile chart).</p>
+<p class="src">Source: NNP course lecture, Neonatal Hemodynamics (profile chart from Elsayed and Abdul Wahab, 2022).</p>
 </div></article><article class="card" id="cv-bp-norms-by-age"><h2>BP norms by age</h2><div class="cb">
 <p class="small">After 2 weeks of age, by postmenstrual age. Each cell is the 50th / 95th / 99th percentile, mmHg.</p>
-<table class="num"><thead><tr><th>PMA</th><th>MAP</th><th>Systolic</th><th>Diastolic</th></tr></thead><tbody><tr><td><b>44</b></td><td>63 / 80 / 85</td><td>88 / 105 / 110</td><td>50 / 68 / 73</td></tr><tr><td><b>42</b></td><td>62 / 76 / 81</td><td>85 / 98 / 102</td><td>50 / 65 / 70</td></tr><tr><td><b>40</b>*</td><td>60 / 75 / 80</td><td>80 / 95 / 100</td><td>50 / 65 / 70</td></tr><tr><td><b>38</b></td><td>59 / 74 / 79</td><td>77 / 92 / 97</td><td>50 / 65 / 70</td></tr><tr><td><b>36</b></td><td>57 / 72 / 77</td><td>72 / 87 / 92</td><td>50 / 65 / 70</td></tr><tr><td><b>34</b></td><td>50 / 65 / 70</td><td>70 / 85 / 90</td><td>40 / 55 / 60</td></tr><tr><td><b>32</b></td><td>49 / 64 / 69</td><td>68 / 83 / 88</td><td>40 / 55 / 60</td></tr><tr><td><b>30</b></td><td>48 / 63 / 68</td><td>65 / 80 / 85</td><td>40 / 55 / 60</td></tr><tr><td><b>28</b></td><td>45 / 58 / 63</td><td>60 / 75 / 80</td><td>38 / 50 / 54</td></tr><tr><td><b>26</b></td><td>38 / 57 / 63</td><td>55 / 72 / 77</td><td>30 / 50 / 56</td></tr></tbody></table>
-<p class="small">*The NCC-posted copy prints the 40-week MAP 50th as "641"; other reproductions of the same table give 60. Values are from the corrected (erratum) version of the Dionne table; an earlier printing differs slightly for a few rows (for example 26-week MAP 95th/99th as 55/61).</p>
+<table class="num"><thead><tr><th>PMA</th><th>MAP</th><th>Systolic</th><th>Diastolic</th></tr></thead><tbody><tr><td><b>44</b></td><td>63 / 80 / 85</td><td>88 / 105 / 110</td><td>50 / 68 / 73</td></tr><tr><td><b>42</b></td><td>62 / 76 / 81</td><td>85 / 98 / 102</td><td>50 / 65 / 70</td></tr><tr><td><b>40</b></td><td>60 / 75 / 80</td><td>80 / 95 / 100</td><td>50 / 65 / 70</td></tr><tr><td><b>38</b></td><td>59 / 74 / 79</td><td>77 / 92 / 97</td><td>50 / 65 / 70</td></tr><tr><td><b>36</b></td><td>57 / 72 / 77</td><td>72 / 87 / 92</td><td>50 / 65 / 70</td></tr><tr><td><b>34</b></td><td>50 / 65 / 70</td><td>70 / 85 / 90</td><td>40 / 55 / 60</td></tr><tr><td><b>32</b></td><td>49 / 64 / 69</td><td>68 / 83 / 88</td><td>40 / 55 / 60</td></tr><tr><td><b>30</b></td><td>48 / 63 / 68</td><td>65 / 80 / 85</td><td>40 / 55 / 60</td></tr><tr><td><b>28</b></td><td>45 / 58 / 63</td><td>60 / 75 / 80</td><td>38 / 50 / 54</td></tr><tr><td><b>26</b></td><td>38 / 57 / 63</td><td>55 / 72 / 77</td><td>30 / 50 / 56</td></tr></tbody></table>
 <h3>Using it</h3>
 <ul>
 <li><b>High BP:</b> ≥95th percentile on 3 separate occasions. Above the 95th, watch closely; above the 99th, investigate and consider treating.</li>
@@ -539,8 +544,7 @@ body.searching .starred{display:none}
 <tr><td><b>Milrinone</b></td><td>0.25–0.75 mcg/kg/min, no load</td><td>PDE3 inodilator and lusitrope. Low output with pulmonary hypertension, post-PDA ligation. Onset 1–2 h; hypotension if volume is low; builds up in renal impairment.</td></tr>
 <tr><td><b>Hydrocortisone</b></td><td>1 mg/kg IV every 8 h</td><td>Adrenal insufficiency, or refractory on ≥2 agents.</td></tr>
 </tbody></table>
-<p class="small">The practice-question guide gives dopamine tiers as 1–5 (dopaminergic), 5–10 (β1), and &gt;10 (α1) mcg/kg/min; the lecture table above uses ≤2 / ≥5–10 / ≥10.</p>
-<p class="src">Source: your Cardiovascular Function &amp; Treatments study guide (N5537 lecture).</p>
+<p class="src">Source: NNP course lecture, Cardiovascular Function and Treatments.</p>
 </div></article><article class="card" id="cv-receptors"><h2>Receptors</h2><div class="cb">
 <table><thead><tr><th>Receptor</th><th>Does</th><th>Drugs</th></tr></thead><tbody>
 <tr><td><b>α1</b> (vessels)</td><td>Squeezes the pipes: ↑SVR, ↑BP, ↑afterload</td><td>Norepinephrine; dopamine &gt;10; epinephrine high dose</td></tr>
@@ -550,7 +554,7 @@ body.searching .starred{display:none}
 <tr><td><b>V1</b> (vessels)</td><td>Squeezes, but not the lungs and not the HR</td><td>Vasopressin</td></tr>
 </tbody></table>
 <p>Dopamine and epinephrine change with dose. At the top of the dopamine range you're adding afterload, not inotropy.</p>
-<p class="src">Source: your Choosing a Pressor study guide (N5537 practice questions).</p>
+<p class="src">Source: NNP course materials, Choosing a Pressor.</p>
 </div></article><article class="card" id="cv-choosing-between-two"><h2>Choosing between two</h2><div class="cb">
 <table><tbody>
 <tr><td><b>Dobutamine vs dopamine</b></td><td>Dobutamine for output without clamping the bed. If dopamine causes tachycardia or rising afterload with no better perfusion, switch strategy; don't climb the dose.</td></tr>
@@ -559,20 +563,18 @@ body.searching .starred{display:none}
 <tr><td><b>When vasopressin</b></td><td>When catecholamines stop working (receptors downregulate in acidotic shock). Raises SVR without raising PVR or HR, so it fits PPHN and CDH.</td></tr>
 <tr><td><b>When steroids</b></td><td>Refractory hypotension with suspected adrenal insufficiency (low cortisol under stress). Hydrocortisone restores response to catecholamines.</td></tr>
 </tbody></table>
-<p class="src">Source: your Choosing a Pressor study guide (N5537 practice questions).</p>
+<p class="src">Source: NNP course materials, Choosing a Pressor.</p>
 </div></article><article class="card" id="cv-treatment-algorithm"><h2>Treatment algorithm</h2><div class="cb">
 <ol>
 <li><b>Is perfusion adequate?</b> If yes, permissive hypotension. Check NIRS, urine output, lactate, and echo, not just the cuff.</li>
-<li><b>Identify the phenotype.</b> Low SVR (warm, wide pulse pressure, low diastolic) → dopamine per the lecture. Low output (cool, narrow pulse pressure) → dobutamine. Mixed → epinephrine if output is low, norepinephrine if SVR is low.</li>
+<li><b>Identify the phenotype.</b> Low SVR (warm, wide pulse pressure, low diastolic) → norepinephrine or dopamine. Low output (cool, narrow pulse pressure) → dobutamine. Mixed → epinephrine if output is low, norepinephrine if SVR is low.</li>
 <li><b>If refractory, add by problem.</b> Norepinephrine for vasoplegia; epinephrine for poor contractility; vasopressin if catecholamine-resistant; milrinone for low output with pulmonary hypertension.</li>
 <li><b>Still refractory:</b> hydrocortisone.</li>
 <li><b>Reassess</b> with echo, NIRS, urine output, and lactate; watch for too much vasoconstriction (cool extremities, rising lactate).</li>
 <li><b>Wean</b> catecholamines first, keep milrinone while pulmonary hypertension persists, and wean vasopressin last in vasoplegia.</li>
 </ol>
 <p>If BP improves but perfusion worsens, you may be over-constricting.</p>
-<p class="warn"><span class="flag">&#9873;</span> The lecture makes dopamine the default first drug for vasoplegia. Much current practice uses phenotype-specific first agents (such as norepinephrine or epinephrine for septic shock) instead, partly over the shunt and afterload concerns the lecture itself names. Your study guide flagged this; follow your unit's protocol.</p>
-<p class="warn"><span class="flag">&#9873;</span> One practice question (case 5) keys dopamine for cold shock with <b>high</b> SVR. That conflicts with the afterload-reduction logic the same document teaches; physiology favors an inodilator plus volume. Know the keyed answer for the exam.</p>
-<p class="src">Source: your Cardiovascular Function &amp; Treatments study guide (N5537 lecture).</p>
+<p class="src">Source: NNP course lecture, Cardiovascular Function and Treatments.</p>
 </div></article><article class="card" id="cv-adjuncts"><h2>Adjuncts</h2><div class="cb">
 <table><thead><tr><th>Problem</th><th>Also reach for</th></tr></thead><tbody>
 <tr><td><b>Low preload</b></td><td>Volume; blood for true blood loss</td></tr>
@@ -583,10 +585,10 @@ body.searching .starred{display:none}
 <tr><td><b>Obstructive HCM</b></td><td>Beta-blocker (esmolol); avoid inotropes that worsen outflow obstruction</td></tr>
 <tr><td><b>Refractory failure</b></td><td>ECMO</td></tr>
 </tbody></table>
-<p class="src">Source: your Cardiovascular Function &amp; Treatments study guide (N5537 lecture).</p>
+<p class="src">Source: NNP course lecture, Cardiovascular Function and Treatments.</p>
 </div></article></section>
-<section class="sec resp" data-sec="resp" hidden><nav class="jump" aria-label="Blood gas and vent topics"><a href="#resp-read-a-blood-gas">Read a blood gas</a><a href="#resp-what-moves-what">What moves what</a><a href="#resp-choosing-a-vent-mode">Choosing a vent mode</a><a href="#resp-what-to-change-on-the-vent">What to change on the vent</a><a href="#resp-lecture-vent-cases">Lecture vent cases</a><a href="#resp-resp-meds">Resp meds</a></nav><article class="card" id="resp-read-a-blood-gas"><h2>Read a blood gas</h2><div class="cb">
-<h3>Four steps <span class="tag crs">Course</span></h3>
+<section class="sec resp" data-sec="resp" hidden><nav class="jump" aria-label="Blood gas and vent topics"><a href="#resp-read-a-blood-gas">Read a blood gas</a><a href="#resp-what-moves-what">What moves what</a><a href="#resp-choosing-a-vent-mode">Choosing a vent mode</a><a href="#resp-what-to-change-on-the-vent">What to change on the vent</a><a href="#resp-example-vent-setups">Example vent setups</a><a href="#resp-resp-meds">Resp meds</a></nav><article class="card" id="resp-read-a-blood-gas"><h2>Read a blood gas</h2><div class="cb">
+<h3>Four steps</h3>
 <ol>
 <li><b>pH:</b> below 7.35 acidemic, above 7.45 alkalemic.</li>
 <li><b>PaCO₂:</b> respiratory? It's the real-time ventilation marker.</li>
@@ -594,7 +596,7 @@ body.searching .starred{display:none}
 <li><b>Compensation, then the bedside:</b> does it fit the work of breathing, oxygen need, and perfusion?</li>
 </ol>
 <p class="formula">CO₂ moves opposite pH → respiratory. HCO₃⁻ moves with pH → metabolic.</p>
-<h3>Neonatal values <span class="tag crs">Course</span></h3>
+<h3>Neonatal values</h3>
 <table><tbody>
 <tr><td><b>pH</b></td><td>7.35–7.45 (above 7.30 may be acceptable in selected contexts)</td></tr>
 <tr><td><b>PaCO₂</b></td><td>35–45 mmHg</td></tr>
@@ -603,7 +605,7 @@ body.searching .starred{display:none}
 <tr><td><b>PaO₂</b></td><td>Only in context: GA, age, FiO₂, support. A normal PaO₂ on 100% is not reassuring.</td></tr>
 </tbody></table>
 <p class="small">Venous samples underestimate PaO₂ significantly. Preterm infants tolerate lower PaO₂ targets than term.</p>
-<h3>Compensation <span class="tag crs">Course</span></h3>
+<h3>Compensation</h3>
 <table><thead><tr><th>Stage</th><th>pH</th><th>Other value</th></tr></thead><tbody>
 <tr><td><b>Uncompensated</b></td><td>Abnormal</td><td>Still normal</td></tr>
 <tr><td><b>Partially compensated</b></td><td>Still abnormal</td><td>Both abnormal</td></tr>
@@ -611,7 +613,7 @@ body.searching .starred{display:none}
 </tbody></table>
 <p>Lungs adjust CO₂ quickly; kidneys adjust HCO₃⁻ over several days. A normal pH does not mean a normal gas.</p>
 <p><b>Mixed vs compensated:</b> in compensation, the other value shifts to pull pH back toward normal. If both values push toward acid (high CO₂ and low HCO₃⁻), that's a mixed acidosis, not compensation.</p>
-<h3>Examples <span class="tag crs">Course</span></h3>
+<h3>Examples</h3>
 <table><tbody>
 <tr><td>7.22 / 61 / HCO₃ 24</td><td>Acute respiratory acidosis</td></tr>
 <tr><td>7.18 / 38 / 15 / BE −11</td><td>Metabolic acidosis (hypoperfusion, lactate, sepsis)</td></tr>
@@ -619,7 +621,7 @@ body.searching .starred{display:none}
 <tr><td>7.52 / 30 / 24 / BE +1</td><td>Acute respiratory alkalosis (over-ventilation)</td></tr>
 <tr><td>7.31 / 50 / 17 / BE −7</td><td>Mixed acidosis</td></tr>
 </tbody></table>
-<p class="src">Sources: Module 2 respiratory study guide; Blood Gas Interpretation study guide (Pat Thomas lecture).</p>
+<p class="src">Sources: NNP course lectures, Module 2 Respiratory and Blood Gas Interpretation.</p>
 </div></article><article class="card" id="resp-what-moves-what"><h2>What moves what</h2><div class="cb">
 <table><thead><tr><th>If this happens</th><th>Then</th></tr></thead><tbody>
 <tr><td><b>CO₂ goes up</b> (hypoventilation, apnea, under-ventilation)</td><td>pH goes down: respiratory acidosis</td></tr>
@@ -633,8 +635,7 @@ body.searching .starred{display:none}
 <tr><td><b>MAP or FiO₂ up</b></td><td>Oxygenation up</td></tr>
 </tbody></table>
 <p class="small">Bicarb also: don't run it with catecholamines in the same line (it inactivates them), and it can lower potassium.</p>
-<p class="warn"><span class="flag">&#9873;</span> The Pat Thomas guide says the kidneys "increase H+ retention" to compensate for respiratory acidosis. That's backwards: the kidneys excrete more H⁺ and hold onto HCO₃⁻, which is how Module 2 describes it.</p>
-<p class="src">Sources: Blood Gas Interpretation study guide; Module 2 study guide; Canterbury DHB and NSW ANMF neonatal sodium bicarbonate guidelines; sodium bicarbonate 8.4% product information; Loyola neonatal ventilation supplement.</p>
+<p class="src">Sources: NNP course lectures, Blood Gas Interpretation and Module 2 Respiratory; Canterbury DHB and NSW ANMF neonatal sodium bicarbonate guidelines; sodium bicarbonate 8.4% product information; Loyola neonatal ventilation supplement.</p>
 </div></article><article class="card" id="resp-choosing-a-vent-mode"><h2>Choosing a vent mode</h2><div class="cb">
 <table><tbody>
 <tr><td><b>AC</b></td><td>Every breath fully supported. No or poor spontaneous effort: respiratory failure, apnea, extreme prematurity. Risks hyperventilation and dependency.</td></tr>
@@ -644,7 +645,7 @@ body.searching .starred{display:none}
 <tr><td><b>HFOV</b></td><td>Tiny volumes, open-lung strategy. PIE and air leak, PPHN, severe hypoxemia.</td></tr>
 <tr><td><b>HFJV</b></td><td>Small fast bursts; a conventional vent supplies PEEP. PIE, severe air leak, refractory hypercapnia.</td></tr>
 </tbody></table>
-<h3>By disease <span class="tag crs">Course</span></h3>
+<h3>By disease</h3>
 <table><tbody>
 <tr><td><b>RDS</b></td><td>CPAP, then pressure control or volume-targeted; HFOV if severe</td></tr>
 <tr><td><b>TTN</b></td><td>High-flow or CPAP</td></tr>
@@ -655,11 +656,11 @@ body.searching .starred{display:none}
 </tbody></table>
 <p class="formula">Recruit the collapsed or flooded lung, give the obstructed lung time to exhale, minimize pressure where air is leaking.</p>
 <p>Choose by disease, compliance, barotrauma vs volutrauma risk, spontaneous effort, and sedation needs.</p>
-<p class="src">Source: Module 2 respiratory study guide <span class="tag crs">Course</span>.</p>
+<p class="src">Source: NNP course lecture, Module 2 Respiratory.</p>
 </div></article><article class="card" id="resp-what-to-change-on-the-vent"><h2>What to change on the vent</h2><div class="cb">
 <h3>Conventional</h3>
 <table><thead><tr><th>Problem</th><th>Change</th></tr></thead><tbody>
-<tr><td><b>CO₂ high</b></td><td>Rate up 5–10 at a time; PIP up 2 at a time for chest rise and tidal volume; lower PEEP if the lungs are over-expanded (the source says "hyperventilated")</td></tr>
+<tr><td><b>CO₂ high</b></td><td>Rate up 5–10 at a time; PIP up 2 at a time for chest rise and tidal volume; lower PEEP if the lungs are over-expanded</td></tr>
 <tr><td><b>O₂ low</b></td><td>FiO₂ up; PEEP up; PIP up 1–2 at a time; longer inspiratory time (0.4–0.6 s)</td></tr>
 <tr><td><b>Weaning</b></td><td>Bring FiO₂ down to 80% before changing PIP, I:E, or PEEP; steps of about PIP 2, FiO₂ 5%, rate 5</td></tr>
 </tbody></table>
@@ -674,7 +675,7 @@ body.searching .starred{display:none}
 <p class="small">Lower Hz gives bigger volumes and more CO₂ removal; frequency changes are usually a senior decision.</p>
 <h3>HFJV</h3>
 <p>Ventilation: the PIP above PEEP (ΔP). Oxygenation: PEEP (raise 1–2 when FiO₂ is ≥0.6). Don't wean PEEP until FiO₂ is below about 0.35–0.40.</p>
-<h3>Director's HFOV weaning <span class="tag dir">Dir.</span></h3>
+<h3>HFOV weaning</h3>
 <ul>
 <li>PaCO₂ &lt;50 and pH &gt;7.25: wean amplitude.</li>
 <li>FiO₂ &lt;70% with PaO₂ &gt;60 and good inflation on film: wean MAP.</li>
@@ -682,17 +683,17 @@ body.searching .starred{display:none}
 <li>Extubation settings: term MAP 11–14, amplitude up to 20; LBW MAP 10–12, up to 15; VLBW MAP &lt;10, amplitude &lt;12.</li>
 <li>Air leak: wean MAP aggressively, smallest amplitude, accept CO₂ in the high 50s to low 60s, bad PIE lung down.</li>
 </ul>
-<p class="formula">Oxygenation index = MAP × FiO₂ × 100 ÷ PaO₂ <span class="tag dir">Dir.</span></p>
-<p class="small">OI over 40 for more than 2 hours, or in 3 of 5 gases, predicted 80% mortality in the director's sheet.</p>
-<p class="src">Sources: Loyola neonatal ventilation supplement; SPA oscillator review; UNC NCCC high-frequency ventilation guidelines (mombaby.org); UW Madison NICU jet guideline (2026); NHS GGC HFOV guideline; director's NNP Brain.</p>
-</div></article><article class="card" id="resp-lecture-vent-cases"><h2>Lecture vent cases</h2><div class="cb">
+<p class="formula">Oxygenation index = MAP × FiO₂ × 100 ÷ PaO₂</p>
+<p class="small">An OI over 40 for more than 2 hours, or in 3 of 5 serial gases, has been associated with about 80% mortality.</p>
+<p class="src">Sources: Loyola neonatal ventilation supplement; SPA oscillator review; UNC NCCC high-frequency ventilation guidelines (mombaby.org); UW Madison NICU jet guideline (2026); NHS GGC HFOV guideline; program NNP Brain reference.</p>
+</div></article><article class="card" id="resp-example-vent-setups"><h2>Example vent setups</h2><div class="cb">
 <table><tbody>
 <tr><td><b>28-wk RDS, 1100 g</b><br><span class="small">Failing CPAP +6, FiO₂ 50%, gas 7.28/68</span></td><td>Intubate, Curosurf 2.5 mL/kg, AC pressure control: PIP 18–22, PEEP 5–6, rate 40, SpO₂ 90–94%. Targets pH 7.3–7.45, PaCO₂ 40–50, PaO₂ 50–70.</td></tr>
 <tr><td><b>Term post-CDH repair</b><br><span class="small">Breathing, needs support</span></td><td>SIMV with pressure support and volume guarantee: PIP 18–20, PEEP 5–6, backup rate 20–25, SpO₂ 91–94%.</td></tr>
 <tr><td><b>23-wk, 540 g with PIE</b><br><span class="small">PaCO₂ &gt;70, SpO₂ &lt;85% on 100%</span></td><td>HFJV: PIP 18–20, rate 420, Ti 0.02 s, PEEP 5–6 from the conventional vent, SpO₂ 88–92%.</td></tr>
 <tr><td><b>Term HIE on cooling with severe PPHN</b></td><td>HFOV: MAP 16–20, 10–15 Hz, amplitude for CO₂, FiO₂ from 100% to preductal SpO₂ &gt;95%. Cooling left-shifts the oxyhemoglobin curve.</td></tr>
 </tbody></table>
-<p class="src">Source: Module 2 respiratory study guide (lecture cases) <span class="tag crs">Course</span>.</p>
+<p class="src">Source: NNP course lecture, Module 2 Respiratory (case examples).</p>
 </div></article><article class="card" id="resp-resp-meds"><h2>Resp meds</h2><div class="cb">
 <table><tbody>
 <tr><td><b>Curosurf</b></td><td>2.5 mL/kg, then 1.25 mL/kg every 12–24 h as needed. Watch for desaturation, bradycardia, obstruction during dosing.</td></tr>
@@ -704,23 +705,16 @@ body.searching .starred{display:none}
 <tr><td><b>iNO</b></td><td>About 20 ppm; wean, never stop abruptly (rebound pulmonary hypertension)</td></tr>
 <tr><td><b>Sildenafil</b></td><td>PDE5 inhibitor, complements iNO; titrate up for systemic effects</td></tr>
 </tbody></table>
-<p class="src">Source: Module 2 respiratory study guide <span class="tag crs">Course</span>.</p>
+<p class="src">Source: NNP course lecture, Module 2 Respiratory.</p>
 </div></article></section>
 <section class="sec fen" data-sec="fen" hidden><nav class="jump" aria-label="FEN + Labs topics"><a href="#fen-fluids">Fluids</a><a href="#fen-gir">GIR</a><a href="#fen-calories">Calories</a><a href="#fen-tpn-start-and-advance">TPN: start and advance</a><a href="#fen-tpn-additives-and-lines">TPN: additives and lines</a><a href="#fen-tpn-monitoring-and-problems">TPN: monitoring and problems</a><a href="#fen-electrolytes">Electrolytes</a><a href="#fen-lab-normals">Lab normals</a><a href="#fen-formula-options">Formula options</a><a href="#fen-corrections-and-weight">Corrections and weight</a><a href="#fen-cbc-and-sepsis">CBC and sepsis</a><a href="#fen-chorio-and-early-onset-sepsis">Chorio and early-onset sepsis</a><a href="#fen-bilirubin-35-weeks-and-up">Bilirubin, 35 weeks and up</a><a href="#fen-bilirubin-under-35-weeks">Bilirubin, under 35 weeks</a></nav><article class="card" id="fen-fluids"><h2>Fluids</h2><div class="cb">
-<h3>Starting and advancing <span class="tag crs">Course</span></h3>
 <table><tbody>
 <tr><td><b>Term</b></td><td>60–80 mL/kg/d, increasing to 120–150</td></tr>
 <tr><td><b>Preterm</b></td><td>80–100 mL/kg/d, increasing to 150–200</td></tr>
-<tr><td><b>Day 1 (TPN lecture)</b></td><td>60–100 mL/kg/d; advance 10–30 mL/kg/d</td></tr>
+<tr><td><b>Advancing</b></td><td>10–30 mL/kg/d per day</td></tr>
 </tbody></table>
-<p>Adjust for gestational age, respiratory status, phototherapy, heat loss, and insensible losses. Count TPN, feeds, <b>and medications</b> in the total. <span class="tag crs">Course</span></p>
-<h3>Director's numbers <span class="tag dir">Dir.</span></h3>
-<table><tbody>
-<tr><td><b>Term</b></td><td>Start 60–80, increase 20–30/d, up to 150</td></tr>
-<tr><td><b>800–1000 g</b></td><td>Start 80–100, increase 10–20/d, up to 100–150</td></tr>
-<tr><td><b>&lt;700 g</b></td><td>Usually needs more than 120–140</td></tr>
-</tbody></table>
-<h3>Too little vs too much <span class="tag crs">Course</span></h3>
+<p>Adjust for gestational age, respiratory status, phototherapy, heat loss, and insensible losses. Count TPN, feeds, <b>and medications</b> in the total.</p>
+<h3>Too little vs too much</h3>
 <table><thead><tr><th></th><th>Deficit</th><th>Excess</th></tr></thead><tbody>
 <tr><td><b>Weight</b></td><td>Loss</td><td>Gain</td></tr>
 <tr><td><b>HR</b></td><td>Rapid, weak, thready</td><td>Rapid, bounding</td></tr>
@@ -729,117 +723,107 @@ body.searching .starred{display:none}
 <tr><td><b>Skin</b></td><td>Pale, cool, poor turgor, slow cap refill, dry membranes</td><td>Edema</td></tr>
 <tr><td><b>Other</b></td><td>Irritability, lethargy, metabolic acidosis</td><td>Fatigue</td></tr>
 </tbody></table>
-<h3>Rate</h3>
-<p>mL/hr = mL/kg/d × kg ÷ 24 <span class="tag ins">Card</span></p>
+<p class="formula">mL/hr = mL/kg/day × kg ÷ 24</p>
+<p class="src">Source: NNP course lectures (Intro to Neonatal FEN; Neonatal TPN).</p>
 </div></article><article class="card" id="fen-gir"><h2>GIR</h2><div class="cb">
 <h3>Formulas (mg/kg/min)</h3>
 <table><tbody>
-<tr><td><b>Shortest</b></td><td>%D × mL/kg/day ÷ 144 <span class="tag crs">Course</span></td></tr>
-<tr><td><b>Hourly</b></td><td>%D × mL/hr ÷ (6 × kg) <span class="tag crs">Course</span> <span class="tag dir">Dir.</span><br>Same as %D × mL/hr × 0.167 ÷ kg <span class="tag ins">Card</span></td></tr>
-<tr><td><b>Long way</b></td><td>mL/day × %D (as a decimal) = g glucose; × 1000 = mg; ÷ kg ÷ 1440 min <span class="tag crs">Course</span></td></tr>
+<tr><td><b>Shortest</b></td><td class="formula">%D × mL/kg/day ÷ 144</td></tr>
+<tr><td><b>Hourly</b></td><td>%D × mL/hr ÷ (6 × kg), same as %D × mL/hr × 0.167 ÷ kg</td></tr>
+<tr><td><b>Long way</b></td><td>mL/day × %D (as a decimal) = g glucose; × 1000 = mg; ÷ kg ÷ 1440 min</td></tr>
 </tbody></table>
-<p class="small">Course example: 1.8 kg on D10 at 7.5 mL/hr (100 mL/kg/d) = GIR 6.9 every way.</p>
+<p class="small">Example: 1.8 kg on D10 at 7.5 mL/hr (100 mL/kg/day) = GIR 6.9 every way.</p>
 <p class="formula">%D for a target GIR = GIR × 144 ÷ mL/kg/day</p>
 <h3>Targets</h3>
-<p>Start 4–6, advance as tolerated or titrate to glucose. Preterm infants need at least 4 for brain function. <span class="tag crs">Course</span></p>
-<p>Target 4–8 <span class="tag ins">Card</span></p>
-<p>By the intro lecture's table: 2–4 for most newborns, 8–10 for SGA/LGA, &gt;15 for IDMs. <span class="tag crs">Course</span></p>
-<h3>Maximum dextrose <span class="tag crs">Course</span></h3>
+<p>Start at 4–6, then advance as tolerated or titrate to glucose. Preterm infants need at least 4 for brain function.</p>
+<h3>Maximum dextrose</h3>
 <p>12.5% through a peripheral line. 25% through a central line with the tip in the SVC.</p>
-<p class="warn"><span class="flag">&#9873;</span> Typos in the course materials: the TPN lecture's long-version slide multiplies by .01 and divides by 1400 (should be 0.10 and 1440; its answer of 6.9 is right). The FEN formulas handout calls GIR "grams" per kg per minute; it's milligrams.</p>
+<p class="src">Source: NNP course lectures (Intro to Neonatal FEN; Neonatal TPN); FEN formulas handout.</p>
 </div></article><article class="card" id="fen-calories"><h2>Calories</h2><div class="cb">
 <h3>kcal per gram</h3>
 <table><tbody>
-<tr><td><b>Glucose / carbohydrate</b></td><td>3.4 <span class="tag crs">Course</span> <span class="tag dir">Dir.</span><br><span class="small">The card lists carbohydrate as 4.</span> <span class="tag ins">Card</span></td></tr>
-<tr><td><b>Protein</b></td><td>4 <span class="tag crs">Course</span> <span class="tag ins">Card</span> <span class="tag dir">Dir.</span></td></tr>
-<tr><td><b>Fat</b></td><td>9 <span class="tag crs">Course</span> <span class="tag ins">Card</span> <span class="tag dir">Dir.</span></td></tr>
-<tr><td><b>20% lipid</b></td><td>1 g = 5 mL = 10 kcal (2 kcal/mL; contains glycerol, so not pure fat) <span class="tag crs">Course</span></td></tr>
+<tr><td><b>Glucose</b></td><td>3.4</td></tr>
+<tr><td><b>Protein</b></td><td>4</td></tr>
+<tr><td><b>Fat</b></td><td>9</td></tr>
+<tr><td><b>20% lipid</b></td><td>1 g = 5 mL = 10 kcal (2 kcal/mL; it contains glycerol, so not pure fat)</td></tr>
 </tbody></table>
-<h3>Total kcal/kg/day from TPN <span class="tag crs">Course</span></h3>
+<h3>Total kcal/kg/day from TPN</h3>
 <p class="formula">GIR × 5 + AA g/kg × 4 + lipid g/kg × 10</p>
-<p class="small">GIR × 5 is a shortcut; the exact factor is 4.9 (1440 min × 3.4 kcal/g ÷ 1000). Course example: 1.8 kg on D12 with 3.5 g/kg AA at 10.2 mL/hr and 20% lipid at 1.1 mL/hr: GIR 11.3, lipid 2.9 g/kg, total about 99.5 kcal/kg/day.</p>
+<p class="small">GIR × 5 is a shortcut; the exact factor is 4.9 (1440 min × 3.4 kcal/g ÷ 1000). Example: 1.8 kg on D12 with 3.5 g/kg AA at 10.2 mL/hr and 20% lipid at 1.1 mL/hr: GIR 11.3, lipid 2.9 g/kg, about 99 kcal/kg/day.</p>
 <h3>Other pieces</h3>
-<p>Dextrose kcal/mL = %D × 0.034 (D10 = 0.34) <span class="tag ins">Card</span></p>
-<p>Lipid g/kg/day = mL/hr × 24 × 0.2 ÷ kg <span class="tag crs">Course</span></p>
-<p>Protein g/d = %AA × TPN mL/d ÷ 100 <span class="tag ins">Card</span></p>
-<p class="warn"><span class="flag">&#9873;</span> The Brain's worked example (150 × 0.034 × 12.5 ÷ 2.5 = 25.5) divides by weight a second time. It only works if 150 is total mL/day. At 150 mL/kg/d of D12.5 the answer is 63.75 kcal/kg/d.</p>
-<h3>Goals <span class="tag crs">Course</span></h3>
+<p>Dextrose kcal/mL = %D × 0.034 (D10 = 0.34)<br>Lipid g/kg/day = mL/hr × 24 × 0.2 ÷ kg<br>Protein g/day = %AA × TPN mL/day ÷ 100</p>
+<h3>Goals</h3>
 <p>Preterm 110–130 kcal/kg/day. Term 100–120 kcal/kg/day. Weight gain 15–20 g/kg/day to match intrauterine growth.</p>
-<h3>Feeds</h3>
-<p>kcal/mL = kcal/oz ÷ 30 <span class="tag crs">Course</span></p>
+<h3>Feeds: kcal/mL = kcal/oz ÷ 30</h3>
 <table class="num"><thead><tr><th>kcal/oz</th><th>kcal/mL</th></tr></thead><tbody>
 <tr><td>20</td><td>0.67</td></tr><tr><td>22</td><td>0.73</td></tr><tr><td>24</td><td>0.8</td></tr>
 <tr><td>26</td><td>0.87</td></tr><tr><td>28</td><td>0.93</td></tr><tr><td>30</td><td>1.0</td></tr>
 </tbody></table>
-<p class="small">Horn's Rule <span class="tag dir">Dir.</span> <span class="tag crs">Course</span>. Also: MCT oil 8 kcal/mL, Polycose 2 kcal/mL, Trophamine 0.4 kcal/mL.</p>
+<p class="small">Also: MCT oil 8 kcal/mL, Polycose 2 kcal/mL, Trophamine 0.4 kcal/mL (Horn's Rule).</p>
+<p class="src">Source: NNP course lectures (Intro to Neonatal FEN; Neonatal TPN); Horn's Rule caloric density table.</p>
 </div></article><article class="card" id="fen-tpn-start-and-advance"><h2>TPN: start and advance</h2><div class="cb">
-<h3>When <span class="tag crs">Course</span></h3>
+<h3>When</h3>
 <p>Preterm &lt;32 wk, VLBW and ELBW, GI anomalies or surgery, and NPO longer than 3–5 days.</p>
-<h3>Day 1 <span class="tag crs">Course</span></h3>
+<h3>Day 1</h3>
 <p>D10 at 60–80 mL/kg/d, amino acids 2–3 g/kg/d, lipids 1 g/kg/d.</p>
-<h3>Amino acids <span class="tag crs">Course</span></h3>
-<p>Start within 24 hours. The amino acid slide says start at <b>3 g/kg/d</b> and advance 0.5 g/kg/d to a goal of <b>3–4</b>, max 4. (The day-1 slide says 2–3.)</p>
+<h3>Amino acids</h3>
+<p>Start within 24 hours at <b>2–3 g/kg/d</b>; advance 0.5 g/kg/d to a goal of <b>3–4</b>, max 4.</p>
 <p class="small">1.1–2.2 g/kg/d prevents negative nitrogen balance. BUN is not a reliable marker of protein tolerance in the first few days.</p>
-<p><span class="tag ins">Card</span> Start 2–3, advance 0.5–1.5/d, goal 3–4.</p>
-<h3>Lipids <span class="tag crs">Course</span></h3>
-<p>Start 1–2 g/kg/d, advance to <b>3 g/kg/d</b>. 0.5–1 g/kg/d prevents essential fatty acid deficiency.</p>
-<p>Triglycerides &gt;200: stop, or reduce by 0.5–1 g/kg/d.</p>
-<h3>Each day <span class="tag crs">Course</span></h3>
+<h3>Lipids</h3>
+<p>Start 1–2 g/kg/d, advance to <b>3 g/kg/d</b>. 0.5–1 g/kg/d prevents essential fatty acid deficiency. Triglycerides &gt;200: stop, or reduce by 0.5–1 g/kg/d.</p>
+<h3>Each day</h3>
 <p>Increase AA and lipids, adjust dextrose for GIR and glucose, and adjust electrolytes to fluid status.</p>
+<p class="src">Source: NNP course lectures (Intro to Neonatal FEN; Neonatal TPN).</p>
 </div></article><article class="card" id="fen-tpn-additives-and-lines"><h2>TPN: additives and lines</h2><div class="cb">
-<h3>Additives <span class="tag crs">Course</span></h3>
 <table><tbody>
 <tr><td><b>MVI</b></td><td>2 mL/kg/d, up to 5 mL/d. May not meet vitamin A needs.</td></tr>
 <tr><td><b>Trace elements</b></td><td>Zinc, copper, chromium, manganese from day 1. Reduce or remove selenium and chromium with poor renal output.</td></tr>
 <tr><td><b>Cysteine</b></td><td>40 mg per g of protein. Lowers pH, which helps calcium and phosphorus stay in solution but can add metabolic acidosis.</td></tr>
-<tr><td><b>Carnitine</b></td><td>10 mg/kg/d on day of life 14. Only while lipids run.</td></tr>
-<tr><td><b>Selenium</b></td><td>Consider if on TPN longer than a month or with severe GI disease. Not if creatinine &gt;1. Max 30 mcg/d.</td></tr>
+<tr><td><b>Carnitine</b></td><td>10 mg/kg/d starting day of life 14. Only while lipids run.</td></tr>
+<tr><td><b>Selenium</b></td><td>Consider after a month on TPN or with severe GI disease. Not if creatinine &gt;1. Max 30 mcg/d.</td></tr>
 </tbody></table>
-<p class="small">The cysteine slide also says "consider adding 30mg" when calcium and phosphorus won't stay in solution, without a unit basis, and the selenium dose reads "1.52–4.5 mcg/kg/d." Check both against the source.</p>
-<h3>Lines <span class="tag crs">Course</span></h3>
-<p>Central line preferred for long-term TPN. Peripheral TPN must be under 900 mOsm/L (dextrose 12.5% max). Dedicated TPN line when possible; protect vitamins from light.</p>
+<h3>Lines</h3>
+<p>Central line preferred for long-term TPN. Peripheral TPN must stay under 900 mOsm/L (dextrose 12.5% max). Use a dedicated TPN line when possible; protect vitamins from light.</p>
 <p>Aluminum in PN solutions can build up in preterm infants (anemia, neurotoxicity, bone disease).</p>
+<p class="src">Source: NNP course lectures (Intro to Neonatal FEN; Neonatal TPN).</p>
 </div></article><article class="card" id="fen-tpn-monitoring-and-problems"><h2>TPN: monitoring and problems</h2><div class="cb">
-<h3>Monitoring <span class="tag crs">Course</span></h3>
 <table><tbody>
 <tr><td><b>Daily</b></td><td>Glucose, BUN, creatinine; Na, K, Cl, Ca, Mg, Phos; triglycerides</td></tr>
 <tr><td><b>Weekly</b></td><td>AST, ALT, direct bilirubin; prealbumin; trace elements and vitamins if prolonged</td></tr>
 <tr><td><b>Growth</b></td><td>Weight, length, head circumference; I&amp;O and daily weights</td></tr>
 </tbody></table>
-<h3>Complications <span class="tag crs">Course</span></h3>
+<h3>Complications</h3>
 <p>Hyper- or hypoglycemia, electrolyte problems, acidosis or alkalosis, CLABSI, PN-associated liver disease with cholestasis (rising direct bilirubin), hypertriglyceridemia, and metabolic bone disease.</p>
-<h3>Lowering the risk <span class="tag crs">Course</span></h3>
+<h3>Lowering the risk</h3>
 <p>Start trophic feeds early, cycle TPN, consider fish-oil lipids (such as Omegaven), use strict line-care bundles, and act on lab trends.</p>
-<h3>Moving to feeds <span class="tag crs">Course</span></h3>
+<h3>Moving to feeds</h3>
 <p>Assess readiness (stable vitals, gut function), wean TPN as feeds advance, fortify with HMF or modular nutrients, and watch for residuals, distension, and stooling.</p>
+<p class="src">Source: NNP course lectures (Intro to Neonatal FEN; Neonatal TPN).</p>
 </div></article><article class="card" id="fen-electrolytes"><h2>Electrolytes</h2><div class="cb">
-<h3>Daily needs <span class="tag crs">Course</span></h3>
 <table><tbody>
-<tr><td><b>Sodium</b></td><td>None the first 24 hours. Then 2–4 mEq/d. More than 4 with GI, renal, or skin losses.</td></tr>
-<tr><td><b>Potassium</b></td><td>None the first 24–48 hours. Then 1–3 mEq/d once urine output is established. ELBW may need less than 1; more than 3 with GI, renal, or iatrogenic losses.</td></tr>
+<tr><td><b>Sodium</b></td><td>None the first 24 hours. Then 2–4 mEq/kg/d. More than 4 with GI, renal, or skin losses.</td></tr>
+<tr><td><b>Potassium</b></td><td>None the first 24–48 hours. Then 1–3 mEq/kg/d once urine output is established. ELBW may need less than 1; more than 3 with GI, renal, or iatrogenic losses.</td></tr>
 <tr><td><b>Calcium</b></td><td>200–400 mg/kg/d as calcium gluconate. Calcium chloride has 3 times the elemental calcium.</td></tr>
 </tbody></table>
-<p class="small">The slide writes these as mEq/d; neonatal electrolyte needs are usually written per kg per day.</p>
-<h3>Instructor's card <span class="tag ins">Card</span></h3>
-<p>Na start 1–2, goal 3–4 mEq/kg/d. K start 1–2, goal 2–4 mEq/kg/d. Ca gluconate 200–400 mg/kg/d.</p>
-<p class="small">The card starts sodium and potassium on day 1; the lecture waits 24–48 hours. Follow your unit.</p>
-<h3>Hyperkalemia (lecture case) <span class="tag crs">Course</span></h3>
+<h3>Hyperkalemia</h3>
 <p>Calcium gluconate, insulin with glucose, and sodium bicarbonate.</p>
-<h3>Electrolytes delivered by the fluid <span class="tag ins">Card</span></h3>
+<h3>Electrolytes delivered by the fluid</h3>
 <p>mEq/kg/d = mEq per 100 mL × (total mL/d ÷ 100) ÷ kg</p>
+<p class="src">Source: NNP course lectures (Intro to Neonatal FEN; Neonatal TPN).</p>
 </div></article><article class="card" id="fen-lab-normals"><h2>Lab normals</h2><div class="cb">
-<table><thead><tr><th>Lab</th><th><span class="tag crs">Course</span></th><th><span class="tag ins">Card</span></th><th><span class="tag dir">Dir.</span></th></tr></thead><tbody>
-<tr><td><b>Na</b></td><td>135–145</td><td>135–145</td><td>135–145; 136–144</td></tr>
-<tr><td><b>K</b></td><td>3.5–5.5</td><td>3.6–6.7 ?</td><td>3.5–5.5; 4.4–6.0</td></tr>
-<tr><td><b>Cl</b></td><td>95–110</td><td>100–111</td><td>95–110; 96–106</td></tr>
-<tr><td><b>Ca</b></td><td>8.5–10.2</td><td>7–10</td><td>7–10; 7–12</td></tr>
-<tr><td><b>Phos</b></td><td>4.5–7.5</td><td>4–6 ?</td><td>4–6; 4.9–8.9</td></tr>
-<tr><td><b>Mg</b></td><td>—</td><td>1.5–2.5</td><td>1.5–2.8</td></tr>
-<tr><td><b>iCa</b></td><td>—</td><td>—</td><td>1.1–1.35</td></tr>
-<tr><td><b>CO₂</b></td><td>—</td><td>—</td><td>18–27</td></tr>
-<tr><td><b>Glucose</b></td><td>—</td><td>—</td><td>40–150</td></tr>
+<table><tbody>
+<tr><td><b>Na</b></td><td>135–145 mEq/L</td></tr>
+<tr><td><b>K</b></td><td>3.5–5.5 mEq/L</td></tr>
+<tr><td><b>Cl</b></td><td>95–110 mEq/L</td></tr>
+<tr><td><b>Ca</b></td><td>8.5–10.2 mg/dL</td></tr>
+<tr><td><b>iCa</b></td><td>1.1–1.35 mmol/L</td></tr>
+<tr><td><b>Phos</b></td><td>4.5–7.5 mg/dL</td></tr>
+<tr><td><b>Mg</b></td><td>1.5–2.8 mg/dL</td></tr>
+<tr><td><b>CO₂</b></td><td>18–27 mEq/L</td></tr>
+<tr><td><b>Glucose</b></td><td>40–150 mg/dL</td></tr>
 </tbody></table>
-<p class="small">? = hard to read on the card. Two Brain values = it lists different ranges in two places. Your lab's reference ranges win.</p>
+<p class="small">Reference ranges vary by lab; use your lab's.</p>
+<p class="src">Sources: NNP course lectures (Intro to Neonatal FEN; Neonatal TPN); program NNP Brain reference (iCa, Mg, CO₂, glucose).</p>
 </div></article><article class="card" id="fen-formula-options"><h2>Formula options</h2><div class="cb">
 <table><thead><tr><th>Need</th><th>Examples</th><th>Notes</th></tr></thead><tbody>
 <tr><td><b>Routine term</b></td><td>Similac Advance, Enfamil NeuroPro</td><td></td></tr>
@@ -851,43 +835,45 @@ body.searching .starred{display:none}
 <tr><td><b>Hydrolyzed</b> (intact protein intolerance)</td><td>Alimentum, Nutramigen, Pregestimil</td><td>Pregestimil also for fat malabsorption</td></tr>
 <tr><td><b>Amino acid based</b> (allergy, malabsorption, short bowel)</td><td>EleCare, Neocate, Alfamino, PurAmino</td><td></td></tr>
 </tbody></table>
-<p class="src">Source: intro FEN lecture <span class="tag crs">Course</span>. Refer to product guides for more.</p>
+<p class="src">Source: Intro to Neonatal FEN lecture. Check product guides for current formulations.</p>
 </div></article><article class="card" id="fen-corrections-and-weight"><h2>Corrections and weight</h2><div class="cb">
 <table><tbody>
-<tr><td><b>½ Na correction</b></td><td>(normal Na − actual Na) × kg × 0.3 = mEq <span class="tag ins">Card</span></td></tr>
-<tr><td><b>Bicarb</b></td><td>0.3 × base deficit × kg = mEq <span class="tag ins">Card</span></td></tr>
-<tr><td><b>% weight loss</b></td><td>(BW − CW) ÷ BW × 100 <span class="tag ins">Card</span></td></tr>
-<tr><td><b>Corrected WBC</b></td><td>WBC × 100 ÷ (NRBC + 100) <span class="tag dir">Dir.</span></td></tr>
+<tr><td><b>½ Na correction</b></td><td>(normal Na − actual Na) × kg × 0.3 = mEq</td></tr>
+<tr><td><b>Bicarb</b></td><td>0.3 × base deficit × kg = mEq</td></tr>
+<tr><td><b>% weight loss</b></td><td>(BW − CW) ÷ BW × 100</td></tr>
+<tr><td><b>Corrected WBC</b></td><td>WBC × 100 ÷ (NRBC + 100)</td></tr>
 </tbody></table>
+<p class="src">Sources: NNP course quick-reference card; program NNP Brain reference.</p>
 </div></article><article class="card" id="fen-cbc-and-sepsis"><h2>CBC and sepsis</h2><div class="cb">
 <h3>I:T ratio</h3>
-<p>Immature (bands + metas) ÷ total neutrophils (segs + bands + metas)</p>
-<p><span class="tag ins">Card</span> normal &lt;0.22<br><span class="tag dir">Dir.</span> concern &gt;0.2; &gt;0.8 suggests storage depletion</p>
+<p>Immature (bands + metamyelocytes) ÷ total neutrophils (segs + bands + metamyelocytes). Above 0.2 is concerning; above 0.8 suggests marrow storage depletion.</p>
 <h3>ANC</h3>
-<p>WBC × (segs + bands + metas)%</p>
-<p class="small"><span class="tag dir">Dir.</span> Example: WBC 10,000, segs 45%, bands 5% → 50% × 10,000 = ANC 5000.</p>
-<table><thead><tr><th></th><th><span class="tag ins">Card</span></th><th><span class="tag dir">Dir.</span></th></tr></thead><tbody>
-<tr><td><b>ANC</b></td><td>Normal &gt;1500<br>Neutropenia &lt;1000</td><td>Concern &lt;1750</td></tr>
-<tr><td><b>WBC</b></td><td>Leukopenia &lt;5000<br>Neutrophilia &gt;20,000</td><td>Concern &lt;5000 or &gt;20,000; unreliable in week 1</td></tr>
+<p>WBC × (segs + bands + metamyelocytes)%</p>
+<p class="small">Example: WBC 10,000, segs 45%, bands 5% → 50% × 10,000 = ANC 5000.</p>
+<table><tbody>
+<tr><td><b>ANC</b></td><td>Neutropenia below 1000. Below 1750 raises concern in a sepsis evaluation.</td></tr>
+<tr><td><b>WBC</b></td><td>Below 5000 or above 20,000 is concerning; the WBC is unreliable in the first week.</td></tr>
 </tbody></table>
-<h3>Immature total neutrophils <span class="tag ins">Card</span></h3>
-<p>(B + M + M, as a decimal) × WBC</p>
-<p class="small">I read the card's "B + M + M" as bands, metamyelocytes, and myelocytes; the card doesn't spell it out. The neutrophil reference charts are in the Brain.</p>
+<h3>Immature total neutrophils</h3>
+<p>(Bands + metamyelocytes + myelocytes, as a decimal) × WBC</p>
+<p class="small">Neutrophil reference charts by hours of age are in the Brain.</p>
+<p class="src">Sources: NNP course quick-reference card; program NNP Brain reference.</p>
 </div></article><article class="card" id="fen-chorio-and-early-onset-sepsis"><h2>Chorio and early-onset sepsis</h2><div class="cb">
-<h3>Chorioamnionitis <span class="tag crs">Course</span></h3>
+<h3>Chorioamnionitis</h3>
 <p>Maternal fever ≥100.4 °F <b>plus two</b> of: maternal leukocytosis, maternal or fetal tachycardia, uterine tenderness, foul-smelling or purulent amniotic fluid.</p>
-<h3>Tools <span class="tag crs">Course</span></h3>
+<h3>Tools</h3>
 <p><a href="https://neonatalsepsiscalculator.kaiserpermanente.org/" target="_blank" rel="noopener">Kaiser Permanente EOS Calculator</a> (2024 update; infants born at 35 weeks or later)<br>
 <a href="https://pediatrics.aappublications.org/content/144/2/e20191881" target="_blank" rel="noopener">AAP 2019: Management of infants at risk for GBS</a></p>
-<p class="small">Both need internet. Left to provider judgment in the AAP algorithm: the ampicillin dose, and whether to include an LP.</p>
-<h3>Ampicillin (handout, citing Neofax) <span class="tag crs">Course</span></h3>
+<p class="small">Both need internet. The AAP algorithm leaves the ampicillin dose, and whether to include an LP, to provider judgment.</p>
+<h3>Ampicillin (Neofax)</h3>
 <table><tbody>
 <tr><td><b>Suspected sepsis</b></td><td>25–50 mg/kg/dose, every 12 hours for term newborns</td></tr>
-<tr><td><b>GBS bacteremia</b></td><td>150–200 mg/kg/day at more frequent intervals ("recommended by some experts")</td></tr>
-<tr><td><b>GBS meningitis</b></td><td>300–400 mg/kg/day divided every 6–8 hours ("recommended by some experts")</td></tr>
+<tr><td><b>GBS bacteremia</b></td><td>150–200 mg/kg/day at more frequent intervals (recommended by some experts)</td></tr>
+<tr><td><b>GBS meningitis</b></td><td>300–400 mg/kg/day divided every 6–8 hours (recommended by some experts)</td></tr>
 </tbody></table>
 <p>Add an aminoglycoside for synergy when GBS is suspected.</p>
 <p class="small">Why not the biggest dose: stewardship (lowest effective dose, shortest course), dose-dependent platelet dysfunction and longer bleeding times, and gut flora disruption that raises NEC risk with long courses.</p>
+<p class="src">Source: NNP course handout, Chorioamnionitis and Screening for Early Onset Sepsis (citing Neofax).</p>
 </div></article><article class="card" id="fen-bilirubin-35-weeks-and-up"><h2>Bilirubin, 35 weeks and up</h2><div class="cb">
 <p>Phototherapy and exchange thresholds are <b>hour-specific</b>, by gestational age and whether neurotoxicity risk factors are present. They're curves, not single numbers, so plot them:</p>
 <p><a href="https://www.bilitool.org/" target="_blank" rel="noopener">BiliTool</a><br><a href="https://peditools.org/bili2022/" target="_blank" rel="noopener">PediTools bili 2022</a><br><span class="small">Both need internet.</span></p>
@@ -907,7 +893,7 @@ body.searching .starred{display:none}
 <p>TSB at or above the exchange threshold: urgent exchange. If the TSB falls below it while you prepare and there are no signs of intermediate or advanced acute bilirubin encephalopathy, you may hold the exchange, continue intensive phototherapy, and check every 2 hours.</p>
 <h3>Prolonged jaundice</h3>
 <p>Beyond 3–4 weeks breastfed or 2 weeks formula-fed: total and direct bilirubin and the newborn screen.</p>
-<p class="small"><a href="brain.html#bilirubin">Older background in the Brain</a> (uses pre-2022 thinking).</p>
+<p class="small"><a href="brain.html#bilirubin">More background in the Brain</a> (predates the 2022 guideline).</p>
 <p class="src">Sources: AAP 2022 Clinical Practice Guideline (Kemper et al., Pediatrics 150(3)); UNC NCCC Management of Non-Hemolytic Hyperbilirubinemia (2025); BiliTool.</p>
 </div></article><article class="card" id="fen-bilirubin-under-35-weeks"><h2>Bilirubin, under 35 weeks</h2><div class="cb">
 <table class="num"><thead><tr><th>PMA</th><th>Phototherapy<br>TSB mg/dL</th><th>Exchange<br>TSB mg/dL</th></tr></thead><tbody>
@@ -923,10 +909,10 @@ body.searching .starred{display:none}
 </div></article></section>
 <section class="sec ref" data-sec="ref" hidden><nav class="jump" aria-label="Reference topics"><a href="#ref-outside-links">Outside links</a><a href="#ref-master-brain">Master Brain</a><a href="#ref-print-files">Print files</a><a href="#ref-how-to-read-an-x-ray">How to read an x-ray</a><a href="#ref-x-ray-tip-targets">X-ray tip targets</a><a href="#ref-sources">Sources</a><a href="#ref-how-to-read-the-tags">How to read the tags</a></nav><article class="card" id="ref-outside-links"><h2>Outside links</h2><div class="cb">
 <p><a href="https://neonatalsepsiscalculator.kaiserpermanente.org/" target="_blank" rel="noopener">Kaiser Permanente EOS Calculator</a><br><span class="small">Early-onset sepsis risk for infants born at 35 weeks or later (2024 update).</span></p>
-<p><a href="https://tomheslin.github.io/NICU-Codes/" target="_blank" rel="noopener">NICU Codes</a><br><span class="small">Your ICD-10 and CPT lookup.</span></p>
+<p><a href="https://tomheslin.github.io/NICU-Codes/" target="_blank" rel="noopener">NICU Codes</a><br><span class="small">NICU ICD-10 and CPT code lookup.</span></p>
 <p><a href="https://www.bilitool.org/" target="_blank" rel="noopener">BiliTool</a> and <a href="https://peditools.org/bili2022/" target="_blank" rel="noopener">PediTools bili 2022</a><br><span class="small">AAP 2022 bilirubin thresholds, plotted (35 weeks and up).</span></p>
 <p><a href="https://peditools.org/fenton2013/" target="_blank" rel="noopener">Fenton 2013 preterm growth calculator</a> (PediTools)<br><span class="small">Weight, length, and head circumference percentiles and z-scores, weekly growth needed to hold a percentile, plus ROP and RSV prophylaxis prompts.</span></p>
-<p class="small">All need internet.</p></div></article><article class="card" id="ref-master-brain"><h2>Master Brain</h2><div class="cb"><p>The program director's full NNP Brain, searchable, with all charts and the added notes.</p><p><a class="btn" href="brain.html">Open the NNP Brain</a></p><p class="small">Works offline too.</p></div></article><article class="card" id="ref-print-files"><h2>Print files</h2><div class="cb"><p>Print double-sided, flip on the long edge, at Actual size.</p><ul class="files"><li><a href="badge-print-letter.pdf" target="_blank" rel="noopener">Badge buddies, letter sheet (3 sets)</a></li><li><a href="booklet-print-letter.pdf" target="_blank" rel="noopener">Booklet, letter sheets (cut into 8 cards)</a></li><li><a href="badge-cards.pdf" target="_blank" rel="noopener">Badge faces, actual size (print shop)</a></li><li><a href="booklet-pages.pdf" target="_blank" rel="noopener">Booklet pages, 4.25 x 5.5 in (print shop)</a></li><li><a href="guide2-print-letter.pdf" target="_blank" rel="noopener">Guide 2 (FEN, CV, Resp), letter sheets (cut into 8 cards)</a></li><li><a href="guide2-pages.pdf" target="_blank" rel="noopener">Guide 2 pages, 4.25 x 5.5 in (print shop)</a></li></ul></div></article><article class="card" id="ref-how-to-read-an-x-ray"><h2>How to read an x-ray</h2><div class="cb">
+<p class="small">All need internet.</p></div></article><article class="card" id="ref-master-brain"><h2>Master Brain</h2><div class="cb"><p>The NNP Brain: a full, searchable neonatal reference with all of its charts.</p><p><a class="btn" href="brain.html">Open the NNP Brain</a></p><p class="small">Works offline too.</p></div></article><article class="card" id="ref-print-files"><h2>Print files</h2><div class="cb"><p>Print double-sided, flip on the long edge, at Actual size.</p><ul class="files"><li><a href="badge-print-letter.pdf" target="_blank" rel="noopener">Badge buddies, letter sheet (3 sets)</a></li><li><a href="booklet-print-letter.pdf" target="_blank" rel="noopener">Booklet, letter sheets (cut into 8 cards)</a></li><li><a href="badge-cards.pdf" target="_blank" rel="noopener">Badge faces, actual size (print shop)</a></li><li><a href="booklet-pages.pdf" target="_blank" rel="noopener">Booklet pages, 4.25 x 5.5 in (print shop)</a></li><li><a href="guide2-print-letter.pdf" target="_blank" rel="noopener">Guide 2 (FEN, CV, Resp), letter sheets (cut into 8 cards)</a></li><li><a href="guide2-pages.pdf" target="_blank" rel="noopener">Guide 2 pages, 4.25 x 5.5 in (print shop)</a></li></ul></div></article><article class="card" id="ref-how-to-read-an-x-ray"><h2>How to read an x-ray</h2><div class="cb">
 <p class="small">Remember <b>RIPE ABCDEFG</b>.</p>
 <table class="cmp"><tbody>
 <tr><td>R: Rotation</td><td>Clavicle equal from spine</td></tr>
@@ -950,48 +936,30 @@ body.searching .starred{display:none}
 <tr><td><b>Bright white</b></td><td>Metal, labels, leads</td></tr>
 </tbody></table>
 <h3>Know your lines</h3>
-<table><tbody>
-<tr><td><b>ETT</b></td><td>Above the carina (usually T4)</td></tr>
-<tr><td><b>UVC</b></td><td>Above the diaphragm (T9–T10)</td></tr>
-<tr><td><b>UAC</b></td><td>High T6–T9, low L3–L4</td></tr>
-<tr><td><b>PICC</b></td><td>Upper extremity: SVC, T2–T5. Lower extremity: above the iliac crest, L4–L5.</td></tr>
-</tbody></table>
-<p class="small">These line levels agree with the Atlas. For the ETT, the Atlas puts the tip itself at T1–T2; see the X-ray tip targets card below.</p>
-<p class="src">Source: your "How to read an X-ray" sheet.</p>
+<p>See the X-ray tip targets card below.</p>
+<p class="src">Source: How to Read an X-ray quick sheet.</p>
 </div></article><article class="card" id="ref-x-ray-tip-targets"><h2>X-ray tip targets</h2><div class="cb">
 <table><thead><tr><th>Device</th><th>Target</th></tr></thead><tbody>
-<tr><td><b>ETT</b></td><td>T1–T2<br><span class="tag dir">Dir.</span> T2–T3; carina ≈ T4</td></tr>
-<tr><td><b>UAC high</b></td><td>T6–T9<br><span class="tag dir">Dir.</span> T6–T10</td></tr>
+<tr><td><b>ETT</b></td><td>T1–T2 textbook; T2–T3 NNP program (carina ≈ T4)</td></tr>
+<tr><td><b>UAC high</b></td><td>T6–T9 (ideal T7–T9)</td></tr>
 <tr><td><b>UAC low</b></td><td>L3–L4</td></tr>
-<tr><td><b>UVC</b></td><td>IVC–RA junction<br><span class="tag dir">Dir.</span> T8–T9</td></tr>
-<tr><td><b>PICC, arm or scalp</b></td><td>SVC–RA junction<br><span class="tag dir">Dir.</span> T3–T4</td></tr>
-<tr><td><b>PICC, leg</b></td><td>IVC–RA junction; check a lateral</td></tr>
+<tr><td><b>UVC</b></td><td>IVC–RA junction: T9–T10 textbook; T8–T9 NNP program</td></tr>
+<tr><td><b>PICC, arm or scalp</b></td><td>SVC outside the heart, or SVC–RA junction</td></tr>
+<tr><td><b>PICC, leg</b></td><td>Above L4–L5 or the iliac crest, not in the heart; get a lateral</td></tr>
 </tbody></table>
-<p>Where the director's sheet differs from current sources, both are shown. Unit policy decides.</p>
-<div class="atlas"><p class="atlas-h"><span class="tag atl">Atlas</span> MacDonald's Atlas</p>
-<table><tbody>
-<tr><td><b>ETT</b></td><td>T1–T2</td></tr>
-<tr><td><b>UAC high</b></td><td>T6–T9, ideal T7–T9</td></tr>
-<tr><td><b>UAC low</b></td><td>L3–L4</td></tr>
-<tr><td><b>UVC</b></td><td>IVC–RA junction, T9–T10</td></tr>
-<tr><td><b>PICC, arm</b></td><td>SVC outside the heart, or SVC–RA junction</td></tr>
-<tr><td><b>PICC, leg</b></td><td>Above L4–L5 or the iliac crest, not in the heart</td></tr>
-</tbody></table>
-<p class="src">Atlas ch. 31, 32, 34, 38.</p></div></div></article><article class="card" id="ref-sources"><h2>Sources</h2><div class="cb"><h3>Sources</h3>
-<p class="src">AAP NRP 9th ed launch communication (Oct 2025); CPS, NRP 9th ed changes for busy clinicians (2026); In[Neo]Sight ETT calculator (NRP 9th tables); PubMed 40739063 (ETT tip); NCCC umbilical line guidelines, mombaby.org (2022); Medscape UAC (2024); PubMed 23503982 (revised UVC); NCT02939690 (UN−1); Iran J Pediatr 2024, citing NANN (PICC); Pediatr Neonatol 2023, POCUS PICC; neonatal atropine RCT; VanLooy NICU premedication algorithm; PMC8228479 (emergency UVC); NRP textbook via tomwademd.net (volume); MacDonald's Atlas of Procedures in Neonatology, 6th ed (ch. 31, 32, 38); program director's NNP Brain; unit RSI poster.</p>
+<p>Unit policy decides.</p>
+</div></article><article class="card" id="ref-sources"><h2>Sources</h2><div class="cb"><h3>Sources</h3>
+<p class="src">AAP NRP 9th ed launch communication (Oct 2025); CPS, NRP 9th ed changes for busy clinicians (2026); In[Neo]Sight ETT calculator (NRP 9th tables); PubMed 40739063 (ETT tip); NCCC umbilical line guidelines, mombaby.org (2022); Medscape UAC (2024); PubMed 23503982 (revised UVC); NCT02939690 (UN−1); Iran J Pediatr 2024, citing NANN (PICC); Pediatr Neonatol 2023, POCUS PICC; neonatal atropine RCT; VanLooy NICU premedication algorithm; PMC8228479 (emergency UVC); NRP textbook via tomwademd.net (volume); MacDonald's Atlas of Procedures in Neonatology, 6th ed (ch. 31, 32, 38); program NNP Brain reference.</p>
 </div></article><article class="card" id="ref-how-to-read-the-tags"><h2>How to read the tags</h2><div class="cb"><h3>Tags</h3>
 <table class="legend">
 <tr><td><span class="tag e8">8th</span></td><td>NRP 8th edition</td></tr>
 <tr><td><span class="tag e9">9th</span></td><td>NRP 9th edition (effective 2026)</td></tr>
-<tr><td><span class="tag dir">Dir.</span></td><td>Program director's NNP Brain</td></tr>
-<tr><td><span class="tag unit">Unit</span></td><td>Your unit's poster or order set</td></tr>
 <tr><td><span class="tag atl">Atlas</span></td><td>MacDonald's Atlas of Procedures in Neonatology, 6th ed</td></tr>
-<tr><td><span class="flag">&#9873;</span></td><td>Confirm against your textbook</td></tr>
-<tr><td><span class="tag ins">Card</span></td><td>Your instructor's badge card (FEN tab)</td></tr><tr><td><span class="tag crs">Course</span></td><td>Dr. Kira Short's N5537 FEN and TPN lectures and course handouts</td></tr></table>
+<tr><td><span class="tag atl" style="background:#E8F0FB">AAP 2022</span></td><td>AAP 2022 hyperbilirubinemia guideline</td></tr></table>
 <p class="small">Doses and depths are starting points. Confirm every tube and line clinically and on film, and follow unit protocol.</p></div></article></section>
 <p class="none" id="none">No matches. Try a shorter word.</p>
 </main>
-<footer>v23, October 2026. Badge through Lines match the printed booklet and badge cards (v3); Guide 2 prints the core of CV, Resp, and FEN. Works offline after the first open.</footer>
+<footer>v27, October 2026. Badge through Lines match the printed booklet and badge cards (v5); Guide 2 prints the core of FEN, CV, and Resp. Works offline after the first open.</footer>
 <script>
 (function(){
  const tabs=[...document.querySelectorAll('.tab')], secs=[...document.querySelectorAll('.sec')], cards=[...document.querySelectorAll('.card')];
@@ -999,7 +967,7 @@ body.searching .starred{display:none}
  cards.forEach(c=>{const s=c.closest('.sec').dataset.sec;const f=document.createElement('div');f.className='from';f.textContent=names[s];c.prepend(f);c._t=c.textContent.toLowerCase();});
  let current='bad';
  function show(sec){current=sec;tabs.forEach(t=>t.setAttribute('aria-selected',t.dataset.sec===sec));secs.forEach(s=>s.hidden=s.dataset.sec!==sec);scrollTo(0,0);}
- tabs.forEach(t=>t.addEventListener('click',()=>{if(q.value){q.value='';filter();}show(t.dataset.sec);}));
+ tabs.forEach(t=>t.addEventListener('click',()=>{if(q.value){q.value='';filter();}show(t.dataset.sec);t.scrollIntoView({inline:'nearest',block:'nearest'});}));
  function filter(){
   const v=q.value.trim().toLowerCase();
   if(!v){document.body.classList.remove('searching');cards.forEach(c=>c.hidden=false);none.style.display='none';show(current);return;}
@@ -1110,7 +1078,6 @@ body.searching .starred{display:none}
      +row('Aliquot',f(5*w,1)+' mL','5 mL/kg per 2–4 min cycle')}
   h+=`<div class="cgroup pro"><h3>Procedures</h3>`
     +row('Chest tube, pigtail',pig,pigsub)
-    +row('Chest tube, other guideline',sc,'Safer Care Victoria: 8 Fr &lt;1500 g, 10 Fr &gt;1500 g')
     +row('Chest tube, straight','8–12 Fr','Atlas')
     +ex
     +`<p class="cnote">From MacDonald's Atlas unless noted. Order 25–30 mL extra blood for tubing.</p></div>`;
